@@ -1,7 +1,7 @@
 {
-  "name": "grace-shopper-starter",
+  "name": "Pixel-Pet",
   "version": "1.0.0",
-  "description": "",
+  "description": "Animated pet that responds to tone of speech",
   "main": "index.js",
   "engines": {
     "node": ">= 7.0.0"
@@ -9,10 +9,9 @@
   "scripts": {
     "deploy": "sh scripts/deploy.sh",
     "seed": "node scripts/seed.js",
-    "start": "node server",
-    "start:dev": "webpack -w & nodemon server --ignore public",
-    "test:server": "DATABASE_URL=postgres://localhost/grace-shopper-test mocha './server/**/*.test.js' --require babel-polyfill --exit",
-    "test:client": "DATABASE_URL=postgres://localhost/grace-shopper-test mocha './client/**/*.test.js' --require babel-polyfill --require babel-register --exit",
+    "start": "webpack -w & nodemon server --ignore public",
+    "test:server": "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './server/**/*.test.js' --require babel-polyfill --exit",
+    "test:client": "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './client/**/*.test.js' --require babel-polyfill --require babel-register --exit",
     "test": "npm run test:server && npm run test:client"
   },
   "author": "",
