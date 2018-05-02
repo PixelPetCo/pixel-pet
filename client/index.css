@@ -26,6 +26,10 @@ a:hover {
   border-bottom: 1px solid;
 }
 
+#google {
+  border-bottom: 0px;
+}
+
 nav a:first-child:hover {
   border: none;
 }
@@ -34,4 +38,11 @@ nav a:first-child:hover {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+
+.login {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
 }

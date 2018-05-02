@@ -1,12 +1,13 @@
 const router = require('express').Router()
-const {User} = require('../../db')
+const { User } = require('../../db')
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
+const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = require('../../secrets')
 module.exports = router
 
 // This is the route that users hit when they click Sign In With Google
 // GET /auth/google
-router.get('/', passport.authenticate('google', {scope: 'email'}))
+router.get('/', passport.authenticate('google', { scope: 'email' }))
 
 // This is the route that the Provider sends the user back to (along with the temporary auth token)
 // after they "sign the contract".
@@ -15,15 +16,18 @@ router.get('/', passport.authenticate('google', {scope: 'email'}))
 // and once we clear things with google, we will return to our verification callback with the permanent
 // user token and any profile information we're allowed to see
 // GET /auth/google/callback
-router.get('/callback', passport.authenticate('google', {
-  successRedirect: '/home',
-  failureRedirect: '/'
-}))
+router.get(
+  '/callback',
+  passport.authenticate('google', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+  })
+)
 
 // For passport.authenticate to work, it needs a strategy, which we will configure below!
 const googleCredentials = {
-  clientID: process.env.GOOGLE_CLIENT_ID || 'foo',
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'bar',
+  clientID: process.env.GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET || GOOGLE_CLIENT_SECRET,
   callbackURL: '/auth/google/callback'
 }
 
@@ -36,7 +40,7 @@ const verificationCallback = async (token, refreshToken, profile, done) => {
 
   try {
     const [user] = await User.findOrCreate({
-      where: {googleId: profile.id},
+      where: { googleId: profile.id },
       defaults: info
     })
     done(null, user) // the user we pass to done here is piped through passport.serializeUser
