@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { User } = require('../../db')
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
-const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = require('../../secrets')
+
 module.exports = router
 
 // This is the route that users hit when they click Sign In With Google
@@ -26,8 +26,11 @@ router.get(
 
 // For passport.authenticate to work, it needs a strategy, which we will configure below!
 const googleCredentials = {
-  clientID: process.env.GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET || GOOGLE_CLIENT_SECRET,
+  clientID:
+    process.env.GOOGLE_CLIENT_ID || require('../../secrets').GOOGLE_CLIENT_ID,
+  clientSecret:
+    process.env.GOOGLE_CLIENT_SECRET ||
+    require('../../secrets').GOOGLE_CLIENT_SECRET,
   callbackURL: '/auth/google/callback'
 }
 
