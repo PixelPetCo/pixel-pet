@@ -1,9 +1,12 @@
 const db = require('./database')
 const User = require('./user')
+const Pet = require('./pet')
 
-// associations go here!
+Pet.belongsTo(User)
+User.hasMany(Pet)
 
 module.exports = {
   db,
-  User
+  User,
+  Pet
 }
