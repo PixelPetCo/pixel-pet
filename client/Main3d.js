@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import 'aframe'
 
 export default class Main3DModel extends Component {
   render () {
