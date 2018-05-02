@@ -1,15 +1,24 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {AuthLink, Logout} from './auth'
+import { Link } from 'react-router-dom'
+import { AuthLink, Logout } from './auth'
+import { connect } from 'react-redux'
 
-const Navbar = () => (
-  <nav className='row center-y'>
-    <Link to='/'><img id='logo' src='/favicon.ico' /></Link>
-    <Link to='/login'>Login</Link>
-    <Link to='/signup'>Signup</Link>
-    <AuthLink to='/home'>Home</AuthLink>
-    <AuthLink to='/'><Logout /></AuthLink>
-  </nav>
-)
+const Navbar = props =>
+  !!props.user.id && (
+    <nav className="row center-y">
+      <Link to="/">
+        <img id="logo" src="/favicon.ico" />
+      </Link>
+      <p>Welcome back, {props.user.name || props.user.email}!</p>
+      <AuthLink to="/account">Account</AuthLink>
+      <AuthLink to="/">
+        <Logout />
+      </AuthLink>
+    </nav>
+  )
 
-export default Navbar
+const mapState = ({ user }) => ({
+  user
+})
+
+export default connect(mapState)(Navbar)
