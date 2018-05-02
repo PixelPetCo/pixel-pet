@@ -9,6 +9,10 @@ import store from './store'
 import history from './history'
 import {App} from './components'
 
+import 'aframe'
+import 'aframe-animation-component'
+import 'aframe-event-set-component'
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
