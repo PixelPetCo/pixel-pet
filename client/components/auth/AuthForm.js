@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const AuthForm = ({ type, handleSubmit, error, user }) => {
-  console.log(user)
   return (
     <div className="login">
       <form onSubmit={handleSubmit}>

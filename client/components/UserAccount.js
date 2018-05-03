@@ -5,13 +5,8 @@ import { Route, Switch } from 'react-router-dom'
 import UserDetail from './UserDetail'
 import UserEdit from './UserEdit'
 
-export class UserAccount extends Component {
-  componentDidMount() {
-    console.log('inside user page, ', this.props.user.id);
-  }
-
+class UserAccount extends Component {
   render() {
-    console.log('user page component', this.props)
     const user = this.props.user || {}
     return (
       <div>
@@ -38,15 +33,4 @@ const mapState = state => ({
   singleUser: state.singleUser
 })
 
-const mapDispatch = dispatch => {
-  console.log('inside dispatch')
-  return ({
-    getSingleUser: userId => {
-      console.log('inside getSingleUser dispatch', userId)
-      dispatch(getSingleUser(userId))
-    }
-  })
-}
-
-
-export default connect(mapState, mapDispatch)(UserAccount)
+export default connect(mapState, null)(UserAccount)

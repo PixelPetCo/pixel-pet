@@ -30,7 +30,7 @@ export class UserForm extends Component {
   }
 
   render() {
-    const { id, name, email } = this.props.user
+    const { name, email } = this.props.user
     const password = ''
 
     return (
@@ -73,7 +73,6 @@ export class UserForm extends Component {
 const mapDispatch = (dispatch, ownProps) => ({
   editUser: async (userId, user) => {
     await dispatch(updateUser(userId, user))
-    await dispatch(getSingleUser(userId))
     ownProps.history.push(`/account`)
   }
 })
