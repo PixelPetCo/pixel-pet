@@ -2,11 +2,18 @@ import React, { Component } from 'react'
 import PetModel from './components/aframe/PetModel'
 
 export default class Main3DModel extends Component {
+  constructor () {
+    super()
+    this.state = {
+      emotion: '',
+      command: 'speak'
+    }
+  }
   render() {
     return (
       <a-scene>
 
-        <PetModel />
+        <PetModel state={this.state} />
 
         {/* <a-plane
           rotation="-90 0 0"
