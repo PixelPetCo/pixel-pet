@@ -13,10 +13,17 @@ const PetModel = () => {
         {/* head */}
         <a-box
           material={lightPurple}
-          depth="0.55"
+          depth="0.45"
           height="0.4"
           width="0.4"
-          position="0 0.5 -1.034"
+          position="0 0.5 -1.118"
+        />
+        <a-box
+          material={darkPurple}
+          depth="0.1"
+          height="0.2"
+          width="0.2"
+          position="0.000 0.395 -0.843"
         />
         {/* nostrils */}
         <a-box
@@ -24,14 +31,14 @@ const PetModel = () => {
           depth="0.020"
           height="0.04"
           width="0.04"
-          position="-0.038 0.642 -0.761"
+          position="-0.038 0.469 -0.761"
         />
         <a-box
           material={black}
           depth="0.020"
           height="0.04"
           width="0.04"
-          position="0.039 0.642 -0.761"
+          position="0.039 0.469 -0.761"
         />
         {/* smile */}
         <a-entity
