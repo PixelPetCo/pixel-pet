@@ -11,6 +11,7 @@ const PetModel = () => {
     <a-entity>
       <a-entity>
         <a-box
+          id="head"
           material="shader:flat;color:#513797"
           depth="0.45"
           height="0.4"
@@ -19,6 +20,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="snout"
           material="shader:flat;color:#291B4E"
           depth="0.14"
           height="0.18"
@@ -28,20 +30,23 @@ const PetModel = () => {
           rotation=""
         />
         <a-box
+          id="nostril-right"
           material="shader:flat;color:#000"
-          depth="0.020"
+          depth="0.02"
           height="0.04"
+          width="0.02"
           position="-0.038 0.46 -0.761"
-          geometry="width:0.02"
         />
         <a-box
+          id="nostril-left"
           material="shader:flat;color:#000"
           depth="0.020"
           height="0.04"
+          width="0.02"
           position="0.039 0.46 -0.761"
-          geometry="width:0.02"
         />
         <a-entity
+          id="smile"
           material="shader:flat;color:#000"
           geometry="primitive:torus;radiusTubular:0.1;arc:180"
           rotation="0 0 180"
@@ -51,14 +56,16 @@ const PetModel = () => {
           visible="false"
         />
         <a-box
-          material="shader:flat;color:#513797"
+          id="jaw"
+          material="shader:flat;colorleft:#513797"
           depth="0.250"
-          height="0.060"
+          height="0.020"
           width="0.199"
-          position="0 0.314 -0.892"
+          position="0 0.290 -0.892"
           rotation=""
         />
         <a-box
+          id="ear-left"
           material="shader:flat;color:#513797"
           rotation="45 -29.999999999999996 0"
           depth="0.140"
@@ -68,6 +75,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="ear-right"
           material="shader:flat;color:#513797"
           rotation="45 29.999999999999996 0"
           depth="0.140"
@@ -77,6 +85,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="sclera-right"
           material="shader:flat;color:white"
           rotation="0 90 0"
           depth="0.150"
@@ -86,6 +95,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="sclera-left"
           material="shader:flat;color:white"
           rotation="0 90 0"
           depth="0.150"
@@ -95,6 +105,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="pupil-left"
           material="shader:flat;color:#000"
           rotation="0 90 0"
           depth="0.1"
@@ -104,6 +115,7 @@ const PetModel = () => {
           geometry=""
         />
         <a-box
+          id="pupil-right"
           material="shader:flat;color:#000"
           rotation="0 90 0"
           depth="0.1"
@@ -114,6 +126,7 @@ const PetModel = () => {
         />
       </a-entity>
       <a-box
+        id="body"
         material="shader:flat;color:#291B4E"
         rotation="0 0 45"
         depth="0.27"
@@ -123,6 +136,7 @@ const PetModel = () => {
         geometry=""
       />
       <a-box
+        id="paw-right-front"
         material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
@@ -131,6 +145,7 @@ const PetModel = () => {
         geometry=""
       />
       <a-box
+        id="paw-left-front"
         material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
@@ -139,6 +154,7 @@ const PetModel = () => {
         geometry=""
       />
       <a-box
+        id="paw-right-hind"
         material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
@@ -147,6 +163,7 @@ const PetModel = () => {
         geometry=""
       />
       <a-box
+        id="paw-left-hind"
         material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
