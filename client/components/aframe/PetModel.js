@@ -10,144 +10,149 @@ const PetModel = () => {
   return (
     <a-entity>
       <a-entity>
-        {/* head */}
         <a-box
-          material={lightPurple}
+          material="shader:flat;color:#513797"
           depth="0.45"
           height="0.4"
           width="0.4"
           position="0 0.5 -1.118"
+          geometry=""
         />
         <a-box
-          material={darkPurple}
-          depth="0.1"
-          height="0.2"
+          material="shader:flat;color:#291B4E"
+          depth="0.14"
+          height="0.18"
           width="0.2"
-          position="0.000 0.395 -0.843"
-        />
-        {/* nostrils */}
-        <a-box
-          material={black}
-          depth="0.020"
-          height="0.04"
-          width="0.04"
-          position="-0.038 0.469 -0.761"
+          position="0 0.383 -0.824"
+          geometry="depth:0.14;height:0.18"
+          rotation=""
         />
         <a-box
-          material={black}
+          material="shader:flat;color:#000"
           depth="0.020"
           height="0.04"
-          width="0.04"
-          position="0.039 0.469 -0.761"
+          position="-0.038 0.46 -0.761"
+          geometry="width:0.02"
         />
-        {/* smile */}
+        <a-box
+          material="shader:flat;color:#000"
+          depth="0.020"
+          height="0.04"
+          position="0.039 0.46 -0.761"
+          geometry="width:0.02"
+        />
         <a-entity
-          material={black}
-          geometry="primitive: torus; radius: 1; radiusTubular: 0.5; arc: 180"
+          material="shader:flat;color:#000"
+          geometry="primitive:torus;radiusTubular:0.1;arc:180"
           rotation="0 0 180"
-          radiusTubular="0.0"
+          radiustubular="0.0"
           scale="0.05 0.05 0.05"
-          position="0.010 0.324 -0.77"
+          position="0.01 0.3720996014761166 -0.77"
+          visible="false"
         />
-        {/* mouth */}
         <a-box
-          material={darkPurple}
+          material="shader:flat;color:#513797"
           depth="0.250"
           height="0.060"
-          width="0.250"
-          position="0 0.272 -0.885"
+          width="0.199"
+          position="0 0.314 -0.892"
+          rotation=""
         />
-        {/* ears */}
         <a-box
-          material={lightPurple}
-          rotation="45.0 -30.0 0"
+          material="shader:flat;color:#513797"
+          rotation="45 -29.999999999999996 0"
           depth="0.140"
           height="0.02"
           width="0.09"
           position="0.217 0.731 -1.346"
+          geometry=""
         />
         <a-box
-          material={lightPurple}
-          rotation="45.0 30.0 0"
+          material="shader:flat;color:#513797"
+          rotation="45 29.999999999999996 0"
           depth="0.140"
           height="0.02"
           width="0.09"
           position="-0.201 0.731 -1.346"
+          geometry=""
         />
-        {/* eyes */}
         <a-box
-          material={white}
-          rotation="0 0 0"
+          material="shader:flat;color:white"
+          rotation="0 90 0"
           depth="0.150"
           height="0.150"
           width="0.01"
-          position="-0.206 0.570 -1.160"
+          position="-0.11798077125982731 0.57 -0.892"
+          geometry=""
         />
         <a-box
-          material={white}
-          rotation="0 0 0"
+          material="shader:flat;color:white"
+          rotation="0 90 0"
           depth="0.150"
           height="0.150"
           width="0.01"
-          position="0.206 0.570 -1.160"
+          position="0.12279881803934703 0.57 -0.892"
+          geometry=""
         />
-        {/* iris */}
         <a-box
-          material={black}
-          rotation="0 0 0"
+          material="shader:flat;color:#000"
+          rotation="0 90 0"
           depth="0.1"
           height="0.1"
           width="0.01"
-          position="0.206 0.550 -1.131"
+          position="0.126 0.545 -0.891"
+          geometry=""
         />
         <a-box
-          material={black}
-          rotation="0 0 0"
+          material="shader:flat;color:#000"
+          rotation="0 90 0"
           depth="0.1"
           height="0.1"
           width="0.01"
-          position="-0.211 0.550 -1.131"
+          position="-0.118 0.5457793819758201 -0.891"
+          geometry=""
         />
       </a-entity>
-
-      {/* body */}
       <a-box
-        material={darkPurple}
+        material="shader:flat;color:#291B4E"
         rotation="0 0 45"
         depth="0.27"
         height="0.27"
         width="0.27"
         position="0.024 0.324 -1.501"
+        geometry=""
       />
-
-      {/* feet */}
       <a-box
-        material={lightPurple}
+        material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
         width="0.1"
         position="-0.101 0 -1.385"
+        geometry=""
       />
       <a-box
-        material={lightPurple}
+        material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
         width="0.1"
-        position="0.130 0 -1.385"
+        position="0.13 0 -1.385"
+        geometry=""
       />
       <a-box
-        material={lightPurple}
+        material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
         width="0.1"
         position="-0.101 0 -1.614"
+        geometry=""
       />
       <a-box
-        material={lightPurple}
+        material="shader:flat;color:#513797"
         depth="0.13"
         height="0.06"
         width="0.1"
-        position="0.130 0 -1.614"
+        position="0.13 0 -1.614"
+        geometry=""
       />
     </a-entity>
   )
