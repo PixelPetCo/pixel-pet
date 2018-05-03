@@ -4,5 +4,9 @@ package-lock.json
 public/bundle.js
 public/bundle.js.map
 secrets.js
+watsonConvoTest.js
+watsonToneTest.js
+integratedTest.js
+tone.js
 npm-debug.log
 yarn-error.log
