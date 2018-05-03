@@ -5,6 +5,7 @@ import Welcome from './Welcome'
 import Home from './Home'
 import NoMatch from './NoMatch'
 import Main3dModel from '../Main3d'
+import UserAccount from './UserAccount'
 
 const Routes = () => (
   <div className='fill-xy center-xy column'>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route path='/signup' component={Signup} />
       <Route path='/3d-model' component={Main3dModel} />
       <AuthRoute path='/home' component={Home} />
+      <Route path="/account" component={UserAccount} />
       <Route component={NoMatch} />
     </Switch>
   </div>
