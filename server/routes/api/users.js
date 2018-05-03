@@ -12,3 +12,19 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      where: { id: req.params.id }
+    })
+    if (user) {
+      const updatedUser = await user.update(req.body)
+      res.json(updatedUser)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (err) {
+    next(err)
+  }
+})
