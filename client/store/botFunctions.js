@@ -60,7 +60,7 @@ const analyzeTone = str => {
 
 // Send Message to Bot
 
-const sendMessage = (text = '...', context) => {
+const sendMessage = (text, context) => {
   return new Promise((resolve, reject) => {
     service.message(
       {
