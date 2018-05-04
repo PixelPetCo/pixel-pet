@@ -1,5 +1,3 @@
-import engageBot from './botFunctions'
-
 // ACTION TYPES
 
 const SEND_MESSAGE = 'SEND_MESSAGE'
@@ -15,15 +13,16 @@ const sendMessageAction = botResponse => ({
   type: SEND_MESSAGE,
   botResponse
 })
-export const resetCommandAction = command => ({ type: RESET_COMMAND })
+export const resetCommandAction = () => ({ type: RESET_COMMAND })
 
 // THUNK CREATORS
 
 export const sendMessage = text => {
-  return (dispatch, getState, _) => {
+  return async (dispatch, getState, axios) => {
     try {
       const state = getState()
-      const botResponse = engageBot(text, state.context)
+      const res = await axios.post('/bot', { text, state })
+      const botResponse = res.data
       dispatch(sendMessageAction(botResponse))
     } catch (error) {
       console.error('Could not get bot response: ', error)
