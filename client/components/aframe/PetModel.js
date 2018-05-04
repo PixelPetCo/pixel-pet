@@ -59,17 +59,34 @@ class PetModel extends Component {
     this.setState({ animations })
   }
 
-  render = () => (
-    <a-entity>
-      <Head animation={this.state.animations.head} />
-      <Body animation={this.state.animations.body} />
-      <Jaw animation={this.state.animations.jaw} />
-      <PawLeftFront animation={this.state.animations.pawLeftFront} />
-      <PawRightFront animation={this.state.animations.pawRightFront} />
-      <PawLeftHind animation={this.state.animations.pawLeftHind} />
-      <PawRightHind animation={this.state.animations.pawRightHind} />
-    </a-entity>
-  )
+  render = () => {
+    const head = this.state.animations.head
+    const body = this.state.animations.body
+    const jaw = this.state.animations.jaw
+    const pawLeftFront = this.state.animations.pawLeftFront
+    const pawRightFront = this.state.animations.pawRightFront
+    const pawLeftHind = this.state.animations.pawLeftHind
+    const pawRightHind = this.state.animations.pawRightHind
+    return (
+      <a-entity>
+        <Head animation={head && head.map(animation => animation)} />
+        <Body animation={body && body.map(animation => animation)} />
+        <Jaw animation={jaw && jaw.map(animation => animation)} />
+        <PawLeftFront
+          animation={pawLeftFront && pawLeftFront.map(animation => animation)}
+        />
+        <PawRightFront
+          animation={pawRightFront && pawRightFront.map(animation => animation)}
+        />
+        <PawLeftHind
+          animation={pawLeftHind && pawLeftHind.map(animation => animation)}
+        />
+        <PawRightHind
+          animation={pawRightHind && pawRightHind.map(animation => animation)}
+        />
+      </a-entity>
+    )
+  }
 }
 
 export default PetModel
