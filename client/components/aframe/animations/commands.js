@@ -1,18 +1,29 @@
 import React from 'react'
 
 const speak = {
-  jaw: (
+  jaw: [
     <a-animation
+      key="1"
       attribute="position"
-      rotation="45 0 0"
-      dur="2000"
-      dir="alternate"
+      dur="150"
+      direction="alternate"
       easing="linear"
       repeat="indefinite"
-      from="0 0.290 -0.892"
-      to="0 0.2 -0.892"
+      from="0 0.29 -0.892"
+      to="0 0.25 -0.892"
+    />,
+
+    <a-animation
+      key="2"
+      attribute="rotation"
+      dur="150"
+      direction="alternate"
+      easing="linear"
+      repeat="indefinite"
+      from="0 0 0"
+      to="15 0 0"
     />
-  )
+  ]
 }
 
 export default { speak }

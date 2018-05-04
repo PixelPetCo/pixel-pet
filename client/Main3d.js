@@ -4,7 +4,7 @@ import PetModel from './components/aframe/PetModel'
 export default class Main3DModel extends Component {
   state = {
     emotion: 'happy',
-    command: 'speak'
+    command: ''
   }
   render = () => {
     return (
@@ -27,13 +27,15 @@ export default class Main3DModel extends Component {
           intensity="1"
         />
 
-        <a-camera id="user-view" wasd-controls look-controls>
-          <a-entity
-            cursor="fuse: true; fuseTimeout: 500"
-            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-            material="color: black; shader: flat"
-          />
-        </a-camera>
+        <a-entity position="1 -0.8 0.6">
+          <a-camera id="user-view" wasd-controls look-controls>
+            <a-entity
+              cursor="fuse: true; fuseTimeout: 500"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: black; shader: flat"
+            />
+          </a-camera>
+        </a-entity>
       </a-scene>
     )
   }
