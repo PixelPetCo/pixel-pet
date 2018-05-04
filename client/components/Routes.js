@@ -14,7 +14,7 @@ const Routes = () => (
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Signup} />
       <Route path='/3d-model' component={Main3dModel} />
-      <AuthRoute path='/home' component={Welcome} />
+      {/* <AuthRoute path='/home' component={Welcome} /> */}
       <Route path="/account" component={UserAccount} />
       <Route component={NoMatch} />
     </Switch>

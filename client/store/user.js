@@ -32,7 +32,7 @@ export const auth = (credentials, method) =>
     axios[method](`/auth/local`, credentials)
       .then(res => {
         dispatch(getUser(res.data))
-        history.push('/home')
+        history.push('/')
       }, authError => { // rare example: a good use case for parallel (non-catch) error handler
         dispatch(getUser({error: authError.response.data}))
       })
