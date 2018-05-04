@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
-
+import Translator from './Translator'
 import MessageForm from './MessageForm'
+import ContentAdd from 'material-ui/svg-icons/content/add'
 
 // Home: there's no place like it (as long as you've logged in).
 export default class Home extends Component {
@@ -13,7 +13,7 @@ export default class Home extends Component {
     }
   }
 
-  handleClick = evt => {
+  handleClick = () => {
     this.setState({
       showTxtInput: !this.state.showTxtInput
     })
@@ -23,7 +23,7 @@ export default class Home extends Component {
     console.log('state in msg form ', this.state)
     return (
       <main>
-        <div id="translator">PixelPetSpeek Translator</div>
+        <Translator />
         <div id="a-frame">Companion component!</div>
         <div id="input-buttons">
           {!this.state.showTxtInput ? (
