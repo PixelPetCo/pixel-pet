@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Button from 'muicss/lib/react/button';
-
+import Home from './Home'
 
 // Welcome: a landing page for unauthenticated users
 const Welcome = (props) => (
@@ -21,16 +20,7 @@ const Welcome = (props) => (
   )
     :
     // Home: home/landing page for the authenticated users when logged in
-    <main>
-      <div id="translator">PixelPetSpeek Translator</div>
-      <div id="a-frame">Companion component!</div>
-      <div id="input-buttons">
-        <Button variant="fab" color="accent">TXT</Button>
-        <Button variant="fab" color="accent">MIC</Button>
-        {/* <button id="toggle-text">TXT</button>
-        <button id="toggle-mic">MIC</button> */}
-      </div>
-    </main>
+    <Home />
 )
 
 const mapState = ({ user }) => ({

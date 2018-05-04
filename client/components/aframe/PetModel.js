@@ -1,161 +1,81 @@
-import React from 'react'
+import React, { Component } from 'react'
+import emotions from './animations/emotions'
+import commands from './animations/commands'
+// import {
+//   Head,
+//   Body,
+//   Jaw,
+//   PawLeftFront,
+//   PawRightFront,
+//   PawLeftHind,
+//   PawRightHind
+// } from './bodyParts'
+import Head from './bodyParts/Head'
+import Body from './bodyParts/Body'
+import Jaw from './bodyParts/Jaw'
+import PawLeftFront from './bodyParts/PawLeftFront'
+import PawRightFront from './bodyParts/PawRightFront'
+import PawLeftHind from './bodyParts/PawLeftHind'
+import PawRightHind from './bodyParts/PawRightHind'
 
-const PetModel = () => {
-  // body shades
-  const lightPurple = 'shader: flat; color: #513797'
-  const darkPurple = 'shader: flat; color: #291B4E'
-  const black = 'shader: flat; color: #000'
-  const white = 'shader: flat; color: white'
+class PetModel extends Component {
+  state = {
+    animations: {}
+  }
 
-  return (
+  componentDidMount = () => {
+    let animations
+    let trigger = this.props.command || this.props.mood
+    switch (trigger) {
+      case 'happy':
+        animations =
+          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+            .animations
+        break
+      case 'speak':
+        animations = commands.speak
+        break
+      default:
+        animations = {}
+    }
+    this.setState({ animations })
+  }
+
+  componentWillReceiveProps = props => {
+    let animations
+    let trigger = props.command || props.mood
+    switch (trigger) {
+      case 'happy':
+        animations =
+          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+            .animations
+        break
+      case 'speak':
+        animations = commands.speak
+        break
+      default:
+        animations = {}
+    }
+    this.setState({ animations })
+  }
+
+  render = () => (
     <a-entity>
-      <a-entity>
-        <a-box
-          material="shader:flat;color:#513797"
-          depth="0.45"
-          height="0.4"
-          width="0.4"
-          position="0 0.5 -1.118"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:#291B4E"
-          depth="0.14"
-          height="0.18"
-          width="0.2"
-          position="0 0.383 -0.824"
-          geometry="depth:0.14;height:0.18"
-          rotation=""
-        />
-        <a-box
-          material="shader:flat;color:#000"
-          depth="0.020"
-          height="0.04"
-          position="-0.038 0.46 -0.761"
-          geometry="width:0.02"
-        />
-        <a-box
-          material="shader:flat;color:#000"
-          depth="0.020"
-          height="0.04"
-          position="0.039 0.46 -0.761"
-          geometry="width:0.02"
-        />
-        <a-entity
-          material="shader:flat;color:#000"
-          geometry="primitive:torus;radiusTubular:0.1;arc:180"
-          rotation="0 0 180"
-          radiustubular="0.0"
-          scale="0.05 0.05 0.05"
-          position="0.01 0.3720996014761166 -0.77"
-          visible="false"
-        />
-        <a-box
-          material="shader:flat;color:#513797"
-          depth="0.250"
-          height="0.060"
-          width="0.199"
-          position="0 0.314 -0.892"
-          rotation=""
-        />
-        <a-box
-          material="shader:flat;color:#513797"
-          rotation="45 -29.999999999999996 0"
-          depth="0.140"
-          height="0.02"
-          width="0.09"
-          position="0.217 0.731 -1.346"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:#513797"
-          rotation="45 29.999999999999996 0"
-          depth="0.140"
-          height="0.02"
-          width="0.09"
-          position="-0.201 0.731 -1.346"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:white"
-          rotation="0 90 0"
-          depth="0.150"
-          height="0.150"
-          width="0.01"
-          position="-0.11798077125982731 0.57 -0.892"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:white"
-          rotation="0 90 0"
-          depth="0.150"
-          height="0.150"
-          width="0.01"
-          position="0.12279881803934703 0.57 -0.892"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:#000"
-          rotation="0 90 0"
-          depth="0.1"
-          height="0.1"
-          width="0.01"
-          position="0.126 0.545 -0.891"
-          geometry=""
-        />
-        <a-box
-          material="shader:flat;color:#000"
-          rotation="0 90 0"
-          depth="0.1"
-          height="0.1"
-          width="0.01"
-          position="-0.118 0.5457793819758201 -0.891"
-          geometry=""
-        />
-      </a-entity>
-      <a-box
-        material="shader:flat;color:#291B4E"
-        rotation="0 0 45"
-        depth="0.27"
-        height="0.27"
-        width="0.27"
-        position="0.024 0.324 -1.501"
-        geometry=""
-      />
-      <a-box
-        material="shader:flat;color:#513797"
-        depth="0.13"
-        height="0.06"
-        width="0.1"
-        position="-0.101 0 -1.385"
-        geometry=""
-      />
-      <a-box
-        material="shader:flat;color:#513797"
-        depth="0.13"
-        height="0.06"
-        width="0.1"
-        position="0.13 0 -1.385"
-        geometry=""
-      />
-      <a-box
-        material="shader:flat;color:#513797"
-        depth="0.13"
-        height="0.06"
-        width="0.1"
-        position="-0.101 0 -1.614"
-        geometry=""
-      />
-      <a-box
-        material="shader:flat;color:#513797"
-        depth="0.13"
-        height="0.06"
-        width="0.1"
-        position="0.13 0 -1.614"
-        geometry=""
-      />
+      <Head animation={this.state.animations.head} />
+      <Body animation={this.state.animations.body} />
+      <Jaw animation={this.state.animations.jaw} />
+      <PawLeftFront animation={this.state.animations.pawLeftFront} />
+      <PawRightFront animation={this.state.animations.pawRightFront} />
+      <PawLeftHind animation={this.state.animations.pawLeftHind} />
+      <PawRightHind animation={this.state.animations.pawRightHind} />
     </a-entity>
   )
 }
 
 export default PetModel
+
+// body shades
+const lightPurple = 'shader: flat; color: #513797'
+const darkPurple = 'shader: flat; color: #291B4E'
+const black = 'shader: flat; color: #000'
+const white = 'shader: flat; color: white'
