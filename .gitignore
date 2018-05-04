@@ -7,6 +7,7 @@ secrets.js
 watsonConvoTest.js
 watsonToneTest.js
 integratedTest.js
+functionsTest.js
 tone.js
 npm-debug.log
 yarn-error.log
