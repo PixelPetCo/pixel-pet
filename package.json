@@ -33,6 +33,7 @@
     "passport-google-oauth": "^1.0.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "prompt-sync": "^4.1.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
@@ -43,7 +44,8 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "sequelize": "^4.37.5",
-    "validator": "^9.4.1"
+    "validator": "^9.4.1",
+    "watson-developer-cloud": "^3.4.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
