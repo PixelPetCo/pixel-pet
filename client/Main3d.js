@@ -4,7 +4,7 @@ import PetModel from './components/aframe/PetModel'
 export default class Main3DModel extends Component {
   state = {
     emotion: 'happy',
-    command: ''
+    command: 'speak'
   }
   render = () => {
     return (

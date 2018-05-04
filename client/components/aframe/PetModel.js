@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import emotions from './animations/emotions'
 import commands from './animations/commands'
-import {
-  Head,
-  Body,
-  Jaw,
-  PawLeftFront,
-  PawRightFront,
-  PawLeftHind,
-  PawRightHind
-} from './bodyParts'
+// import {
+//   Head,
+//   Body,
+//   Jaw,
+//   PawLeftFront,
+//   PawRightFront,
+//   PawLeftHind,
+//   PawRightHind
+// } from './bodyParts'
+import Head from './bodyParts/Head'
+import Body from './bodyParts/Body'
+import Jaw from './bodyParts/Jaw'
+import PawLeftFront from './bodyParts/PawLeftFront'
+import PawRightFront from './bodyParts/PawRightFront'
+import PawLeftHind from './bodyParts/PawLeftHind'
+import PawRightHind from './bodyParts/PawRightHind'
 
 class PetModel extends Component {
   state = {
