@@ -1,18 +1,68 @@
-import React from 'react'
+import React, { Component } from 'react'
+import emotions from './animations/emotions'
+import commands from './animations/commands'
+import {
+  Head,
+  Body,
+  Jaw,
+  PawLeftFront,
+  PawRightFront,
+  PawLeftHind,
+  PawRightHind
+} from './bodyParts'
 
-import Speak from './commands/Speak'
-
-const PetModel = props => {
-  let command
-
-  switch (props.command) {
-    case 'speak':
-      command = <Speak />
-    default:
-      command = <Speak />
+class PetModel extends Component {
+  state = {
+    animations: {}
   }
-  console.log(command)
-  return command
+
+  componentDidMount = () => {
+    let animations
+    let trigger = this.props.command || this.props.mood
+    switch (trigger) {
+      case 'happy':
+        animations =
+          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+            .animations
+        break
+      case 'speak':
+        animations = commands.speak
+        break
+      default:
+        animations = {}
+    }
+    this.setState({ animations })
+  }
+
+  componentWillReceiveProps = props => {
+    let animations
+    let trigger = props.command || props.mood
+    switch (trigger) {
+      case 'happy':
+        animations =
+          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+            .animations
+        break
+      case 'speak':
+        animations = commands.speak
+        break
+      default:
+        animations = {}
+    }
+    this.setState({ animations })
+  }
+
+  render = () => (
+    <a-entity>
+      <Head animation={this.state.animations.head} />
+      <Body animation={this.state.animations.body} />
+      <Jaw animation={this.state.animations.jaw} />
+      <PawLeftFront animation={this.state.animations.pawLeftFront} />
+      <PawRightFront animation={this.state.animations.pawRightFront} />
+      <PawLeftHind animation={this.state.animations.pawLeftHind} />
+      <PawRightHind animation={this.state.animations.pawRightHind} />
+    </a-entity>
+  )
 }
 
 export default PetModel

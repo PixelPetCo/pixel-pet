@@ -108,6 +108,7 @@ const Head = props => {
         position="-0.118 0.5457793819758201 -0.891"
         geometry=""
       />
+      {props.animation}
     </a-entity>
   )
 }

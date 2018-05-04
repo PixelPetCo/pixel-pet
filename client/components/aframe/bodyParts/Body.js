@@ -11,7 +11,9 @@ const Body = props => {
       width="0.27"
       position="0.024 0.324 -1.501"
       geometry=""
-    />
+    >
+      {props.animation}
+    </a-box>
   )
 }
 
