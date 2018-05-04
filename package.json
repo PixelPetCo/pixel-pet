@@ -27,6 +27,7 @@
     "express-session": "^1.15.6",
     "history": "^4.7.2",
     "morgan": "^1.9.0",
+    "muicss": "^0.9.39",
     "normalizr": "^3.2.4",
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
