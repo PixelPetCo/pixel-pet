@@ -9,9 +9,12 @@
   "scripts": {
     "deploy": "sh scripts/deploy.sh",
     "seed": "node scripts/seed.js",
-    "start": "webpack -w & nodemon server --ignore public",
-    "test:server": "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './server/**/*.test.js' --require babel-polyfill --exit",
-    "test:client": "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './client/**/*.test.js' --require babel-polyfill --require babel-register --exit",
+    "start": "node server",
+    "start:dev": "webpack -w & nodemon server --ignore public",
+    "test:server":
+      "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './server/**/*.test.js' --require babel-polyfill --exit",
+    "test:client":
+      "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './client/**/*.test.js' --require babel-polyfill --require babel-register --exit",
     "test": "npm run test:server && npm run test:client"
   },
   "author": "",
