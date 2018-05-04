@@ -15,7 +15,7 @@ const sendMessageAction = botResponse => ({
   type: SEND_MESSAGE,
   botResponse
 })
-const resetCommandAction = command => ({ type: RESET_COMMAND, command })
+export const resetCommandAction = command => ({ type: RESET_COMMAND, command })
 
 // THUNK CREATORS
 
@@ -37,6 +37,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return action.botResponse
+    case RESET_COMMAND:
+      return { ...state, command: null }
     default:
       return state
   }
