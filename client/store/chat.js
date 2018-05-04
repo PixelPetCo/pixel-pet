@@ -1,3 +1,5 @@
+import engageBot from './botFunctions'
+
 // ACTION TYPES
 
 const SEND_MESSAGE = 'SEND_MESSAGE'
@@ -5,7 +7,7 @@ const RESET_COMMAND = 'RESET_COMMAND'
 
 // INITIAL STATE
 
-const initialState = { botText: '', mood: null, command: null }
+const initialState = { botText: '', mood: null, command: null, context: null }
 
 // ACTION CREATORS
 
@@ -18,10 +20,10 @@ const resetCommandAction = command => ({ type: RESET_COMMAND, command })
 // THUNK CREATORS
 
 export const sendMessage = text => {
-  return async (dispatch, _, { axios }) => {
+  return (dispatch, getState, _) => {
     try {
-      const res = await axios.get('/bot', text)
-      const botResponse = res.data || initialState
+      const state = getState()
+      const botResponse = engageBot(text, state.context)
       dispatch(sendMessageAction(botResponse))
     } catch (error) {
       console.error('Could not get bot response: ', error)
