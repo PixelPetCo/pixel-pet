@@ -15,7 +15,7 @@ const sendMessageAction = botResponse => ({
   type: SEND_MESSAGE,
   botResponse
 })
-export const resetCommandAction = command => ({ type: RESET_COMMAND, command })
+export const resetCommandAction = command => ({ type: RESET_COMMAND })
 
 // THUNK CREATORS
 
