@@ -14,8 +14,6 @@ export default class Home extends Component {
   }
 
   handleClick = evt => {
-    // console.log('state in handle click ', this.state[evt.target.name])
-    // console.log('evt name ', evt)
     this.setState({
       showTxtInput: !this.state.showTxtInput
     })
@@ -39,7 +37,11 @@ export default class Home extends Component {
           ) : (
             <MessageForm />
           )}
-          <FloatingActionButton onClick={this.handleClick} style={style}>
+          <FloatingActionButton
+            onClick={this.handleClick}
+            secondary={true}
+            style={style}
+          >
             mic
           </FloatingActionButton>
         </div>
@@ -51,4 +53,3 @@ export default class Home extends Component {
 const style = {
   marginRight: 20
 }
-
