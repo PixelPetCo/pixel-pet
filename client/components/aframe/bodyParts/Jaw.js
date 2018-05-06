@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Jaw = props => {
-  console.log('jaw props ', props.animation)
   return (
     <a-box
       id="jaw"

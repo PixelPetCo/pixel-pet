@@ -1,6 +1,6 @@
 import React from 'react'
 
-const happy = [
+const joy = [
   {
     name: 'wag',
     animations: {
@@ -30,4 +30,4 @@ const happy = [
   }
 ]
 
-export default { happy }
+export default { joy }

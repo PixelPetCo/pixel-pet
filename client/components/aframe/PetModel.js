@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import emotions from './animations/emotions'
 import commands from './animations/commands'
-// import {
-//   Head,
-//   Body,
-//   Jaw,
-//   PawLeftFront,
-//   PawRightFront,
-//   PawLeftHind,
-//   PawRightHind
-// } from './bodyParts'
+
 import Head from './bodyParts/Head'
 import Body from './bodyParts/Body'
 import Jaw from './bodyParts/Jaw'
@@ -27,9 +19,9 @@ class PetModel extends Component {
     let animations
     let trigger = this.props.command || this.props.mood
     switch (trigger) {
-      case 'happy':
+      case 'joy':
         animations =
-          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+          emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
             .animations
         break
       case 'speak':
@@ -45,9 +37,9 @@ class PetModel extends Component {
     let animations
     let trigger = props.command || props.mood
     switch (trigger) {
-      case 'happy':
+      case 'joy':
         animations =
-          emotions.happy[Math.floor(Math.random() * emotions.happy.length)]
+          emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
             .animations
         break
       case 'speak':
@@ -90,9 +82,3 @@ class PetModel extends Component {
 }
 
 export default PetModel
-
-// body shades
-const lightPurple = 'shader: flat; color: #513797'
-const darkPurple = 'shader: flat; color: #291B4E'
-const black = 'shader: flat; color: #000'
-const white = 'shader: flat; color: white'
