@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
+import Translator from './Translator'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
 import MessageForm from './MessageForm'
@@ -20,10 +21,9 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log('state in msg form ', this.state)
     return (
       <main>
-        <div id="translator">PixelPetSpeek Translator</div>
+        <Translator />
         <div id="a-frame">Companion component!</div>
         <div id="input-buttons">
           {!this.state.showTxtInput ? (

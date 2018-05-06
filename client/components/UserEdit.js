@@ -48,7 +48,7 @@ export class UserForm extends Component {
           <div>
             <label htmlFor="email">Email: </label>
             <input
-              type="email"
+              type="text"
               name="email"
               placeholder={email}
               onChange={this.handleChange}
