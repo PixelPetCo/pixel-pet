@@ -1,6 +1,3 @@
-const { db } = require('./db')
-const PORT = process.env.PORT || 8080
-
 if (process.env.NODE_ENV !== 'production') {
   try {
     require('./secrets')
@@ -9,8 +6,11 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+const { db } = require('./db')
+const PORT = process.env.PORT || 8080
+const app = require('./app')
+
 db.sync().then(() => {
-  console.log(process.env.CONVERSATION_USERNAME)
   console.log('The database is synced')
-  require('./app').listen(PORT, () => console.log(`Listening on port ${PORT}`))
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 })
