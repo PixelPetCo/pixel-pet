@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import emotions from './animations/emotions'
 import commands from './animations/commands'
 
-import Head from './bodyParts/Head'
 import Body from './bodyParts/Body'
 import Jaw from './bodyParts/Jaw'
 import PawLeftFront from './bodyParts/PawLeftFront'
@@ -61,7 +60,6 @@ class PetModel extends Component {
     const pawRightHind = this.state.animations.pawRightHind
     return (
       <a-entity>
-        <Head animation={head && head.map(animation => animation)} />
         <Body animation={body && body.map(animation => animation)} />
         <Jaw animation={jaw && jaw.map(animation => animation)} />
         <PawLeftFront

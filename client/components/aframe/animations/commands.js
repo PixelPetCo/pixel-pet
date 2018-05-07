@@ -1,3 +1,3 @@
-import { speak } from './commands'
+import speak from './commands/speak'
 
 export default { speak }

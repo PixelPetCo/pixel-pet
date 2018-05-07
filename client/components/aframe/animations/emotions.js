@@ -1,3 +1,3 @@
-import { joy } from './emotions'
+import joy from './emotions/joy'
 
 export default { joy }
