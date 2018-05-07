@@ -11,6 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 db.sync().then(() => {
+  console.log(process.env.CONVERSATION_USERNAME)
   console.log('The database is synced')
   app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 })

@@ -6,7 +6,10 @@ export default class ModelScene extends Component {
     console.log('props from model ', this.props)
     return (
       <a-scene>
-        <PetModel mood={this.props.mood || ''} command={this.props.command || ''} />
+        <PetModel
+          mood={this.props.mood || ''}
+          command={this.props.command || ''}
+        />
 
         {/* <a-plane
           rotation="-90 0 0"
