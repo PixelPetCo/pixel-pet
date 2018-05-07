@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { AuthLink, Logout } from './auth'
 import { connect } from 'react-redux'
 
+import AppBar from 'material-ui/AppBar'
+
 const Navbar = props => {
   const identifier =
     process.env.NODE_ENV === 'development'
@@ -11,17 +13,21 @@ const Navbar = props => {
   return !props.user.id && process.env.NODE_ENV === 'production' ? (
     <div />
   ) : (
-    <nav className="row center-y">
+    <AppBar className="row center-y" style={style}>
+      <p>Welcome back, {identifier}!</p>
       <Link to="/">
         <img id="logo" src="/favicon.ico" />
       </Link>
-      <p>Welcome back, {identifier}!</p>
       <AuthLink to="/account">Account</AuthLink>
       <AuthLink to="/">
         <Logout />
       </AuthLink>
-    </nav>
+    </AppBar>
   )
+}
+
+const style = {
+  backgroundColor: "#ffffff"
 }
 
 const mapState = ({ user }) => ({
