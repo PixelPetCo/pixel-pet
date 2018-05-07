@@ -6,7 +6,10 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Home from './Home'
 
 // Welcome: a landing page for unauthenticated users
-const Welcome = props =>
+const Welcome = props => <Home />
+  // disabled login for development purposes
+  // reimplement when ready for final testing/deployment
+  /*
   !props.user.id ? (
     <div>
       <h1>Welcome to PixelPet!</h1>
@@ -23,6 +26,7 @@ const Welcome = props =>
     // Home: home/landing page for the authenticated users when logged in
     <Home />
   )
+  */
 
 const style = {
   margin: 12

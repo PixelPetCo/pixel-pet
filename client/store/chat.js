@@ -18,7 +18,7 @@ export const resetCommandAction = () => ({ type: RESET_COMMAND })
 // THUNK CREATORS
 
 export const sendMessage = text => {
-  return async (dispatch, getState, axios) => {
+  return async (dispatch, getState, {axios}) => {
     try {
       const state = getState()
       const res = await axios.post('/bot', { text, state })

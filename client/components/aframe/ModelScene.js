@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import PetModel from './components/aframe/PetModel'
+import PetModel from './PetModel'
 
-export default class Main3DModel extends Component {
-  state = {
-    emotion: 'happy',
-    command: ''
-  }
+export default class ModelScene extends Component {
   render = () => {
+    console.log('props from model ', this.props)
     return (
       <a-scene>
-        <PetModel mood={this.state.emotion} command={this.state.command} />
+        <PetModel mood={this.props.mood || ''} command={this.props.command || ''} />
 
         {/* <a-plane
           rotation="-90 0 0"
@@ -42,7 +39,7 @@ export default class Main3DModel extends Component {
 }
 
 // Emotions + colors
-// happy, sad, mad
+// joy, sad, mad
 
 // Commands
 // jump, sit, roll-over, spin, lie-down, shake hands, clap, beg, speak

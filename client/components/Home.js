@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
+import Translator from './Translator'
 import MessageForm from './MessageForm'
+import ModelScene from '../components/aframe/ModelScene'
 
 // Home: there's no place like it (as long as you've logged in).
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super()
     this.state = {
@@ -20,11 +23,11 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log('state in msg form ', this.state)
+    const {botText, mood, command} = this.props
     return (
       <main>
-        <div id="translator">PixelPetSpeek Translator</div>
-        <div id="a-frame">Companion component!</div>
+        <Translator petReply={botText} />
+        <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
           {!this.state.showTxtInput ? (
             <FloatingActionButton
@@ -53,3 +56,10 @@ export default class Home extends Component {
 const style = {
   marginRight: 20
 }
+
+const mapState = state => {
+  const { botText, mood, command } = state.chat
+  return { botText, mood, command }
+}
+
+export default connect(mapState)(Home)
