@@ -23,7 +23,7 @@ class Home extends Component {
   }
 
   render() {
-    const {botText, mood, command} = this.props
+    const { botText, mood, command } = this.props
     return (
       <main>
         <Translator petReply={botText} />

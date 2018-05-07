@@ -46,3 +46,7 @@ nav a:first-child:hover {
   width: 100%;
   align-items: center;
 }
+
+#home-container {
+  margin-top: 150px;
+}

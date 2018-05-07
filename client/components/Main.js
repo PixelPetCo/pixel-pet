@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 const Main = () => {
   return (
-    <div id='main' className='fill-xy column'>
+    <div id="main" className="fill-xy column">
       <Navbar />
       <Routes />
     </div>
