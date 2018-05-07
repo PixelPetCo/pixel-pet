@@ -1,4 +1,5 @@
 import React from 'react'
+import Jaw from './Jaw'
 
 const Head = props => {
   return (
@@ -63,10 +64,11 @@ const Head = props => {
         position="0.14881709598662096 0.3 -0.32160633752978557"
         geometry=""
       />
+
       <a-box
         id="ear-right"
         material="shader:flat;color:#513797"
-        rotation="0.014 0.009 0"
+        rotation="45 0 0"
         depth="0.140"
         height="0.02"
         width="0.09"
@@ -113,6 +115,8 @@ const Head = props => {
         position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
+      {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
+      <Jaw />
     </a-entity>
   )
 }

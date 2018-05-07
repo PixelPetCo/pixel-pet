@@ -53,15 +53,15 @@ class PetModel extends Component {
   render = () => {
     const head = this.state.animations.head
     const body = this.state.animations.body
-    const jaw = this.state.animations.jaw
+    //const jaw = this.state.animations.jaw
     const pawLeftFront = this.state.animations.pawLeftFront
     const pawRightFront = this.state.animations.pawRightFront
     const pawLeftHind = this.state.animations.pawLeftHind
     const pawRightHind = this.state.animations.pawRightHind
     return (
-      <a-entity>
+      <a-entity id="pixel-pet">
         <Body animation={body && body.map(animation => animation)} />
-        <Jaw animation={jaw && jaw.map(animation => animation)} />
+        {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
         <PawLeftFront
           animation={pawLeftFront && pawLeftFront.map(animation => animation)}
         />
