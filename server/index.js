@@ -1,7 +1,3 @@
-const { db } = require('./db')
-const app = require('./app')
-const PORT = process.env.PORT || 8080
-
 if (process.env.NODE_ENV !== 'production') {
   try {
     require('./secrets')
@@ -9,6 +5,10 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('No secrets file found - make sure to add one!')
   }
 }
+
+const { db } = require('./db')
+const PORT = process.env.PORT || 8080
+const app = require('./app')
 
 db.sync().then(() => {
   console.log('The database is synced')

@@ -4,11 +4,15 @@
   margin: 0;
 }
 
-nav {
+.nav {
   height: 80px;
 }
 
-nav a {
+.nav a {
+  margin: 0 1em;
+}
+
+.nav p {
   margin: 0 1em;
 }
 
@@ -30,7 +34,7 @@ a:hover {
   border-bottom: 0px;
 }
 
-nav a:first-child:hover {
+.nav a:first-child:hover {
   border: none;
 }
 
@@ -45,4 +49,8 @@ nav a:first-child:hover {
   flex-flow: column;
   width: 100%;
   align-items: center;
+}
+
+#home-container {
+  margin-top: 150px;
 }

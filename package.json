@@ -10,7 +10,8 @@
     "deploy": "sh scripts/deploy.sh",
     "seed": "node scripts/seed.js",
     "start": "node server",
-    "start:dev": "webpack -w & nodemon server --ignore public",
+    "start:dev":
+      "NODE_ENV='development' webpack -w & nodemon server --ignore public",
     "test:server":
       "DATABASE_URL=postgres://localhost/pixel-pet-test mocha './server/**/*.test.js' --require babel-polyfill --exit",
     "test:client":
