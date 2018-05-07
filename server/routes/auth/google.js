@@ -27,10 +27,9 @@ router.get(
 // For passport.authenticate to work, it needs a strategy, which we will configure below!
 const googleCredentials = {
   clientID:
-    process.env.GOOGLE_CLIENT_ID || require('../../secrets').GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_ID || 'foo',
   clientSecret:
-    process.env.GOOGLE_CLIENT_SECRET ||
-    require('../../secrets').GOOGLE_CLIENT_SECRET,
+    process.env.GOOGLE_CLIENT_SECRET || 'bar',
   callbackURL: '/auth/google/callback'
 }
 
