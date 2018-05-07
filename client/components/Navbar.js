@@ -13,15 +13,15 @@ const Navbar = props => {
   return !props.user.id && process.env.NODE_ENV === 'production' ? (
     <div />
   ) : (
-    <AppBar className="row center-y" style={style}>
+    <AppBar className="nav row center-y" style={style} showMenuIconButton={false}>
       <p>Welcome back, {identifier}!</p>
+      <Link to="/account">Account</Link>
+      <Link to="/">
+        <Logout />
+      </Link>
       <Link to="/">
         <img id="logo" src="/favicon.ico" />
       </Link>
-      <AuthLink to="/account">Account</AuthLink>
-      <AuthLink to="/">
-        <Logout />
-      </AuthLink>
     </AppBar>
   )
 }
