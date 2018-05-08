@@ -11,7 +11,7 @@ const PawLeftFront = props => {
       position="0.13 0 -1.385"
       geometry=""
     >
-      {props.animation}
+      {props.animate(props.animation, 'pawLeftFront')}
     </a-box>
   )
 }
