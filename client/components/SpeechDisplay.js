@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Chip from 'material-ui/Chip'
 import Avatar from 'material-ui/Avatar'
@@ -10,53 +11,45 @@ class SpeechDisplay extends Component {
   constructor() {
     super()
     this.state = {
-      speech: '',
-      showSpeech: false
+      transcript: '',
+      recording: false,
+      speechBg: blue300
     }
   }
+
   handleClick = () => {
-    this.setState({ showSpeech: true })
+    this.setState({ recording: true, speechBg: blue300 })
     const recognition = new window.webkitSpeechRecognition()
     recognition.lang = 'en-US'
     recognition.interimResults = true
     recognition.maxAlternatives = 1
     recognition.start()
     recognition.onresult = event => {
-      // console.log('transcript  ', event.results[0][0].transcript)
-      // console.log(event.results)
       this.setState({
-        speech: event.results[0][0].transcript
+        transcript: event.results[0][0].transcript
       })
     }
     recognition.onend = function() {
       console.log('Speech recognition service disconnected')
     }
-    this.setState({ showSpeech: false })
-    // recognition.onspeechend = function() {
-    //   recognition.stop();
-    // }
+    this.setState({ speechBg: '#E0E0E0' })
   }
 
   render() {
+
+    const { transcript, recording, speechBg } = this.state
     return (
       <div>
-        <div id="speech-text">
-          {this.state.showSpeech && (
-            <Chip
-              style={styles.chip}
-            >
-              <Avatar color="#444" icon={<SvgIconFace />} />
-              {this.state.speech}
-            </Chip>
-          )}
-        </div>
-          <FloatingActionButton
-            onClick={this.handleClick}
-            // secondary={true}
-            style={style2}
-          >
-            <SvgIconMic color="#fff" />
-          </FloatingActionButton>
+        <div id="speech-text" />
+        {recording && (
+          <Chip style={styles} backgroundColor={speechBg}>
+            {/* <Avatar color="#444" icon={<SvgIconFace />} /> */}
+            {transcript}
+          </Chip>
+        )}
+        <FloatingActionButton onClick={this.handleClick} style={style2}>
+          <SvgIconMic color="#FFF" />
+        </FloatingActionButton>
       </div>
     )
   }
@@ -64,12 +57,11 @@ class SpeechDisplay extends Component {
 
 const styles = {
   chip: {
-    margin: 4,
+    margin: 4
   },
-  wrapper: {
-    display: 'flex',
-    flexWrap: 'wrap-reverse',
-  }
+  position: 'absolute',
+  right: '12%',
+  bottom: '6.5%'
 }
 
 const style2 = {

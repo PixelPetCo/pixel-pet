@@ -62,7 +62,7 @@ const style1 = {
 const style2 = {
   position: 'absolute',
   right: '5%',
-  bottom: '15%'
+  bottom: '14%'
 }
 
 const mapState = state => {
