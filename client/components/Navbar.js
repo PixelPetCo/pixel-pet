@@ -13,7 +13,11 @@ const Navbar = props => {
   return !props.user.id && process.env.NODE_ENV === 'production' ? (
     <div />
   ) : (
-    <AppBar className="nav row center-y" style={style} showMenuIconButton={false}>
+    <AppBar
+      className="nav row center-y"
+      style={style}
+      showMenuIconButton={false}
+    >
       <p>Welcome back, {identifier}!</p>
       <Link to="/account">Account</Link>
       <Link to="/">
@@ -27,7 +31,7 @@ const Navbar = props => {
 }
 
 const style = {
-  backgroundColor: "#ffffff"
+  height: '8%'
 }
 
 const mapState = ({ user }) => ({
