@@ -6,6 +6,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add'
 import Translator from './Translator'
 import MessageForm from './MessageForm'
 import ModelScene from '../components/aframe/ModelScene'
+import SpeechDisplay from './SpeechDisplay'
 
 // Home: there's no place like it (as long as you've logged in).
 class Home extends Component {
@@ -27,26 +28,23 @@ class Home extends Component {
     return (
       <main>
         <Translator petReply={botText} />
-        <ModelScene mood={mood} command={command} />
+        {/* <ModelScene mood={mood} command={command} /> */}
         <div id="input-buttons">
-          {!this.state.showTxtInput ? (
-            <FloatingActionButton
-              name="showTxtInput"
-              onClick={this.handleClick}
-              style={style}
-            >
-              text
-            </FloatingActionButton>
-          ) : (
-            <MessageForm />
-          )}
+          {this.state.showTxtInput && <MessageForm />}
           <FloatingActionButton
+            name="showTxtInput"
             onClick={this.handleClick}
+            style={style}
+          >
+            text
+          </FloatingActionButton>
+          {/* <FloatingActionButton
+            // onClick={this.handleClick}
             secondary={true}
             style={style}
           >
-            mic
-          </FloatingActionButton>
+          </FloatingActionButton> */}
+            <SpeechDisplay />
         </div>
       </main>
     )
