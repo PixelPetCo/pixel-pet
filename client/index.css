@@ -1,26 +1,3 @@
-#app {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-.nav {
-  height: 80px;
-}
-
-.nav a {
-  margin: 0 1em;
-}
-
-.nav p {
-  margin: 0 1em;
-}
-
-form {
-  min-width: 50%;
-  max-width: 50%;
-}
-
 a {
   text-decoration: none;
   color: #753ebd;
@@ -30,12 +7,26 @@ a:hover {
   border-bottom: 1px solid;
 }
 
+form {
+  min-width: 50%;
+  max-width: 50%;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 #google {
   border-bottom: 0px;
 }
 
-.nav a:first-child:hover {
-  border: none;
+#input-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 #logo {
@@ -51,6 +42,18 @@ a:hover {
   align-items: center;
 }
 
-#home-container {
-  margin-top: 150px;
+.nav {
+  height: 80px;
+}
+
+.nav a {
+  margin: 0 1em;
+}
+
+.nav a:first-child:hover {
+  border: none;
+}
+
+.nav p {
+  margin: 0 1em;
 }
