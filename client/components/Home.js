@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
+import Avatar from 'material-ui/Avatar'
+import SvgIconKeyboard from 'material-ui/svg-icons/hardware/keyboard'
 
 import Translator from './Translator'
 import MessageForm from './MessageForm'
 import ModelScene from '../components/aframe/ModelScene'
+import SpeechDisplay from './SpeechDisplay'
 
 // Home: there's no place like it (as long as you've logged in).
 class Home extends Component {
@@ -27,23 +29,24 @@ class Home extends Component {
     return (
       <main>
         <Translator petReply={botText} />
-        <ModelScene mood={mood} command={command} />
+        {/* <ModelScene mood={mood} command={command} /> */}
         <div id="input-buttons">
-          {!this.state.showTxtInput ? <div /> : <MessageForm />}
+          {this.state.showTxtInput && <MessageForm />}
           <FloatingActionButton
             name="showTxtInput"
-            onClick={this.handleClick}
-            style={style1}
-          >
-            text
-          </FloatingActionButton>
-          <FloatingActionButton
             onClick={this.handleClick}
             secondary={true}
             style={style2}
           >
-            mic
+            <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
+          {/* <FloatingActionButton
+            // onClick={this.handleClick}
+            secondary={true}
+            style={{ marginRight: 20 }}
+          >
+          </FloatingActionButton> */}
+            <SpeechDisplay />
         </div>
       </main>
     )
