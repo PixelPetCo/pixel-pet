@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import emotions from './animations/emotions'
 import commands from './animations/commands'
 
-import Body from './bodyParts/Body'
-import Jaw from './bodyParts/Jaw'
+import Torso from './bodyParts/Torso'
 import PawLeftFront from './bodyParts/PawLeftFront'
 import PawRightFront from './bodyParts/PawRightFront'
 import PawLeftHind from './bodyParts/PawLeftHind'
@@ -32,48 +31,35 @@ class PetModel extends Component {
     this.setState({ animations })
   }
 
-  componentWillReceiveProps = props => {
-    let animations
-    let trigger = props.command || props.mood
-    switch (trigger) {
-      case 'joy':
-        animations =
-          emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
-            .animations
-        break
-      case 'speak':
-        animations = commands.speak
-        break
-      default:
-        animations = {}
+  componentWillReceiveProps = nextProps => {
+    if (nextProps) {
+      // figure out how to compare to current props
+      let animations
+      let trigger = nextProps.command || nextProps.mood
+      switch (trigger) {
+        case 'joy':
+          animations =
+            emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
+              .animations
+          break
+        case 'speak':
+          animations = commands.speak
+          break
+        default:
+          animations = {}
+      }
+      this.setState({ animations })
     }
-    this.setState({ animations })
   }
 
   render = () => {
-    const head = this.state.animations.head
-    const body = this.state.animations.body
-    //const jaw = this.state.animations.jaw
-    const pawLeftFront = this.state.animations.pawLeftFront
-    const pawRightFront = this.state.animations.pawRightFront
-    const pawLeftHind = this.state.animations.pawLeftHind
-    const pawRightHind = this.state.animations.pawRightHind
     return (
-      <a-entity id="pixel-pet">
-        <Body animation={body && body.map(animation => animation)} />
-        {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
-        <PawLeftFront
-          animation={pawLeftFront && pawLeftFront.map(animation => animation)}
-        />
-        <PawRightFront
-          animation={pawRightFront && pawRightFront.map(animation => animation)}
-        />
-        <PawLeftHind
-          animation={pawLeftHind && pawLeftHind.map(animation => animation)}
-        />
-        <PawRightHind
-          animation={pawRightHind && pawRightHind.map(animation => animation)}
-        />
+      <a-entity id="body">
+        <Torso mood={this.state.mood} command={this.state.command} />
+        <PawLeftFront mood={this.state.mood} command={this.state.command} />
+        <PawRightFront mood={this.state.mood} command={this.state.command} />
+        <PawLeftHind mood={this.state.mood} command={this.state.command} />
+        <PawRightHind mood={this.state.mood} command={this.state.command} />
       </a-entity>
     )
   }
