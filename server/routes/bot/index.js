@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const bot = require('../../botFunctions')
+const { combinedBotFunction } = require('../../botFunctions')
 module.exports = router
 
 // GET /bot
@@ -7,6 +7,6 @@ module.exports = router
 router.post('/', async (req, res, next) => {
   const { text, state } = req.body
   const context = state.context
-  const newState = await bot(text, context)
+  const newState = await combinedBotFunction(text, context)
   res.send(newState)
 })
