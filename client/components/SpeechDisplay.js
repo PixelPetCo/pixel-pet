@@ -15,7 +15,7 @@ class SpeechDisplay extends Component {
     }
   }
   handleClick = () => {
-    this.setState({ showSpeech: !this.state.showSpeech })
+    this.setState({ showSpeech: true })
     const recognition = new window.webkitSpeechRecognition()
     recognition.lang = 'en-US'
     recognition.interimResults = true
@@ -31,7 +31,7 @@ class SpeechDisplay extends Component {
     recognition.onend = function() {
       console.log('Speech recognition service disconnected')
     }
-    this.setState({ showSpeech: !this.state.showSpeech })
+    this.setState({ showSpeech: false })
     // recognition.onspeechend = function() {
     //   recognition.stop();
     // }
@@ -49,14 +49,14 @@ class SpeechDisplay extends Component {
               {this.state.speech}
             </Chip>
           )}
+        </div>
           <FloatingActionButton
             onClick={this.handleClick}
-            secondary={true}
-            style={{ marginRight: 20 }}
+            // secondary={true}
+            style={style2}
           >
             <SvgIconMic color="#fff" />
           </FloatingActionButton>
-        </div>
       </div>
     )
   }
@@ -68,8 +68,14 @@ const styles = {
   },
   wrapper: {
     display: 'flex',
-    flexWrap: 'wrap',
-  },
+    flexWrap: 'wrap-reverse',
+  }
+}
+
+const style2 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '5%'
 }
 
 export default SpeechDisplay

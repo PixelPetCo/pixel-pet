@@ -29,7 +29,7 @@ class Home extends Component {
     return (
       <main>
         <Translator petReply={botText} />
-        {/* <ModelScene mood={mood} command={command} /> */}
+        <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
           {this.state.showTxtInput && <MessageForm />}
           <FloatingActionButton
@@ -62,7 +62,7 @@ const style1 = {
 const style2 = {
   position: 'absolute',
   right: '5%',
-  bottom: '10%'
+  bottom: '15%'
 }
 
 const mapState = state => {
