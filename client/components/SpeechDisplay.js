@@ -13,11 +13,16 @@ class SpeechDisplay extends Component {
     this.state = {
       transcript: '',
       recording: false,
-      speechBg: blue300
+      speechBg: blue300,
+      infoText: ''
     }
   }
 
-  handleClick = () => {
+  handleClick = evt => {
+    if (window.webkitSpeechRecognition === undefined)
+      this.handleError('upgrade')
+    if (evt.error == 'audio-capture') this.handleError('noMic')
+
     this.setState({ recording: true, speechBg: blue300 })
     const recognition = new window.webkitSpeechRecognition()
     recognition.lang = 'en-US'
@@ -35,12 +40,27 @@ class SpeechDisplay extends Component {
     this.setState({ speechBg: '#E0E0E0' })
   }
 
-  render() {
+  handleError = errorType => {
+    let errorMsg
+    const upgrade =
+      'Web Speech API is not supported by this browser. Please use Chrome version 25 or later.'
+    const noMic =
+      'No microphone was found. Ensure that a microphone is installed and that microphone settings are configured correctly.'
 
-    const { transcript, recording, speechBg } = this.state
+    if (errorType === 'upgrade') errorMsg = upgrade
+    if (errorType === 'noMic') errorMsg = noMic
+    this.setState({
+      infoText: errorMsg
+    })
+  }
+
+  render() {
+    const { transcript, recording, speechBg, infoText } = this.state
+
     return (
       <div>
         <div id="speech-text" />
+        {infoText.length > 0 && infoText}
         {recording && (
           <Chip style={styles} backgroundColor={speechBg}>
             {/* <Avatar color="#444" icon={<SvgIconFace />} /> */}
