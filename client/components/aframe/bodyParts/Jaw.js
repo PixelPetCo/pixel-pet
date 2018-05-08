@@ -1,22 +1,6 @@
 import React from 'react'
 // import speak from '../animations/torso/speak'
 
-const animate = props => {
-  let animations
-  let trigger = props.command || props.mood
-  switch (trigger) {
-    case 'joy':
-      animations = joy || []
-      break
-    case 'speak':
-      animations = speak || []
-      break
-    default:
-      animations = []
-  }
-  return animations.map(animation => animation)
-}
-
 const Jaw = props => {
   return (
     <a-box
@@ -28,7 +12,7 @@ const Jaw = props => {
       position="0 -0.2 0.2307664801058491"
       rotation=""
     >
-      {animate(props)}
+      {props.animate(props.animation, 'jaw')}
     </a-box>
   )
 }

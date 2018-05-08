@@ -5,7 +5,6 @@ export default class ModelScene extends Component {
   render = () => {
     console.log('props from model ', this.props)
     let animation = this.props.command || this.props.mood
-    this.setState({ animations })
     return (
       <a-scene>
         <PetModel animation={animation} />

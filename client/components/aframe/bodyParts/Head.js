@@ -116,7 +116,7 @@ const Head = props => {
         geometry=""
       />
       {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
-      <Jaw mood={props.mood} command={props.command} />
+      <Jaw animation={props.animation} animate={props.animate} />
     </a-entity>
   )
 }

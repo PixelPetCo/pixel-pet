@@ -2,19 +2,7 @@ import React from 'react'
 import Head from './Head'
 import joy from '../animations/torso/joy'
 
-const animate = props => {
-  switch (props.animation) {
-    case 'joy':
-      return joy
-    case 'speak':
-      return speak
-    default:
-      return []
-  }
-  return animations.map(animation => animation)
-}
-
-const Body = props => {
+const Torso = props => {
   return (
     <a-box
       id="body"
@@ -26,12 +14,12 @@ const Body = props => {
       position="0.024 0.324 -1.501"
       geometry=""
     >
-      <Head mood={props.mood} command={props.command} />
-      {animate(props)}
+      <Head animation={props.animation} animate={props.animate} />
+      {props.animate(props.animation, 'torso')}
     </a-box>
   )
 }
 
-export default Body
+export default Torso
 
 // animation={head && head.map(animation => animation)}
