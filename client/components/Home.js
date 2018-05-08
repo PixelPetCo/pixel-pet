@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
+import Avatar from 'material-ui/Avatar'
+import SvgIconKeyboard from 'material-ui/svg-icons/hardware/keyboard'
 
 import Translator from './Translator'
 import MessageForm from './MessageForm'
@@ -34,14 +35,14 @@ class Home extends Component {
           <FloatingActionButton
             name="showTxtInput"
             onClick={this.handleClick}
-            style={style}
+            style={{ marginRight: 20 }}
           >
-            text
+            <Avatar color="#444" icon={<SvgIconKeyboard />} />
           </FloatingActionButton>
           {/* <FloatingActionButton
             // onClick={this.handleClick}
             secondary={true}
-            style={style}
+            style={{ marginRight: 20 }}
           >
           </FloatingActionButton> */}
             <SpeechDisplay />
@@ -49,10 +50,6 @@ class Home extends Component {
       </main>
     )
   }
-}
-
-const style = {
-  marginRight: 20
 }
 
 const mapState = state => {

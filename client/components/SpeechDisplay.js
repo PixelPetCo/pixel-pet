@@ -1,22 +1,29 @@
 import React, { Component } from 'react'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import Chip from 'material-ui/Chip'
+import Avatar from 'material-ui/Avatar'
+import SvgIconMic from 'material-ui/svg-icons/action/mic'
+import SvgIconFace from 'material-ui/svg-icons/action/face'
+import { blue300, indigo900 } from 'material-ui/styles/colors'
 
 class SpeechDisplay extends Component {
   constructor() {
     super()
     this.state = {
-      speech: ''
+      speech: '',
+      showSpeech: false
     }
   }
   handleClick = () => {
+    this.setState({ showSpeech: !this.state.showSpeech })
     const recognition = new window.webkitSpeechRecognition()
     recognition.lang = 'en-US'
     recognition.interimResults = true
     recognition.maxAlternatives = 1
     recognition.start()
     recognition.onresult = event => {
-      console.log('transcript  ', event.results[0][0].transcript)
-      console.log(event.results)
+      // console.log('transcript  ', event.results[0][0].transcript)
+      // console.log(event.results)
       this.setState({
         speech: event.results[0][0].transcript
       })
@@ -32,13 +39,38 @@ class SpeechDisplay extends Component {
   render() {
     return (
       <div>
-        <h1>Web Speech API Demonstration</h1>
         <div id="speech-text">
-          <button onClick={this.handleClick}>Record</button>
-          {this.state.speech}
+          {this.state.showSpeech && (
+            <Chip
+              // onRequestDelete={handleRequestDelete}
+              // onClick={handleClick}
+              style={styles.chip}
+            >
+              <Avatar color="#444" icon={<SvgIconFace />} />
+              {this.state.speech}
+            </Chip>
+          )}
+          <FloatingActionButton
+            onClick={this.handleClick}
+            secondary={true}
+            style={{ marginRight: 20 }}
+          >
+            <Avatar color="#fff" icon={<SvgIconMic />} />
+          </FloatingActionButton>
         </div>
       </div>
     )
   }
 }
+
+const styles = {
+  chip: {
+    margin: 4,
+  },
+  wrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+}
+
 export default SpeechDisplay
