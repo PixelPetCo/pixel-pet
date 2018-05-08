@@ -29,21 +29,18 @@ class Home extends Component {
         <Translator petReply={botText} />
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
-          {!this.state.showTxtInput ? (
-            <FloatingActionButton
-              name="showTxtInput"
-              onClick={this.handleClick}
-              style={style}
-            >
-              text
-            </FloatingActionButton>
-          ) : (
-            <MessageForm />
-          )}
+          {!this.state.showTxtInput ? <div /> : <MessageForm />}
+          <FloatingActionButton
+            name="showTxtInput"
+            onClick={this.handleClick}
+            style={style1}
+          >
+            text
+          </FloatingActionButton>
           <FloatingActionButton
             onClick={this.handleClick}
             secondary={true}
-            style={style}
+            style={style2}
           >
             mic
           </FloatingActionButton>
@@ -53,8 +50,16 @@ class Home extends Component {
   }
 }
 
-const style = {
-  marginRight: 20
+const style1 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '25%'
+}
+
+const style2 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '10%'
 }
 
 const mapState = state => {
