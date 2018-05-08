@@ -35,7 +35,8 @@ class Home extends Component {
           <FloatingActionButton
             name="showTxtInput"
             onClick={this.handleClick}
-            style={{ marginRight: 20 }}
+            secondary={true}
+            style={style2}
           >
             <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
@@ -50,6 +51,18 @@ class Home extends Component {
       </main>
     )
   }
+}
+
+const style1 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '25%'
+}
+
+const style2 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '10%'
 }
 
 const mapState = state => {
