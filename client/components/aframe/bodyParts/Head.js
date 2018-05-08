@@ -1,15 +1,19 @@
 import React from 'react'
+import Jaw from './Jaw'
 
 const Head = props => {
   return (
-    <a-entity>
+    <a-entity
+      position="0.12789000425531563 0.12610999574468434 0.388331139133306"
+      rotation="0 0 -45"
+    >
       <a-box
         id="head"
         material="shader:flat;color:#513797"
         depth="0.45"
         height="0.4"
         width="0.4"
-        position="0 0.5 -1.118"
+        position=""
         geometry=""
       />
       <a-box
@@ -18,8 +22,8 @@ const Head = props => {
         depth="0.14"
         height="0.18"
         width="0.2"
-        position="0 0.383 -0.824"
-        geometry="depth:0.14;height:0.18"
+        position="0 -0.11923910006574229 0.29267250124366273"
+        geometry=""
         rotation=""
       />
       <a-box
@@ -28,7 +32,8 @@ const Head = props => {
         depth="0.02"
         height="0.04"
         width="0.02"
-        position="-0.038 0.46 -0.761"
+        position="-0.04 -0.043 0.356"
+        geometry=""
       />
       <a-box
         id="nostril-left"
@@ -36,7 +41,8 @@ const Head = props => {
         depth="0.020"
         height="0.04"
         width="0.02"
-        position="0.039 0.46 -0.761"
+        position="0.04 -0.045 0.356"
+        geometry=""
       />
       <a-entity
         id="smile"
@@ -51,21 +57,22 @@ const Head = props => {
       <a-box
         id="ear-left"
         material="shader:flat;color:#513797"
-        rotation="45 -29.999999999999996 0"
+        rotation="45 0 0"
         depth="0.140"
         height="0.02"
         width="0.09"
-        position="0.217 0.731 -1.346"
+        position="0.14881709598662096 0.3 -0.32160633752978557"
         geometry=""
       />
+
       <a-box
         id="ear-right"
         material="shader:flat;color:#513797"
-        rotation="45 29.999999999999996 0"
+        rotation="45 0 0"
         depth="0.140"
         height="0.02"
         width="0.09"
-        position="-0.201 0.731 -1.346"
+        position="-0.172 0.296 -0.338"
         geometry=""
       />
       <a-box
@@ -75,7 +82,7 @@ const Head = props => {
         depth="0.150"
         height="0.150"
         width="0.01"
-        position="-0.11798077125982731 0.57 -0.892"
+        position="-0.11 0.067 0.221"
         geometry=""
       />
       <a-box
@@ -85,7 +92,7 @@ const Head = props => {
         depth="0.150"
         height="0.150"
         width="0.01"
-        position="0.12279881803934703 0.57 -0.892"
+        position="0.11 0.067 0.221"
         geometry=""
       />
       <a-box
@@ -95,7 +102,7 @@ const Head = props => {
         depth="0.1"
         height="0.1"
         width="0.01"
-        position="0.126 0.545 -0.891"
+        position="0.11 0.042 0.226"
         geometry=""
       />
       <a-box
@@ -105,12 +112,15 @@ const Head = props => {
         depth="0.1"
         height="0.1"
         width="0.01"
-        position="-0.118 0.5457793819758201 -0.891"
+        position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
-      {props.animation}
+      {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
+      <Jaw animation={props.animation} animate={props.animate} />
     </a-entity>
   )
 }
 
 export default Head
+
+// {props.animation}

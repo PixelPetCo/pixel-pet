@@ -1,84 +1,42 @@
-import React, { Component } from 'react'
-import emotions from './animations/emotions'
-import commands from './animations/commands'
-
-import Head from './bodyParts/Head'
-import Body from './bodyParts/Body'
-import Jaw from './bodyParts/Jaw'
+import React from 'react'
+import Torso from './bodyParts/Torso'
 import PawLeftFront from './bodyParts/PawLeftFront'
 import PawRightFront from './bodyParts/PawRightFront'
 import PawLeftHind from './bodyParts/PawLeftHind'
 import PawRightHind from './bodyParts/PawRightHind'
 
-class PetModel extends Component {
-  state = {
-    animations: {}
+const animate = (animation, component) => {
+  let animations
+  switch (animation) {
+    case 'joy':
+      try {
+        animations = require(`./animations/${component}/joy`)
+        return animations && animations.default.map(elem => elem)
+      } catch (error) {
+        return
+      }
+    case 'speak':
+      try {
+        animations = require(`./animations/${component}/speak`)
+        return animations.default.map(elem => elem)
+      } catch (error) {
+        return
+      }
+    default:
+      return []
   }
+}
 
-  componentDidMount = () => {
-    let animations
-    let trigger = this.props.command || this.props.mood
-    switch (trigger) {
-      case 'joy':
-        animations =
-          emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
-            .animations
-        break
-      case 'speak':
-        animations = commands.speak
-        break
-      default:
-        animations = {}
-    }
-    this.setState({ animations })
-  }
-
-  componentWillReceiveProps = props => {
-    let animations
-    let trigger = props.command || props.mood
-    switch (trigger) {
-      case 'joy':
-        animations =
-          emotions.joy[Math.floor(Math.random() * emotions.joy.length)]
-            .animations
-        break
-      case 'speak':
-        animations = commands.speak
-        break
-      default:
-        animations = {}
-    }
-    this.setState({ animations })
-  }
-
-  render = () => {
-    const head = this.state.animations.head
-    const body = this.state.animations.body
-    const jaw = this.state.animations.jaw
-    const pawLeftFront = this.state.animations.pawLeftFront
-    const pawRightFront = this.state.animations.pawRightFront
-    const pawLeftHind = this.state.animations.pawLeftHind
-    const pawRightHind = this.state.animations.pawRightHind
-    return (
-      <a-entity>
-        <Head animation={head && head.map(animation => animation)} />
-        <Body animation={body && body.map(animation => animation)} />
-        <Jaw animation={jaw && jaw.map(animation => animation)} />
-        <PawLeftFront
-          animation={pawLeftFront && pawLeftFront.map(animation => animation)}
-        />
-        <PawRightFront
-          animation={pawRightFront && pawRightFront.map(animation => animation)}
-        />
-        <PawLeftHind
-          animation={pawLeftHind && pawLeftHind.map(animation => animation)}
-        />
-        <PawRightHind
-          animation={pawRightHind && pawRightHind.map(animation => animation)}
-        />
-      </a-entity>
-    )
-  }
+const PetModel = props => {
+  return (
+    <a-entity id="body">
+      <Torso animation={props.animation} animate={animate} />
+      <PawLeftFront animation={props.animation} />
+      <PawRightFront animation={props.animation} />
+      <PawLeftHind animation={props.animation} />
+      <PawRightHind animation={props.animation} />
+    </a-entity>
+  )
 }
 
 export default PetModel

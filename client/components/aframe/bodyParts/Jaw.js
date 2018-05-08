@@ -1,4 +1,5 @@
 import React from 'react'
+// import speak from '../animations/torso/speak'
 
 const Jaw = props => {
   return (
@@ -8,10 +9,10 @@ const Jaw = props => {
       depth="0.250"
       height="0.020"
       width="0.199"
-      position="0 0.290 -0.892"
+      position="0 -0.2 0.2307664801058491"
       rotation=""
     >
-      {props.animation}
+      {props.animate(props.animation, 'jaw')}
     </a-box>
   )
 }
