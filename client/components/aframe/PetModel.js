@@ -31,10 +31,10 @@ const PetModel = props => {
   return (
     <a-entity id="body">
       <Torso animation={props.animation} animate={animate} />
-      <PawLeftFront animation={props.animation} />
-      <PawRightFront animation={props.animation} />
-      <PawLeftHind animation={props.animation} />
-      <PawRightHind animation={props.animation} />
+      <PawLeftFront animation={props.animation} animate={animate} />
+      <PawRightFront animation={props.animation} animate={animate} />
+      <PawLeftHind animation={props.animation} animate={animate} />
+      <PawRightHind animation={props.animation} animate={animate} />
     </a-entity>
   )
 }
