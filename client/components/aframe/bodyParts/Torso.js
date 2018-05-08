@@ -3,17 +3,13 @@ import Head from './Head'
 import joy from '../animations/torso/joy'
 
 const animate = props => {
-  let animations
-  let trigger = props.command || props.mood
-  switch (trigger) {
+  switch (props.animation) {
     case 'joy':
-      animations = joy || []
-      break
+      return joy
     case 'speak':
-      animations = speak || []
-      break
+      return speak
     default:
-      animations = []
+      return []
   }
   return animations.map(animation => animation)
 }

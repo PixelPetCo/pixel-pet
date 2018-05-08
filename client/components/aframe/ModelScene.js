@@ -4,12 +4,11 @@ import PetModel from './PetModel'
 export default class ModelScene extends Component {
   render = () => {
     console.log('props from model ', this.props)
+    let animation = this.props.command || this.props.mood
+    this.setState({ animations })
     return (
       <a-scene>
-        <PetModel
-          mood={this.props.mood || ''}
-          command={this.props.command || ''}
-        />
+        <PetModel animation={animation} />
 
         {/* <a-plane
           rotation="-90 0 0"
