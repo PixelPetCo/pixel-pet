@@ -37,7 +37,7 @@ class Home extends Component {
             onClick={this.handleClick}
             style={{ marginRight: 20 }}
           >
-            <Avatar color="#444" icon={<SvgIconKeyboard />} />
+            <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
           {/* <FloatingActionButton
             // onClick={this.handleClick}

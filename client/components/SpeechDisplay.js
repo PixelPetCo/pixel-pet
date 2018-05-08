@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Chip from 'material-ui/Chip'
 import Avatar from 'material-ui/Avatar'
-import SvgIconMic from 'material-ui/svg-icons/action/mic'
+import SvgIconMic from 'material-ui/svg-icons/av/mic'
 import SvgIconFace from 'material-ui/svg-icons/action/face'
 import { blue300, indigo900 } from 'material-ui/styles/colors'
 
@@ -31,6 +31,7 @@ class SpeechDisplay extends Component {
     recognition.onend = function() {
       console.log('Speech recognition service disconnected')
     }
+    this.setState({ showSpeech: !this.state.showSpeech })
     // recognition.onspeechend = function() {
     //   recognition.stop();
     // }
@@ -42,8 +43,6 @@ class SpeechDisplay extends Component {
         <div id="speech-text">
           {this.state.showSpeech && (
             <Chip
-              // onRequestDelete={handleRequestDelete}
-              // onClick={handleClick}
               style={styles.chip}
             >
               <Avatar color="#444" icon={<SvgIconFace />} />
@@ -55,7 +54,7 @@ class SpeechDisplay extends Component {
             secondary={true}
             style={{ marginRight: 20 }}
           >
-            <Avatar color="#fff" icon={<SvgIconMic />} />
+            <SvgIconMic color="#fff" />
           </FloatingActionButton>
         </div>
       </div>
