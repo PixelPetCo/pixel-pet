@@ -4,11 +4,12 @@ import Jaw from './Jaw'
 const Head = props => {
   return (
     <a-entity
+      id="head"
       position="0.12789000425531563 0.12610999574468434 0.388331139133306"
       rotation="0 0 -45"
     >
       <a-box
-        id="head"
+        id="head-base"
         material="shader:flat;color:#513797"
         depth="0.45"
         height="0.4"
@@ -115,8 +116,8 @@ const Head = props => {
         position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
-      {/* <Jaw animation={jaw && jaw.map(animation => animation)} /> */}
       <Jaw animation={props.animation} animate={props.animate} />
+      {props.animate(props.animation, 'head')}
     </a-entity>
   )
 }
