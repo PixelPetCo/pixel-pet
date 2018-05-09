@@ -3,27 +3,26 @@ import PetModel from './PetModel'
 
 export default class ModelScene extends Component {
   render = () => {
-    console.log('props from model ', this.props)
     let animation = this.props.command || this.props.mood
     return (
       <a-scene>
+        <a-assets>
+          <img id="grassTexture" src="/grass.png" />
+          <img id="skyTexture" src="/sky.png" />
+        </a-assets>
+
         <PetModel animation={animation} />
 
-        {/* <a-plane
+        <a-plane
+          material="shader: flat; src: #grassTexture"
           rotation="-90 0 0"
-          color="#CCCCCC"
           height="20"
           width="20"
-        >
-        </a-plane> */}
-
-        <a-light
-          // position="-1 1 0" // top left
-          // target
-          type="directional; castShadow:true;"
-          color="#FFF"
-          intensity="1"
         />
+
+        <a-sky material="shader: flat; src: #skyTexture" />
+
+        <a-light color="#FFF" intensity="1" />
 
         <a-entity position="1 -0.8 0.6">
           <a-camera id="user-view" wasd-controls look-controls>
@@ -38,14 +37,3 @@ export default class ModelScene extends Component {
     )
   }
 }
-
-// Emotions + colors
-// joy, sad, mad
-
-// Commands
-// jump, sit, roll-over, spin, lie-down, shake hands, clap, beg, speak
-
-// Clicking on pet causes it to emit sound and/or emotion action
-
-// Future features
-// petting also produces action from pet
