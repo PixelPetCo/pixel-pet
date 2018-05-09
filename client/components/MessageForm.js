@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { sendMessage } from '../store/chat'
+
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import { sendMessage } from '../store/chat'
 
 class MessageForm extends Component {
   constructor() {
@@ -11,11 +12,13 @@ class MessageForm extends Component {
       userMessage: ''
     }
   }
+
   handleChange = evt => {
     this.setState({
       userMessage: evt.target.value
     })
   }
+
   handleSubmit = evt => {
     evt.preventDefault()
     this.props.sendUserMessage(this.state.userMessage)

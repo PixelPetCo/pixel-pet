@@ -7,7 +7,7 @@ import SvgIconKeyboard from 'material-ui/svg-icons/hardware/keyboard'
 import Translator from './Translator'
 import MessageForm from './MessageForm'
 import ModelScene from '../components/aframe/ModelScene'
-import SpeechDisplay from './SpeechDisplay'
+import SpeechRecognizer from './SpeechRecognizer'
 
 // Home: there's no place like it (as long as you've logged in).
 class Home extends Component {
@@ -40,7 +40,7 @@ class Home extends Component {
           >
             <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
-          <SpeechDisplay />
+          <SpeechRecognizer />
         </div>
       </main>
     )
