@@ -1,0 +1,9 @@
+{
+  "ignore": [
+    "*.test.js",
+    "watsonConvoTest.js",
+    "watsonToneTest.js",
+    "functionsTest.js",
+    "integratedTest.js"
+  ]
+}

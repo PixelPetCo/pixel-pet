@@ -2,6 +2,7 @@
 
 const SEND_MESSAGE = 'SEND_MESSAGE'
 const RESET_COMMAND = 'RESET_COMMAND'
+const RESET_MOOD = 'RESET_MOOD'
 
 // INITIAL STATE
 
@@ -14,6 +15,7 @@ const sendMessageAction = botResponse => ({
   botResponse
 })
 export const resetCommandAction = () => ({ type: RESET_COMMAND })
+export const resetMoodAction = () => ({ type: RESET_MOOD })
 
 // THUNK CREATORS
 
@@ -24,6 +26,10 @@ export const sendMessage = text => {
       const res = await axios.post('/bot', { text, state })
       const botResponse = res.data
       dispatch(sendMessageAction(botResponse))
+      setTimeout(() => {
+        dispatch(resetCommandAction())
+        dispatch(resetMoodAction())
+      }, 6000)
     } catch (error) {
       console.error('Could not get bot response: ', error)
     }
@@ -38,6 +44,8 @@ export default (state = initialState, action) => {
       return action.botResponse
     case RESET_COMMAND:
       return { ...state, command: null }
+    case RESET_MOOD:
+      return { ...state, mood: null }
     default:
       return state
   }

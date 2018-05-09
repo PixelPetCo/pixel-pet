@@ -18,7 +18,7 @@ class MessageForm extends Component {
   }
   handleSubmit = evt => {
     evt.preventDefault()
-    const response = this.props.sendUserMessage(this.state.userMessage)
+    this.props.sendUserMessage(this.state.userMessage)
     this.setState({ userMessage: '' })
   }
 
@@ -48,13 +48,13 @@ const styleText = {
   position: 'absolute',
   width: '18%',
   right: '15%',
-  bottom: '23%'
+  bottom: '14%'
 }
 
 const styleButton = {
   position: 'absolute',
   right: '9%',
-  bottom: '23%'
+  bottom: '14%'
 }
 
 const mapDispatch = dispatch => ({
