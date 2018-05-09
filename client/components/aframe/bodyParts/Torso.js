@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from './Head'
-import joy from '../animations/torso/joy'
 
 const Torso = props => {
   return (

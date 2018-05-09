@@ -51,13 +51,13 @@ const styleText = {
   position: 'absolute',
   width: '18%',
   right: '15%',
-  bottom: '23%'
+  bottom: '14%'
 }
 
 const styleButton = {
   position: 'absolute',
   right: '9%',
-  bottom: '23%'
+  bottom: '14%'
 }
 
 const mapDispatch = dispatch => ({

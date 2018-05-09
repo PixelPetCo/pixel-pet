@@ -4,7 +4,7 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 const Translator = props => (
   <Card style={style}>
     <CardHeader subtitle="PixelPeep Translator" />
-    <CardHeader title={props.petReply || ''} />
+    <CardHeader title={props.botText || ''} />
   </Card>
 )
 

@@ -25,10 +25,10 @@ class Home extends Component {
   }
 
   render() {
-    const { botText, mood, command } = this.props
+    const { botText, mood, command } = this.props.chat
     return (
       <main>
-        <Translator petReply={botText} />
+        <Translator botText={botText} />
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
           {this.state.showTxtInput && <MessageForm />}
@@ -36,38 +36,23 @@ class Home extends Component {
             name="showTxtInput"
             onClick={this.handleClick}
             secondary={true}
-            style={style2}
+            style={style}
           >
             <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
-          {/* <FloatingActionButton
-            // onClick={this.handleClick}
-            secondary={true}
-            style={{ marginRight: 20 }}
-          >
-          </FloatingActionButton> */}
-            <SpeechRecognizer />
+          <SpeechRecognizer />
         </div>
       </main>
     )
   }
 }
 
-const style1 = {
-  position: 'absolute',
-  right: '5%',
-  bottom: '25%'
-}
-
-const style2 = {
+const style = {
   position: 'absolute',
   right: '5%',
   bottom: '14%'
 }
 
-const mapState = state => {
-  const { botText, mood, command } = state.chat
-  return { botText, mood, command }
-}
+const mapState = ({ chat }) => ({ chat })
 
 export default connect(mapState)(Home)
