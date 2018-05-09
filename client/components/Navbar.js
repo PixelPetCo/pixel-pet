@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { AuthLink, Logout } from './auth'
 import { connect } from 'react-redux'
-
+import Pop from './Pop'
 import AppBar from 'material-ui/AppBar'
 
 const Navbar = props => {
@@ -16,16 +14,10 @@ const Navbar = props => {
     <AppBar
       className="nav row center-y"
       style={style}
-      showMenuIconButton={false}
+      iconElementLeft={<Pop />}
     >
       <p>Welcome back, {identifier}!</p>
-      <Link to="/account">Account</Link>
-      <Link to="/">
-        <Logout />
-      </Link>
-      <Link to="/">
-        <img id="logo" src="/favicon.ico" />
-      </Link>
+      <img id="logo" src="/favicon.ico" />
     </AppBar>
   )
 }
