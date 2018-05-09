@@ -30,8 +30,8 @@ const toneAnalyzer = new ToneAnalyzerV3({
 // Conversation Setup
 
 const service = new AssistantV1({
-  username: CONVERSATION_USERNAME, // replace with service username
-  password: CONVERSATION_PASSWORD, // replace with service password
+  username: CONVERSATION_USERNAME,
+  password: CONVERSATION_PASSWORD,
   version: '2018-02-16'
 })
 
