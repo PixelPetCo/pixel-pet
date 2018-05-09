@@ -29,6 +29,13 @@ const animate = (animation, component) => {
       } catch (error) {
         return
       }
+    case 'fear':
+      try {
+        animations = require(`./animations/${component}/fear`)
+        return animations.default.map(elem => elem)
+      } catch (error) {
+        return
+      }
     default:
       return []
   }
