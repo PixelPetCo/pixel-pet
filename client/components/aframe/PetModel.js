@@ -36,6 +36,13 @@ const animate = (animation, component) => {
       } catch (error) {
         return
       }
+    case 'analytical':
+      try {
+        animations = require(`./animations/${component}/analytical`)
+        return animations.default.map(elem => elem)
+      } catch (error) {
+        return console.log('unable to render analytical animation')
+      }
     default:
       return []
   }
