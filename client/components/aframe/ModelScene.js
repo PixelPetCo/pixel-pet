@@ -6,7 +6,7 @@ export default class ModelScene extends Component {
     let animation = this.props.command || this.props.mood
 
     return (
-      <a-scene>
+      <a-scene vr-mode-ui="enabled: false">
         <a-assets>
           <img id="grassTexture" src="/grass.png" />
           <img id="skyTexture" src="/sky.png" />
