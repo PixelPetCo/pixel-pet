@@ -1,15 +1,20 @@
 const router = require('express').Router()
 const passport = require('passport')
 const session = require('express-session')
-const {User} = require('../db')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const { db, User } = require('../db')
+const sessionStore = new SequelizeStore({ db })
 module.exports = router
 
 // Session middleware
-router.use(session({
-  secret: process.env.SESSION_SECRET || 'This is not a very secure secret...',
-  resave: false,
-  saveUninitialized: false
-}))
+router.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'This is not a very secure secret...',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 // consumes 'req.session' so that passport can know what's on the session
 router.use(passport.initialize())
