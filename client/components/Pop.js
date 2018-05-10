@@ -47,6 +47,9 @@ export default class PopoverExampleSimple extends React.Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
+            <Link to="/">
+              <MenuItem primaryText="Home" />
+            </Link>
             <Link to="/account">
               <MenuItem primaryText="Account" />
             </Link>
