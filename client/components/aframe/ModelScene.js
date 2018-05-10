@@ -2,8 +2,24 @@ import React, { Component } from 'react'
 import PetModel from './PetModel'
 
 export default class ModelScene extends Component {
+  componentDidMount() {
+    let scriptString
+    scriptString = `
+        var head = document.querySelector('#head');
+        var pawStompHeight = document.querySelector('#paw-stomp-height');
+        pawStompHeight.addEventListener('animationend', function() {;
+          head.emit('startshake');
+        })`
+    const scriptTag = document.createElement('script')
+    scriptTag.type = 'text/javascript'
+    scriptTag.async = true
+    scriptTag.innerHTML = scriptString
+    console.log('THIS INSTANCE', this)
+    document.body.appendChild(scriptTag)
+  }
+
   render = () => {
-    let animation = this.props.command || this.props.mood
+    let animation = 'angry' // this.props.command || this.props.mood
     return (
       <a-scene>
         <a-assets>
