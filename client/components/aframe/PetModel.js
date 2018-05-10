@@ -5,6 +5,18 @@ import PawRightFront from './bodyParts/PawRightFront'
 import PawLeftHind from './bodyParts/PawLeftHind'
 import PawRightHind from './bodyParts/PawRightHind'
 
+const PetModel = props => {
+  return (
+    <a-entity id="body">
+      <Torso animation={props.animation} animate={animate} />
+      <PawLeftFront animation={props.animation} animate={animate} />
+      <PawRightFront animation={props.animation} animate={animate} />
+      <PawLeftHind animation={props.animation} animate={animate} />
+      <PawRightHind animation={props.animation} animate={animate} />
+    </a-entity>
+  )
+}
+
 const animate = (animation, component) => {
   let animations
   switch (animation) {
@@ -41,23 +53,11 @@ const animate = (animation, component) => {
         animations = require(`./animations/${component}/analytical`)
         return animations.default.map(elem => elem)
       } catch (error) {
-        return console.log('unable to render analytical animation')
+        return
       }
     default:
       return []
   }
-}
-
-const PetModel = props => {
-  return (
-    <a-entity id="body">
-      <Torso animation={props.animation} animate={animate} />
-      <PawLeftFront animation={props.animation} animate={animate} />
-      <PawRightFront animation={props.animation} animate={animate} />
-      <PawLeftHind animation={props.animation} animate={animate} />
-      <PawRightHind animation={props.animation} animate={animate} />
-    </a-entity>
-  )
 }
 
 export default PetModel

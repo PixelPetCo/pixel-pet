@@ -118,11 +118,11 @@ const Head = props => {
       />
       {props.animation === 'analytical' && (
         <a-entity
-          id="glasses"
-          obj-model="obj:/glasses/glasses.obj;mtl:/glasses/glasses.mtl"
-          scale="0.004 0.004 0.004"
-          position="-0.0006211493748270736 -0.06374298576128307 -0.3400584838627969"
-          rotation="-90 0 0"
+          id="monocle"
+          obj-model="obj:/monocle/monocle.obj"
+          material="shader:flat;src:#goldTexture"
+          position="0.11148805854835936 -0.39532803329029415 0.23473088593375513"
+          scale="0.11 0.11 0.11"
         />
       )}
       <Jaw animation={props.animation} animate={props.animate} />
