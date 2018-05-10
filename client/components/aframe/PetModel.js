@@ -37,7 +37,20 @@ const animate = (animation, component) => {
         return
       }
     default:
-      return []
+      return [
+        <a-animation
+          attribute="material.color"
+          from="#291B4E"
+          to="#291B4E"
+          dur="400"
+          />,
+          <a-animation
+          attribute="material.color"
+          from="#513797"
+          to="#513797"
+          dur="400"
+        />
+      ]
   }
 }
 

@@ -10,6 +10,13 @@ const joy = [
     from="-10 -10 -45"
     to="10 10 -45"
     repeat="indefinite"
+  />,
+  <a-animation
+    key="2"
+    attribute="material.color"
+    from="#F6F078"
+    to="#D1C756"
+    dur="400"
   />
 ]
 
