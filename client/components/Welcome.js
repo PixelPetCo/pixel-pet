@@ -5,7 +5,7 @@ import Home from './Home'
 
 // Welcome: a landing page for unauthenticated users
 const Welcome = props => {
-  return !props.user.id && process.env.NODE_ENV !== 'development' ? (
+  return !props.user.id ? (
     <Landing />
   ) : (
     // Home: home/landing page for the authenticated users when logged in

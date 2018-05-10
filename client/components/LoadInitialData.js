@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import {withRouter} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {me} from '../store/user'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { me } from '../store/user'
 import Main from './Main'
 
 // LoadInitialData: this sits on top of our `Main` component and fetches
@@ -9,7 +9,7 @@ import Main from './Main'
 // the visitor lands. As of right now, we try to fetch the current user
 // from the session.
 export class LoadInitialData extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       loaded: false,
@@ -17,26 +17,28 @@ export class LoadInitialData extends Component {
     }
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       await this.props.load()
-      this.setState({loaded: true})
+      this.setState({ loaded: true })
     } catch (error) {
-      this.setState({error: true})
+      this.setState({ error: true })
     }
   }
 
-  render () {
-    const {loaded, error} = this.state
-    return loaded
-      ? <Main />
-      : error
-        ? <div>We are experiencing some technical difficulties...</div>
-        : <div>Loading...</div>
+  render() {
+    const { loaded, error } = this.state
+    return loaded ? (
+      <Main />
+    ) : error ? (
+      <div>We are experiencing some technical difficulties...</div>
+    ) : (
+      <div>Loading...</div>
+    )
   }
 }
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     // This will execute when our Main component mounts. This is a great place
     // to fetch our initial data.
