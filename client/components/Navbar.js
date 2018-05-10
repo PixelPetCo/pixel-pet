@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Pop from './Pop'
 import AppBar from 'material-ui/AppBar'
+const style = {
+  height: '8%'
+}
 
 const Navbar = props => {
   const identifier = props.user.name || props.user.email
@@ -13,14 +16,11 @@ const Navbar = props => {
       style={style}
       iconElementLeft={<Pop />}
     >
-      <p>Welcome back, {identifier}!</p>
+      <h3 className="pixel-font left-logo">PIXELPET</h3>
       <img id="logo" src="/favicon.ico" />
+      <p className="pixel-font">Welcome back, {identifier}!</p>
     </AppBar>
   )
-}
-
-const style = {
-  height: '8%'
 }
 
 const mapState = ({ user }) => ({
