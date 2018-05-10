@@ -2,24 +2,30 @@ import React, { Component } from 'react'
 import PetModel from './PetModel'
 
 export default class ModelScene extends Component {
-  componentDidMount() {
+  componentDidUpdate = () => {
     let scriptString
-    scriptString = `
-        var head = document.querySelector('#head');
-        var pawStompHeight = document.querySelector('#paw-stomp-height');
-        pawStompHeight.addEventListener('animationend', function() {;
-          head.emit('startshake');
-        })`
+    let animation = this.props.command || this.props.mood
+    switch (animation) {
+      case 'anger':
+        scriptString = `
+          var head = document.querySelector('#head');
+          var pawStompHeight = document.querySelector('#paw-stomp-height');
+          pawStompHeight.addEventListener('animationend', function() {
+            head.emit('startshake');
+          })`
+        break
+      default:
+        scriptString = ''
+    }
     const scriptTag = document.createElement('script')
     scriptTag.type = 'text/javascript'
     scriptTag.async = true
     scriptTag.innerHTML = scriptString
-    console.log('THIS INSTANCE', this)
     document.body.appendChild(scriptTag)
   }
 
   render = () => {
-    let animation = 'angry' // this.props.command || this.props.mood
+    let animation = this.props.command || this.props.mood
     return (
       <a-scene>
         <a-assets>

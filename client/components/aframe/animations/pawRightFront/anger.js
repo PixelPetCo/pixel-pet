@@ -1,6 +1,6 @@
 import React from 'react'
 
-const angry = [
+const anger = [
   <a-animation
     key="1"
     attribute="rotation"
@@ -87,4 +87,4 @@ const angry = [
   />
 ]
 
-export default angry
+export default anger
