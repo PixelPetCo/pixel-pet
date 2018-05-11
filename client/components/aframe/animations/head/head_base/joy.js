@@ -4,8 +4,9 @@ const joy = [
   <a-animation
     key="1"
     attribute="material.color"
-    from="#F6F078"
-    to="#D1C756"
+    from="#513797"
+    // to="#FFAA1D"
+    to="#F0F007"
     dur="500"
   />
 ]
