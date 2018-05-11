@@ -119,8 +119,8 @@ const Head = props => {
         position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
-      <Jaw animation={props.animation} animate={props.animate} />
-      {props.animate(props.animation, 'head')}
+      <Jaw animation={props.animation} />
+      {animate(props.animation, 'head')}
     </a-entity>
   )
 }
