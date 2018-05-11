@@ -26,13 +26,12 @@ export default class ModelScene extends Component {
 
   render = () => {
     let animation = this.props.command || this.props.mood
+
     return (
-      <a-scene>
+      <a-scene vr-mode-ui="enabled: false">
         <a-assets>
           <img id="grassTexture" src="/grass.png" />
           <img id="skyTexture" src="/sky.png" />
-          <a-asset-item id="glasses-mtl" src="/glasses/glasses.mtl" />
-          <a-asset-item id="glasses" src="/glasses/glasses.obj" />
         </a-assets>
 
         <PetModel animation={animation} />
