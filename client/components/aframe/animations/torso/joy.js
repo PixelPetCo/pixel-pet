@@ -20,6 +20,13 @@ const joy = [
     from="-0.024 0.324 -1.501"
     to="0.064 0.324 -1.501"
     repeat="indefinite"
+  />,
+  <a-animation
+    key="3"
+    attribute="material.color"
+    from="#F6F078"
+    to="#D1C756"
+    dur="500"
   />
 ]
 

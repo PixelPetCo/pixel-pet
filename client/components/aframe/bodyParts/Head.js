@@ -16,7 +16,9 @@ const Head = props => {
         width="0.4"
         position=""
         geometry=""
-      />
+      >
+        {props.animate(props.animation, 'head/head_base')}
+      </a-box>
       <a-box
         id="snout"
         material="shader:flat;color:#291B4E"
