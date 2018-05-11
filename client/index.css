@@ -3,10 +3,6 @@ a {
   color: #753ebd;
 }
 
-a:hover {
-  border-bottom: 1px solid;
-}
-
 form {
   min-width: 50%;
   max-width: 50%;
@@ -35,6 +31,16 @@ form {
   border-radius: 50%;
 }
 
+.center {
+  text-align: center;
+}
+
+.left-logo {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+}
+
 .login {
   display: flex;
   flex-flow: column;
@@ -56,4 +62,8 @@ form {
 
 .nav p {
   margin: 0 1em;
+}
+
+.pixel-font {
+  font-family: 'Press Start 2P', cursive;
 }

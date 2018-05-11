@@ -1,37 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { AuthLink, Logout } from './auth'
 import { connect } from 'react-redux'
-
+import Pop from './Pop'
 import AppBar from 'material-ui/AppBar'
+const style = {
+  height: '8%'
+}
 
 const Navbar = props => {
-  const identifier =
-    process.env.NODE_ENV === 'development'
-      ? 'PixelPet Team'
-      : props.user.name || props.user.email
-  return !props.user.id && process.env.NODE_ENV === 'production' ? (
+  const identifier = props.user.name || props.user.email
+  return !props.user.id ? (
     <div />
   ) : (
     <AppBar
       className="nav row center-y"
       style={style}
-      showMenuIconButton={false}
+      iconElementLeft={<Pop />}
     >
-      <p>Welcome back, {identifier}!</p>
-      <Link to="/account">Account</Link>
-      <Link to="/">
-        <Logout />
-      </Link>
-      <Link to="/">
-        <img id="logo" src="/favicon.ico" />
-      </Link>
+      <h3 className="pixel-font left-logo">PIXELPET</h3>
+      <img id="logo" src="/favicon.ico" />
+      <p className="pixel-font">Welcome back, {identifier}!</p>
     </AppBar>
   )
-}
-
-const style = {
-  height: '8%'
 }
 
 const mapState = ({ user }) => ({
