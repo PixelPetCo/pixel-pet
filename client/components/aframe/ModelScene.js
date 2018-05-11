@@ -10,19 +10,7 @@ export default class ModelScene extends Component {
         <a-assets>
           <img id="grassTexture" src="/grass.png" />
           <img id="skyTexture" src="/sky.png" />
-          <img id="goldTexture" src="/gold-texture.jpg" />
-          <a-asset-item id="monocle" src="/monocle/monocle.obj" />
         </a-assets>
-
-        {/* {this.props.mood === 'analytical' && (
-          <a-entity
-            id="monocle"
-            obj-model="obj:/monocle/monocle.obj"
-            material="shader:flat;src:#goldTexture"
-            position="0.13398384724960835 0.11041956178640104 -0.8756356272292467"
-            scale="0.11 0.11 0.11"
-          />
-        )} */}
 
         <PetModel animation={animation} />
 

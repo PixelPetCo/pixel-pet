@@ -116,7 +116,6 @@ const Head = props => {
         position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
-
       <Jaw animation={props.animation} animate={props.animate} />
       {props.animate(props.animation, 'head')}
     </a-entity>
@@ -126,13 +125,3 @@ const Head = props => {
 export default Head
 
 // {props.animation}
-
-// {props.animation === 'analytical' && (
-//   <a-entity
-//     id="monocle"
-//     obj-model="obj:/monocle/monocle.obj"
-//     material="shader:flat;src:#goldTexture"
-//     position="0.11148805854835936 -0.39532803329029415 0.23473088593375513"
-//     scale="0.11 0.11 0.11"
-//   />
-// )}
