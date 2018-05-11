@@ -11,7 +11,7 @@ const joy = [
     to="-45 0 45"
   />,
   <a-animation
-    key="1"
+    key="2"
     attribute="rotation"
     delay="4000"
     dur="400"
@@ -21,7 +21,7 @@ const joy = [
     to="0 0 45"
   />,
   <a-animation
-    key="2"
+    key="3"
     attribute="position"
     dur="400"
     direction="alternate"
