@@ -1,5 +1,6 @@
 import React from 'react'
 import Jaw from './Jaw'
+import { animate } from '../PetModel'
 
 const Head = props => {
   return (
@@ -16,7 +17,9 @@ const Head = props => {
         width="0.4"
         position=""
         geometry=""
-      />
+      >
+        {animate(props.animation, 'head/head_base')}
+      </a-box>
       <a-box
         id="snout"
         material="shader:flat;color:#291B4E"
@@ -125,12 +128,10 @@ const Head = props => {
           rotation="-90 0 0"
         />
       )}
-      <Jaw animation={props.animation} animate={props.animate} />
-      {props.animate(props.animation, 'head')}
+      <Jaw animation={props.animation} />
+      {animate(props.animation, 'head')}
     </a-entity>
   )
 }
 
 export default Head
-
-// {props.animation}

@@ -10,6 +10,13 @@ const fear = [
     from="0.024 0.324 -1.501"
     to="0.018 0.324 -1.501"
     repeat="indefinite"
+  />,
+  <a-animation
+    key="2"
+    attribute="material.color"
+    from="#d67627"
+    to="#d67627"
+    dur="500"
   />
 ]
 

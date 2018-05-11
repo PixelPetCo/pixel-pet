@@ -37,7 +37,7 @@ export default class PopoverExampleSimple extends React.Component {
     return (
       <div>
         <IconButton iconClassName="material-icons" onClick={this.handleClick}>
-          unfold_more
+          menu
         </IconButton>
         <Popover
           open={this.state.open}
