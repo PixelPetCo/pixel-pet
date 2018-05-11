@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from './Head'
-import animate from '../PetModel'
+import { animate } from '../PetModel'
 
 const Torso = props => {
   return (

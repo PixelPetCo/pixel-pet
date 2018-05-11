@@ -1,6 +1,6 @@
 import React from 'react'
 import Jaw from './Jaw'
-import animate from '../PetModel'
+import { animate } from '../PetModel'
 
 const Head = props => {
   return (
@@ -133,5 +133,3 @@ const Head = props => {
 }
 
 export default Head
-
-// {props.animation}

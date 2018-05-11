@@ -1,5 +1,5 @@
 import React from 'react'
-import animate from '../PetModel'
+import { animate } from '../PetModel'
 
 const Jaw = props => {
   return (
