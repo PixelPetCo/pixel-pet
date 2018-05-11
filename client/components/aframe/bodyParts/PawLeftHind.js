@@ -1,4 +1,5 @@
 import React from 'react'
+import animate from '../PetModel'
 
 const PawLeftHind = props => {
   return (
@@ -11,7 +12,7 @@ const PawLeftHind = props => {
       position="0.13 0 -1.614"
       geometry=""
     >
-      {props.animate(props.animation, 'pawLeftHind')}
+      {animate(props.animation, 'pawLeftHind')}
     </a-box>
   )
 }

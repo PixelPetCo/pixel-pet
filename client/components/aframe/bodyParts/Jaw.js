@@ -1,5 +1,5 @@
 import React from 'react'
-// import speak from '../animations/torso/speak'
+import animate from '../PetModel'
 
 const Jaw = props => {
   return (
@@ -12,7 +12,7 @@ const Jaw = props => {
       position="0 -0.2 0.2307664801058491"
       rotation=""
     >
-      {props.animate(props.animation, 'jaw')}
+      {animate(props.animation, 'jaw')}
     </a-box>
   )
 }

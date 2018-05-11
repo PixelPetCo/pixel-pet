@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from './Head'
+import animate from '../PetModel'
 
 const Torso = props => {
   return (
@@ -14,11 +15,9 @@ const Torso = props => {
       geometry=""
     >
       <Head animation={props.animation} animate={props.animate} />
-      {props.animate(props.animation, 'torso')}
+      {animate(props.animation, 'torso')}
     </a-box>
   )
 }
 
 export default Torso
-
-// animation={head && head.map(animation => animation)}
