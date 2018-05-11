@@ -1,13 +1,14 @@
 import React from 'react'
 
-const sadness = [
+const anger = [
   <a-animation
     key="1"
     attribute="material.color"
-    from="#291B4E"
-    to="#291B4E"
+    from="#513797"
+    to="#DC050D"
+    // to="#FF2411"
     dur="500"
   />
 ]
 
-export default sadness
+export default anger
