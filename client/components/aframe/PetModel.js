@@ -44,6 +44,14 @@ const animate = (animation, component) => {
       } catch (error) {
         return
       }
+    case 'sit':
+      try {
+        animations = require(`./animations/${component}/sit`)
+
+        return animations.default.map(elem => elem)
+      } catch (error) {
+        return
+      }
     case 'analytical':
       try {
         animations = require(`./animations/${component}/analytical`)
