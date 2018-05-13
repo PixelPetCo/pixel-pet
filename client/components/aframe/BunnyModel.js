@@ -1,13 +1,15 @@
 import React from 'react'
-import Torso from './bodyParts/Torso'
-import PawLeftFront from './bodyParts/PawLeftFront'
-import PawRightFront from './bodyParts/PawRightFront'
-import PawLeftHind from './bodyParts/PawLeftHind'
-import PawRightHind from './bodyParts/PawRightHind'
+import Head from './bunnyModel/Head'
+import Torso from './bunnyModel/Torso'
+import PawLeftFront from './bunnyModel/PawLeftFront'
+import PawRightFront from './bunnyModel/PawRightFront'
+import PawLeftHind from './bunnyModel/PawLeftHind'
+import PawRightHind from './bunnyModel/PawRightHind'
 
-const PetModel = props => {
+const BunnyModel = props => {
   return (
     <a-entity id="body">
+      {/* <Head animation={props.animation} /> */}
       <Torso animation={props.animation} />
       <PawLeftFront animation={props.animation} />
       <PawRightFront animation={props.animation} />
@@ -26,4 +28,4 @@ export const animate = (animation, component) => {
   }
 }
 
-export default PetModel
+export default BunnyModel
