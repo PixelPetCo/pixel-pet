@@ -30,6 +30,7 @@ class MessageForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <TextField
           type="text"
+          id="chatbox"
           name="message"
           hintText="Message to PixelPet..."
           style={styleText}

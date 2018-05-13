@@ -19,9 +19,14 @@ class Home extends Component {
   }
 
   handleClick = evt => {
-    this.setState({
-      showTxtInput: !this.state.showTxtInput
-    })
+    this.setState(
+      {
+        showTxtInput: !this.state.showTxtInput
+      },
+      () => {
+        document.getElementById('chatbox').focus()
+      }
+    )
   }
 
   render() {
