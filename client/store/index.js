@@ -5,8 +5,9 @@ import axios from 'axios'
 import history from '../history'
 import user from './user'
 import chat from './chat'
+import pet from './pet'
 
-const reducer = combineReducers({ user, chat })
+const reducer = combineReducers({ user, chat, pet })
 
 const store = createStore(
   reducer,
