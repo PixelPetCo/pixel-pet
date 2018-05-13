@@ -31,7 +31,7 @@ const Head = props => {
       />
       <a-box
         id="tooth-left"
-        material="shader:flat;color:#f5fff9;"
+        material="shader:flat;color:#efefef;"
         depth="0.13"
         height="0.03"
         width="0.08"
@@ -111,48 +111,3 @@ const Head = props => {
 }
 
 export default Head
-
-/*
-<a-triangle
-  id="nose"
-  material="color:#000;width:5"
-  vertex-c="1 -1 0"
-  geometry="vertexC:0.4 -0.5 0;vertexB:-0.4 -0.5 0;vertexA:0 0 0"
-  position="0.014186278929227358 0.0852508731494579 0.23347991056654666"
-  width=".03"
-  scale="0.15 0.15 0.15"
-  rotation="0 0 180"
-/>
-<a-box
-  id="sclera-right"
-  material="shader:flat;color:white"
-  depth="0.150"
-  height="0.150"
-  width="0.03"
-  position="-0.20949852195715746 0.067 -0.07464395836603863"
-/>
-<a-box
-  id="pupil-right"
-  material="shader:flat;color:#000"
-  depth="0.1"
-  height="0.1"
-  width="0.01"
-  position="-0.22725937455233514 0.05657831896955697 -0.030448304043112245"
-/>
-<a-box
-  id="sclera-left"
-  material="shader:flat;color:white"
-  depth="0.150"
-  height="0.150"
-  width="0.03"
-  position="0.21252364388417921 0.067 -0.07464395836603863"
-/>
-<a-box
-  id="pupil-left"
-  material="shader:flat;color:#000"
-  depth="0.1"
-  height="0.1"
-  width="0.01"
-  position="0.23364848039230435 0.05657831896955697 -0.030448304043112245"
-/>
-*/

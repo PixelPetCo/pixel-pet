@@ -9,7 +9,7 @@ const PawLeftHind = props => {
       depth="0.13"
       height="0.06"
       width="0.1"
-      position="0.13 0 -1.614"
+      position="0.13 0.025 -1.614"
       geometry=""
     >
       {animate(props.animation, 'pawLeftHind')}

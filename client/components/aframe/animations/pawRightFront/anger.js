@@ -18,7 +18,7 @@ const anger = [
     dur="400"
     direction="alternate"
     fill="forwards"
-    from="-0.101 0 -1.385"
+    from="-0.101 0.025 -1.385"
     to="-0.101 0.1 -1.485"
     repeat="3"
   />,
@@ -43,7 +43,7 @@ const anger = [
     dur="200"
     direction="normal"
     fill="forwards"
-    from="-0.101 0 -1.385"
+    from="-0.101 0.025 -1.385"
     to="-0.101 0.12 -1.385"
     repeat="1"
   />,
@@ -69,7 +69,7 @@ const anger = [
     direction="normal"
     fill="forwards"
     from="-0.101 0.12 -1.385"
-    to="-0.101 0 -1.385"
+    to="-0.101 0.025 -1.385"
     repeat="1"
   />,
   <a-animation

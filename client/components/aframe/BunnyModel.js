@@ -9,7 +9,6 @@ import PawRightHind from './bunnyModel/PawRightHind'
 const BunnyModel = props => {
   return (
     <a-entity id="body">
-      {/* <Head animation={props.animation} /> */}
       <Torso animation={props.animation} />
       <PawLeftFront animation={props.animation} />
       <PawRightFront animation={props.animation} />

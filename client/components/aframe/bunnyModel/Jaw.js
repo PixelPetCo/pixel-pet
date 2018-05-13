@@ -9,7 +9,7 @@ const Jaw = props => {
       depth="0.250"
       height="0.020"
       width="0.199"
-      position="0 -0.19004101255011424 0.10023251709894837"
+      position="0 -0.19004101255011424 0.094"
     >
       {animate(props.animation, 'jaw')}
     </a-box>
