@@ -11,11 +11,12 @@ export const animate = (animation, component) => {
 }
 
 const PetModel = props => {
-  const Torso = require(`./${props.model.name}/Torso`).default
-  const PawLeftFront = require(`./${props.model.name}/PawLeftFront`).default
-  const PawRightFront  = require(`./${props.model.name}/PawRightFront`).default
-  const PawLeftHind  = require(`./${props.model.name}/PawLeftHind`).default
-  const PawRightHind  = require(`./${props.model.name}/PawRightHind`).default
+  const model = props.user.petModel
+  const Torso = require(`./${model}/Torso`).default
+  const PawLeftFront = require(`./${model}/PawLeftFront`).default
+  const PawRightFront = require(`./${model}/PawRightFront`).default
+  const PawLeftHind = require(`./${model}/PawLeftHind`).default
+  const PawRightHind = require(`./${model}/PawRightHind`).default
 
   return (
     <a-entity id="body">
@@ -29,6 +30,6 @@ const PetModel = props => {
   )
 }
 
-const mapState = ({ model }) => ({ model })
+const mapState = ({ user }) => ({ user })
 
 export default connect(mapState)(PetModel)

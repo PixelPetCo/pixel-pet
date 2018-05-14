@@ -49,7 +49,7 @@ const anger = [
   />,
   <a-animation
     id="paw-stomp-angle"
-    key="3"
+    key="5"
     attribute="rotation"
     dur="100"
     delay="1000"
@@ -61,7 +61,7 @@ const anger = [
   />,
   <a-animation
     id="paw-stomp-height"
-    key="4"
+    key="6"
     attribute="position"
     easing="linear"
     delay="1000"
@@ -74,7 +74,7 @@ const anger = [
   />,
   <a-animation
     id="paw-shift"
-    key="5"
+    key="7"
     attribute="rotation"
     dur="50"
     delay="1100"

@@ -4,10 +4,11 @@ const anger = [
   <a-animation
     key="1"
     attribute="material.color"
-    from="#513797"
-    to="#DC050D"
-    // to="#FF2411"
-    dur="500"
+    easing="ease-in"
+    fill="forwards"
+    to="#513797"
+    from="#DC050D"
+    dur="6000"
   />
 ]
 
