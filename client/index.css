@@ -9,8 +9,8 @@ form {
 }
 
 body {
-  background-image: url("/welcome-bg.gif");
-  background-repeat: repeat-x;
+  background-image: url('/welcome-bg.gif');
+  background-repeat: round;
 }
 
 #app {

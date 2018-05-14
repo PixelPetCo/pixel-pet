@@ -4,7 +4,8 @@ const TONE_USERNAME = process.env.TONE_USERNAME
 const TONE_PASSWORD = process.env.TONE_PASSWORD
 const CONVERSATION_USERNAME = process.env.CONVERSATION_USERNAME
 const CONVERSATION_PASSWORD = process.env.CONVERSATION_PASSWORD
-const CONVERSATION_WORKSPACE_ID = process.env.CONVERSATION_WORKSPACE_ID
+const CHIPPER_ID = process.env.CHIPPER_CONVERSATION_WORKSPACE_ID
+const GRUMPY_ID = process.env.GRUMPY_CONVERSATION_WORKSPACE_ID
 
 // Tone Analyzer Imports
 
@@ -54,11 +55,12 @@ const analyzeTone = str => {
 
 // Send Message to Bot
 
-const sendMessage = (text, context) => {
+const sendMessage = (text, context, personality) => {
+  const workspace = personality === 'chipper' ? CHIPPER_ID : GRUMPY_ID
   return new Promise((resolve, reject) => {
     service.message(
       {
-        workspace_id: CONVERSATION_WORKSPACE_ID,
+        workspace_id: workspace,
         input: { text },
         context
       },
@@ -75,12 +77,16 @@ const sendMessage = (text, context) => {
 
 // Combined Tone and Chat
 
-const combinedBotFunction = (text = '...', oldContext = null) => {
+const combinedBotFunction = (
+  text = '...',
+  oldContext = null,
+  personality = 'chipper'
+) => {
   return new Promise(async (resolve, reject) => {
     try {
       const [toneAnalysis, response] = await Promise.all([
         analyzeTone(text),
-        sendMessage(text, oldContext)
+        sendMessage(text, oldContext, personality)
       ])
       const mood = toneAnalysis[0] ? toneAnalysis[0].tone_id : null
       const botText = response.output.text ? response.output.text[0] : ''
