@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PetModel from './PetModel'
+import BunnyModel from './BunnyModel'
 
 export default class ModelScene extends Component {
   componentDidUpdate = () => {
@@ -34,7 +35,8 @@ export default class ModelScene extends Component {
           <img id="skyTexture" src="/sky.png" />
         </a-assets>
 
-        <PetModel animation={animation} />
+        {/* <PetModel animation={animation} /> */}
+        <BunnyModel animation={animation} />
 
         <a-plane
           material="shader: flat; src: #grassTexture"

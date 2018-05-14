@@ -1,5 +1,3 @@
-import React from 'react'
-
 const anger = [
   <a-animation
     key="1"

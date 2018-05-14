@@ -1,5 +1,3 @@
-import React from 'react'
-
 const sadness = [
   <a-animation
     key="1"

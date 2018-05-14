@@ -1,5 +1,3 @@
-import React from 'react'
-
 const fear = [
   <a-animation
     key="1"

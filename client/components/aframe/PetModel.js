@@ -4,7 +4,12 @@ import { connect } from 'react-redux'
 export const animate = (animation, component) => {
   try {
     const animations = require(`./animations/${component}/${animation}`).default
-    return animations && animations.map(elem => elem)
+    return (
+      animations &&
+      animations.map((elem, i) =>
+        React.createElement('a-animation', { ...elem, key: i.toString() })
+      )
+    )
   } catch (error) {
     return []
   }
