@@ -36,12 +36,7 @@ export default class ModelScene extends Component {
           <img id="skyTexture" src="/sky.png" />
         </a-assets>
 
-        {/* <PetModel animation={animation} /> */}
-
-
-        {/* Render proper model for user   */}
-        {/* <BunnyModel animation={animation} /> */}
-        <CircleCatModel animation={animation} />
+        <PetModel animation={animation} />
 
         <a-plane
           material="shader: flat; src: #grassTexture"
