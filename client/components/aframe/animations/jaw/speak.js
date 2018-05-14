@@ -5,8 +5,8 @@ const speak = [
     direction: 'alternate',
     easing: 'linear',
     repeat: 'indefinite',
-    from: '0 -0.2 0.2307664801058491',
-    to: '0 -0.24 0.2307664801058491'
+    from: '0 -0.19004101255011424 0.094',
+    to: '0 -0.230041013 0.094'
   },
   {
     attribute: 'rotation',
