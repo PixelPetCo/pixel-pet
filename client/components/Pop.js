@@ -36,7 +36,11 @@ export default class PopoverExampleSimple extends React.Component {
   render() {
     return (
       <div>
-        <IconButton iconClassName="material-icons" onClick={this.handleClick}>
+        <IconButton
+          iconClassName="material-icons"
+          iconStyle={{ fill: '#fff' }}
+          onClick={this.handleClick}
+        >
           menu
         </IconButton>
         <Popover

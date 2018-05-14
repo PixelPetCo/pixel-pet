@@ -8,6 +8,11 @@ form {
   max-width: 50%;
 }
 
+body {
+  background-image: url("/welcome-bg.gif");
+  background-repeat: repeat-x;
+}
+
 #app {
   height: 100%;
   width: 100%;
@@ -28,6 +33,13 @@ form {
 #logo {
   height: 40px;
   width: 40px;
+  border-radius: 50%;
+}
+
+#logo-large {
+  height: 70px;
+  width: 70px;
+  margin: 30px;
   border-radius: 50%;
 }
 
@@ -66,4 +78,9 @@ form {
 
 .pixel-font {
   font-family: 'Press Start 2P', cursive;
+}
+
+.pixel-font-white {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
 }
