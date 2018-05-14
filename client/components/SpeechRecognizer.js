@@ -8,7 +8,6 @@ import Avatar from 'material-ui/Avatar'
 import SvgIconMic from 'material-ui/svg-icons/av/mic'
 import SvgIconMicRecord from 'material-ui/svg-icons/action/settings-voice'
 import SvgIconFace from 'material-ui/svg-icons/action/face'
-import { blue300, indigo900 } from 'material-ui/styles/colors'
 
 class SpeechRecognizer extends Component {
   constructor() {
