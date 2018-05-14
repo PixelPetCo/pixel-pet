@@ -4,7 +4,12 @@ import { connect } from 'react-redux'
 export const animate = (animation, component) => {
   try {
     const animations = require(`./animations/${component}/${animation}`).default
-    return animations && animations.map(elem => elem)
+    return (
+      animations &&
+      animations.map((elem, i) =>
+        React.createElement('a-animation', { ...elem, key: i.toString() })
+      )
+    )
   } catch (error) {
     return []
   }
@@ -13,9 +18,9 @@ export const animate = (animation, component) => {
 const PetModel = props => {
   const Torso = require(`./${props.model.name}/Torso`).default
   const PawLeftFront = require(`./${props.model.name}/PawLeftFront`).default
-  const PawRightFront  = require(`./${props.model.name}/PawRightFront`).default
-  const PawLeftHind  = require(`./${props.model.name}/PawLeftHind`).default
-  const PawRightHind  = require(`./${props.model.name}/PawRightHind`).default
+  const PawRightFront = require(`./${props.model.name}/PawRightFront`).default
+  const PawLeftHind = require(`./${props.model.name}/PawLeftHind`).default
+  const PawRightHind = require(`./${props.model.name}/PawRightHind`).default
 
   return (
     <a-entity id="body">
