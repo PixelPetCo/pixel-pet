@@ -1,20 +1,22 @@
 import React from 'react'
-import Torso from './bodyParts/Torso'
-import PawLeftFront from './bodyParts/PawLeftFront'
-import PawRightFront from './bodyParts/PawRightFront'
-import PawLeftHind from './bodyParts/PawLeftHind'
-import PawRightHind from './bodyParts/PawRightHind'
+import { connect } from 'react-redux'
 
 export const animate = (animation, component) => {
   try {
-    const animations = require(`./animations/${component}/${animation}`)
-    return animations && animations.default.map(elem => elem)
+    const animations = require(`./animations/${component}/${animation}`).default
+    return animations && animations.map(elem => elem)
   } catch (error) {
     return []
   }
 }
 
 const PetModel = props => {
+  const Torso = require(`./${props.model.name}/Torso`).default
+  const PawLeftFront = require(`./${props.model.name}/PawLeftFront`).default
+  const PawRightFront  = require(`./${props.model.name}/PawRightFront`).default
+  const PawLeftHind  = require(`./${props.model.name}/PawLeftHind`).default
+  const PawRightHind  = require(`./${props.model.name}/PawRightHind`).default
+
   return (
     <a-entity id="body">
       <Torso animation={props.animation} />
@@ -22,8 +24,11 @@ const PetModel = props => {
       <PawRightFront animation={props.animation} />
       <PawLeftHind animation={props.animation} />
       <PawRightHind animation={props.animation} />
+      {animate(props.animation, 'body')}
     </a-entity>
   )
 }
 
-export default PetModel
+const mapState = ({ model }) => ({ model })
+
+export default connect(mapState)(PetModel)

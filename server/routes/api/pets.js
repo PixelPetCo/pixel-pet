@@ -7,9 +7,9 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const { data } = await Pet.findAll({
-      where: { userId: req.session.user.id }
+      where: { userId: req.user.dataValues.id }
     })
-    const pets = data.reduce((accumulator, pet) => {
+    const pets = data && data.reduce((accumulator, pet) => {
       accumulator[pet.id] = pet
       return accumulator
     }, {})

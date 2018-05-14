@@ -25,7 +25,7 @@ export const getPets = () => {
   return async (dispatch, _, { axios }) => {
     try {
       const { data } = await axios.get(`/api/pets`)
-      dispatch(fetchPets(pets))
+      dispatch(fetchPets())
     } catch (error) {
       console.error('Could not get pets: ', error)
     }
@@ -72,7 +72,7 @@ const removeFromPets = (state, { id }) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case PETS_FETCH:
-      return action.pets
+      return action.pets || state
     case PETS_CREATE:
       return { ...state, [action.pet.id]: action.pet }
     case PETS_UPDATE:
