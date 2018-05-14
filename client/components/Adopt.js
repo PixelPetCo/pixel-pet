@@ -57,18 +57,18 @@ class Adopt extends Component {
             </li>
             <li
               className={
-                this.state.petModel === 'triangleTurtle' ? 'selected' : null
+                this.state.petModel === 'tetrahedronTurtle' ? 'selected' : null
               }
             >
-              <label htmlFor="triangleTurtle">
+              <label htmlFor="tetrahedronTurtle">
                 <input
                   type="radio"
                   onClick={this.handleClick}
                   name="petModel"
-                  value="triangleTurtle"
-                  alt="Triangle Turtle"
+                  value="tetrahedronTurtle"
+                  alt="Tetrahedron Turtle"
                 />
-                <img src="/images/triangleTurtle.png" />
+                <img src="/images/tetrahedronTurtle.png" />
               </label>
             </li>
             <li
