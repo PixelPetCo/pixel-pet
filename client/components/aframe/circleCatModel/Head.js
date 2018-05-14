@@ -121,7 +121,7 @@ const Head = props => {
         material="shader:flat;color:#F8ABA3"
         rotation="-43.3 -174 48.87"
         radius=".05"
-        position="0.012 0.007 0.240 "
+        position="0.012 -0.04685373944211902 0.24"
         geometry=""
       />
 
