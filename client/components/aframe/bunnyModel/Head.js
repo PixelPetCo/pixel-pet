@@ -16,7 +16,6 @@ const Head = props => {
         height="0.4"
         width="0.4"
         position=""
-        geometry=""
       >
         {animate(props.animation, 'head/head_base')}
       </a-box>
