@@ -11,10 +11,27 @@ const seed = async () => {
       name: 'Cody',
       email: 'cody@email.com',
       password: '123',
-      petModel: 'tetrahedronTurtle',
+      petModel: 'bunnyModel',
       petPersonality: 'grumpy'
     }),
-    User.create({ name: 'Grace', email: 'grace@hopper.com', password: '123' }),
+    User.create({
+      name: 'Cat',
+      email: 'cat@email.com',
+      password: '123',
+      petModel: 'circleCatModel'
+    }),
+    User.create({
+      name: 'Bunny',
+      email: 'bunny@email.com',
+      password: '123',
+      petModel: 'bunnyModel'
+    }),
+    User.create({
+      name: 'Turtle',
+      email: 'turtle@email.com',
+      password: '123',
+      petModel: 'tetrahedronTurtle'
+    }),
     User.create({
       name: 'PixelPet Team',
       email: 'pixelpetco@gmail.com',

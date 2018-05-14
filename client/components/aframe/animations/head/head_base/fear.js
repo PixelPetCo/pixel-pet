@@ -1,11 +1,15 @@
+import getColor from './getColor'
+
+const base = getColor()
+
 const fear = [
   {
-     attribute: 'material.color',
-     fill="forwards"
-     easing="ease-in"
-     to="#513797"
-     from="#9403A6"
-     dur="6000"
+    attribute: 'material.color',
+    fill: 'forwards',
+    easing: 'ease-in',
+    to: base,
+    from: '#9403A6',
+    dur: '6000'
   }
 ]
 
