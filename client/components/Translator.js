@@ -1,12 +1,5 @@
 import React from 'react'
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
-
-const Translator = props => (
-  <Card style={style}>
-    <CardHeader subtitle="PixelPeep Translator" />
-    <CardHeader title={props.botText || ''} />
-  </Card>
-)
+import { Card, CardHeader } from 'material-ui/Card'
 
 const style = {
   position: 'absolute',
@@ -14,5 +7,12 @@ const style = {
   left: '25%',
   width: '50%'
 }
+
+const Translator = props => (
+  <Card style={style}>
+    <CardHeader subtitle="PixelPeep Translator" />
+    <CardHeader title={props.botText || ''} />
+  </Card>
+)
 
 export default Translator

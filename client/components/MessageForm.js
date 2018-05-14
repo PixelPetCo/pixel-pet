@@ -5,6 +5,19 @@ import { sendMessage } from '../store/chat'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+const styleText = {
+  position: 'absolute',
+  width: '18%',
+  right: '15%',
+  bottom: '14%'
+}
+
+const styleButton = {
+  position: 'absolute',
+  right: '9%',
+  bottom: '14%'
+}
+
 class MessageForm extends Component {
   constructor() {
     super()
@@ -46,19 +59,6 @@ class MessageForm extends Component {
       </form>
     )
   }
-}
-
-const styleText = {
-  position: 'absolute',
-  width: '18%',
-  right: '15%',
-  bottom: '14%'
-}
-
-const styleButton = {
-  position: 'absolute',
-  right: '9%',
-  bottom: '14%'
 }
 
 const mapDispatch = dispatch => ({
