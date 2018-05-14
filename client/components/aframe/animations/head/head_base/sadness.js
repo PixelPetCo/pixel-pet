@@ -4,8 +4,9 @@ const sadness = [
   <a-animation
     key="1"
     attribute="material.color"
-    from="#291B4E"
-    to="#291B4E"
+    from="#513797"
+    // to="#80DBF6"
+    to="#5ABEF0"
     dur="500"
   />
 ]

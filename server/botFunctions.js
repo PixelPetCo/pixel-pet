@@ -16,7 +16,7 @@ const AssistantV1 = require('watson-developer-cloud/assistant/v1')
 
 // Possible Commands
 
-const commands = ['speak']
+const commands = ['speak', 'sit']
 
 // Tone Analyzer Setup
 

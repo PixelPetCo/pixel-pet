@@ -4,8 +4,9 @@ const fear = [
   <a-animation
     key="1"
     attribute="material.color"
-    from="#d67627"
-    to="#d67627"
+    from="#513797"
+    to="#9403A6"
+    // to="#A319AC"
     dur="500"
   />
 ]
