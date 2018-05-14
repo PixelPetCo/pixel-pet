@@ -11,16 +11,17 @@ const initialState = {}
 
 // ACTION CREATORS
 
-const sendMessageAction = botResponse => ({
-  type: SEND_MESSAGE,
-  botResponse
+const fetchPets = pets => ({
+  type: PETS_FETCH,
+  pets
 })
-export const resetCommandAction = () => ({ type: RESET_COMMAND })
-export const resetMoodAction = () => ({ type: RESET_MOOD })
+const createPet = pet => ({ type: PETS_CREATE })
+const updatePet = pet => ({ type: PETS_UPDATE })
+const deletePet = id => ({ type: PETS_DELETE })
 
 // THUNK CREATORS
 
-export const sendMessage = text => {
+export const getPets = text => {
   return async (dispatch, getState, { axios }) => {
     try {
       const state = getState()
