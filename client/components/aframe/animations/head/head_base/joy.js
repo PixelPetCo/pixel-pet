@@ -1,5 +1,3 @@
-import React from 'react'
-
 const joy = [
   <a-animation
     key="1"
