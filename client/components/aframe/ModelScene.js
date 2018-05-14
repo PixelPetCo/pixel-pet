@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PetModel from './PetModel'
 import BunnyModel from './BunnyModel'
+import CircleCatModel from './CircleCatModel'
 
 export default class ModelScene extends Component {
   componentDidUpdate = () => {
@@ -36,7 +37,11 @@ export default class ModelScene extends Component {
         </a-assets>
 
         {/* <PetModel animation={animation} /> */}
-        <BunnyModel animation={animation} />
+
+
+        {/* Render proper model for user   */}
+        {/* <BunnyModel animation={animation} /> */}
+        <CircleCatModel animation={animation} />
 
         <a-plane
           material="shader: flat; src: #grassTexture"
