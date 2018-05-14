@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { me } from '../store/user'
-import { getPets } from '../store/pets'
 import Main from './Main'
 
 // LoadInitialData: this sits on top of our `Main` component and fetches
@@ -45,7 +44,6 @@ const mapDispatch = dispatch => {
     // to fetch our initial data.
     load: async () => {
       await dispatch(me())
-      await dispatch(getPets())
     }
   }
 }

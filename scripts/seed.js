@@ -7,7 +7,13 @@ const seed = async () => {
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({ name: 'Cody', email: 'cody@email.com', password: '123' }),
+    User.create({
+      name: 'Cody',
+      email: 'cody@email.com',
+      password: '123',
+      petModel: 'tetrahedronTurtle',
+      petPersonality: 'grumpy'
+    }),
     User.create({ name: 'Grace', email: 'grace@hopper.com', password: '123' }),
     User.create({
       name: 'PixelPet Team',
