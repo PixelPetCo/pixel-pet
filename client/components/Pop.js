@@ -6,9 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Popover from 'material-ui/Popover'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
-import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
-import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 
 export default class PopoverExampleSimple extends React.Component {
   constructor(props) {
@@ -38,14 +36,13 @@ export default class PopoverExampleSimple extends React.Component {
   render() {
     return (
       <div>
-        <IconMenu
+        <IconButton
           iconClassName="material-icons"
-          iconButtonElement={<IconButton><MenuIcon /></IconButton>}
           iconStyle={{ fill: '#fff' }}
           onClick={this.handleClick}
         >
           menu
-        </IconMenu>
+        </IconButton>
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}
