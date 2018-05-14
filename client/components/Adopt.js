@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { editUser } from '../store/user'
+import { updateUser } from '../store/user'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -25,12 +25,12 @@ class Adopt extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault()
-    this.props.editUser({
+    console.log(this.props)
+    this.props.updateUser({
       ...this.props.user,
       petModel: this.state.petModel,
       petPersonality: this.state.petPersonality
     })
-    this.setState({ userMessage: '' })
   }
 
   render() {
@@ -38,52 +38,72 @@ class Adopt extends Component {
       <form onSubmit={this.handleSubmit}>
         <fieldset>
           <legend>Animal</legend>
-          <input
-            type="image"
-            className={this.state.petModel === 'cuboidCanine' && 'selected'}
-            onClick={this.handleClick}
-            name="petModel"
-            value="cuboidCanine"
-            alt="Cuboid Canine"
-            src="/images/cuboidCanine.png"
-            width="80"
-            height="80"
-          />
-          <input
-            type="image"
-            className={
-              this.state.petModel === 'triangleTurtle' ? 'selected' : null
-            }
-            onClick={this.handleClick}
-            name="petModel"
-            value="triangleTurtle"
-            alt="Triangle Turtle"
-            src="/images/triangleTurtle.png"
-            width="80"
-            height="80"
-          />
-          <input
-            type="image"
-            className={this.state.petModel === 'circleCat' ? 'selected' : null}
-            onClick={this.handleClick}
-            name="petModel"
-            value="circleCat"
-            alt="Circle Cat"
-            src="/images/circleCat.png"
-            width="80"
-            height="80"
-          />
-          <input
-            type="image"
-            className={this.state.petModel === 'boxyBunny' ? 'selected' : null}
-            onClick={this.handleClick}
-            name="petModel"
-            value="boxyBunny"
-            alt="Boxy Bunny"
-            src="/images/boxyBunny.png"
-            width="80"
-            height="80"
-          />
+          <ul>
+            <li
+              className={
+                this.state.petModel === 'cuboidCanine' ? 'selected' : null
+              }
+            >
+              <label htmlFor="cuboidCanine">
+                <input
+                  type="radio"
+                  onClick={this.handleClick}
+                  name="petModel"
+                  value="cuboidCanine"
+                  alt="Cuboid Canine"
+                />
+                <img src="/images/cuboidCanine.png" />
+              </label>
+            </li>
+            <li
+              className={
+                this.state.petModel === 'triangleTurtle' ? 'selected' : null
+              }
+            >
+              <label htmlFor="triangleTurtle">
+                <input
+                  type="radio"
+                  onClick={this.handleClick}
+                  name="petModel"
+                  value="triangleTurtle"
+                  alt="Triangle Turtle"
+                />
+                <img src="/images/triangleTurtle.png" />
+              </label>
+            </li>
+            <li
+              className={
+                this.state.petModel === 'boxyBunny' ? 'selected' : null
+              }
+            >
+              <label htmlFor="boxyBunny">
+                <input
+                  type="radio"
+                  onClick={this.handleClick}
+                  name="petModel"
+                  value="boxyBunny"
+                  alt="Boxy Bunny"
+                />
+                <img src="/images/boxyBunny.png" />
+              </label>
+            </li>
+            <li
+              className={
+                this.state.petModel === 'circleCat' ? 'selected' : null
+              }
+            >
+              <label htmlFor="circleCat">
+                <input
+                  type="radio"
+                  onClick={this.handleClick}
+                  name="petModel"
+                  value="circleCat"
+                  alt="Circle Cat"
+                />
+                <img src="/images/circleCat.png" />
+              </label>
+            </li>
+          </ul>
         </fieldset>
         <fieldset>
           <legend>Personality</legend>
@@ -123,7 +143,7 @@ class Adopt extends Component {
 }
 
 const mapDispatch = dispatch => ({
-  editUser: user => dispatch(editUser(user))
+  updateUser: user => dispatch(updateUser(user))
 })
 
 const mapState = ({ user }) => ({
