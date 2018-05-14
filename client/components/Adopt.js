@@ -37,9 +37,10 @@ class Adopt extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-          <legend>PixelPet Animal</legend>
+          <legend>Animal</legend>
           <input
             type="image"
+            className={this.state.petModel === 'cuboidCanine' && 'selected'}
             onClick={this.handleClick}
             name="petModel"
             value="cuboidCanine"
@@ -50,6 +51,9 @@ class Adopt extends Component {
           />
           <input
             type="image"
+            className={
+              this.state.petModel === 'triangleTurtle' ? 'selected' : null
+            }
             onClick={this.handleClick}
             name="petModel"
             value="triangleTurtle"
@@ -60,6 +64,7 @@ class Adopt extends Component {
           />
           <input
             type="image"
+            className={this.state.petModel === 'circleCat' ? 'selected' : null}
             onClick={this.handleClick}
             name="petModel"
             value="circleCat"
@@ -70,6 +75,7 @@ class Adopt extends Component {
           />
           <input
             type="image"
+            className={this.state.petModel === 'boxyBunny' ? 'selected' : null}
             onClick={this.handleClick}
             name="petModel"
             value="boxyBunny"
@@ -80,11 +86,14 @@ class Adopt extends Component {
           />
         </fieldset>
         <fieldset>
-          <legend>PixelPet Personality</legend>
+          <legend>Personality</legend>
           <ul>
             <li>
               <label htmlFor="chipper">
                 <RaisedButton
+                  className={
+                    this.state.petPersonality === 'chipper' ? 'selected' : null
+                  }
                   onClick={this.handleClick}
                   label="Chipper"
                   name="petPersonality"
@@ -95,6 +104,9 @@ class Adopt extends Component {
             <li>
               <label htmlFor="petPersonality">
                 <RaisedButton
+                  className={
+                    this.state.petPersonality === 'grumpy' ? 'selected' : null
+                  }
                   onClick={this.handleClick}
                   label="Grumpy"
                   name="petPersonality"
