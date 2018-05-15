@@ -18,9 +18,17 @@ class Adopt extends Component {
   }
 
   handleClick = evt => {
-    this.setState({
-      [evt.target.name]: evt.target.value
-    })
+    if (
+      evt.target.previousElementSibling && // detect if there's a previous element (looking for input element)
+      evt.target.previousElementSibling.type === 'radio' // redundantly? checks the type is radio, could also check tagName "INPUT"
+    ) {
+      evt.target.previousElementSibling.checked = true // this doesn't actually trigger the handleChange
+      this.handleChange({ ...evt, target: evt.target.previousElementSibling }) // manually passing event with target set to previous input element to handleChange
+    } else {
+      this.setState({
+        [evt.target.name]: evt.target.value // is it possible to trigger this by clicking on the input without clicking the image?
+      })
+    }
   }
 
   handleChange = evt => {
@@ -58,7 +66,7 @@ class Adopt extends Component {
                   value="cuboidCanine"
                   alt="Cuboid Canine"
                 />
-                <img src="cuboidCanine.png" />
+                <img onClick={this.handleClick} src="cuboidCanine.png" />
               </label>
             </li>
             <li
@@ -74,7 +82,7 @@ class Adopt extends Component {
                   value="tetrahedronTurtle"
                   alt="Tetrahedron Turtle"
                 />
-                <img src="tetrahedronTurtle.png" />
+                <img onClick={this.handleClick} src="tetrahedronTurtle.png" />
               </label>
             </li>
             <li
@@ -90,7 +98,7 @@ class Adopt extends Component {
                   value="boxyBunny"
                   alt="Boxy Bunny"
                 />
-                <img src="boxyBunny.png" />
+                <img onClick={this.handleClick} src="boxyBunny.png" />
               </label>
             </li>
             <li
@@ -106,7 +114,7 @@ class Adopt extends Component {
                   value="circleCat"
                   alt="Circle Cat"
                 />
-                <img src="circleCat.png" />
+                <img onClick={this.handleClick} src="circleCat.png" />
               </label>
             </li>
           </ul>
@@ -142,7 +150,7 @@ class Adopt extends Component {
             </li>
           </ul>
         </fieldset>
-        <RaisedButton type="submit" label="send" primary={true} />
+        <RaisedButton type="submit" label="Adopt!" primary={true} />
       </form>
     )
   }
