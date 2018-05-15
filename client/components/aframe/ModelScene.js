@@ -26,24 +26,13 @@ export default class ModelScene extends Component {
 
   render = () => {
     let animation = this.props.command || this.props.mood
-
     return (
-      <a-scene vr-mode-ui="enabled: false">
-        <a-assets>
-          <img id="grassTexture" src="/grass.png" />
-          <img id="skyTexture" src="/sky.png" />
-        </a-assets>
+      <a-scene
+        environment="preset: forest"
+        vr-mode-ui="enabled: false"
+      >
 
         <PetModel animation={animation} />
-
-        <a-plane
-          material="shader: flat; src: #grassTexture"
-          rotation="-90 0 0"
-          height="20"
-          width="20"
-        />
-
-        <a-sky material="shader: flat; src: #skyTexture" />
 
         <a-light color="#FFF" intensity="1" />
 
@@ -60,3 +49,6 @@ export default class ModelScene extends Component {
     )
   }
 }
+
+
+// environment="preset: forest; skyType: atmosphere; groundTexture: checkerboard; groundColor: #abf940; groundColor2: #8ed132"
