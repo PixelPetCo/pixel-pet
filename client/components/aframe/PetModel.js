@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 
 export const animate = (animation, component) => {
   try {
-    const animations = require(`./animations/${component}/${animation}`).default
+    const animations = require(`./animations/${component}/${animation}`)
     return (
       animations &&
-      animations.map((elem, i) =>
+      animations.default.map((elem, i) =>
         React.createElement('a-animation', { ...elem, key: i.toString() })
       )
     )

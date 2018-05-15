@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PetModel from './PetModel'
-import BunnyModel from './BunnyModel'
-import CircleCatModel from './CircleCatModel'
 
 export default class ModelScene extends Component {
   componentDidUpdate = () => {
