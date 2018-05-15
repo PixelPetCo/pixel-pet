@@ -73,17 +73,18 @@ class SpeechRecognizer extends Component {
 
   render() {
     const { transcript, listening, infoText } = this.state
+    const { disableBtn } = this.props
 
     return (
       <div>
         <div id="speech-text" />
         {infoText.length > 0 && infoText}
-        {listening && (
-          <Chip style={styles}>
-            {transcript}
-          </Chip>
-        )}
-        <FloatingActionButton onClick={this.handleClick} style={style2}>
+        {listening && <Chip style={styles}>{transcript}</Chip>}
+        <FloatingActionButton
+          onClick={this.handleClick}
+          style={style2}
+          disabled={disableBtn}
+        >
           {listening ? <SvgIconMicRecord /> : <SvgIconMic color="#FFF" />}
         </FloatingActionButton>
       </div>
@@ -106,8 +107,4 @@ const style2 = {
   bottom: '5%'
 }
 
-const mapDispatch = dispatch => ({
-  sendUserMessage: msg => dispatch(sendMessage(msg))
-})
-
-export default connect(null, mapDispatch)(SpeechRecognizer)
+export default SpeechRecognizer

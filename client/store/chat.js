@@ -3,6 +3,7 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
 const RESET_COMMAND = 'RESET_COMMAND'
 const RESET_MOOD = 'RESET_MOOD'
+const RESET_BOT = 'RESET_BOT'
 
 // INITIAL STATE
 
@@ -16,6 +17,7 @@ const sendMessageAction = botResponse => ({
 })
 export const resetCommandAction = () => ({ type: RESET_COMMAND })
 export const resetMoodAction = () => ({ type: RESET_MOOD })
+export const resetBot = () => ({ type: RESET_BOT })
 
 // THUNK CREATORS
 
@@ -36,6 +38,16 @@ export const sendMessage = text => {
   }
 }
 
+export const resetBotOnLogout = () => {
+  return async (dispatch, getState, { axios }) => {
+    try {
+      dispatch(resetBot())
+    } catch (error) {
+      console.error('Could not reset user context: ', error)
+    }
+  }
+}
+
 // REDUCER
 
 export default (state = initialState, action) => {
@@ -46,6 +58,8 @@ export default (state = initialState, action) => {
       return { ...state, command: null }
     case RESET_MOOD:
       return { ...state, mood: null }
+    case RESET_BOT:
+      return { ...state, botText: '', mood: null, command: null, context: null }
     default:
       return state
   }

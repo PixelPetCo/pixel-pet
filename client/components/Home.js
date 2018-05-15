@@ -4,6 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Avatar from 'material-ui/Avatar'
 import SvgIconKeyboard from 'material-ui/svg-icons/hardware/keyboard'
 
+import { sendMessage } from '../store/chat'
 import Translator from './Translator'
 import MessageForm from './MessageForm'
 import ModelScene from '../components/aframe/ModelScene'
@@ -31,21 +32,27 @@ class Home extends Component {
 
   render() {
     const { botText, mood, command } = this.props.chat
+    const { sendUserMessage } = this.props
+    const disableBtn = mood !== null || command !== null
+
     return (
       <main>
         <Translator botText={botText} />
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
-          {this.state.showTxtInput && <MessageForm />}
+          {this.state.showTxtInput && (
+            <MessageForm sendUserMessage={sendUserMessage} disableBtn={disableBtn} />
+          )}
           <FloatingActionButton
             name="showTxtInput"
             onClick={this.handleClick}
             secondary={true}
             style={style}
+            disabled={disableBtn}
           >
             <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
-          <SpeechRecognizer />
+          <SpeechRecognizer sendUserMessage={sendUserMessage} disableBtn={disableBtn} />
         </div>
       </main>
     )
@@ -60,4 +67,8 @@ const style = {
 
 const mapState = ({ chat }) => ({ chat })
 
-export default connect(mapState)(Home)
+const mapDispatch = dispatch => ({
+  sendUserMessage: msg => dispatch(sendMessage(msg))
+})
+
+export default connect(mapState, mapDispatch)(Home)

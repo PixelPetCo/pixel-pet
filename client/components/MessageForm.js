@@ -39,6 +39,8 @@ class MessageForm extends Component {
   }
 
   render() {
+    const { disableBtn } = this.props
+
     return (
       <form onSubmit={this.handleSubmit}>
         <TextField
@@ -55,16 +57,11 @@ class MessageForm extends Component {
           label="send"
           primary={true}
           style={styleButton}
+          disabled={disableBtn}
         />
       </form>
     )
   }
 }
 
-const mapState = ({ user }) => ({ user })
-
-const mapDispatch = dispatch => ({
-  sendUserMessage: msg => dispatch(sendMessage(msg))
-})
-
-export default connect(mapState, mapDispatch)(MessageForm)
+export default MessageForm
