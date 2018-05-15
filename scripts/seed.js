@@ -18,7 +18,7 @@ const seed = async () => {
       name: 'Cat',
       email: 'cat@email.com',
       password: '123',
-      petModel: 'circleCatModel'
+      petModel: 'circleCat'
     }),
     User.create({
       name: 'Bunny',
