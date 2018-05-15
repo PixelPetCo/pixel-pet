@@ -11,14 +11,14 @@ const seed = async () => {
       name: 'Cody',
       email: 'cody@email.com',
       password: '123',
-      petModel: 'bunnyModel',
+      petModel: 'boxyBunny',
       petPersonality: 'grumpy'
     }),
     User.create({
       name: 'Cat',
       email: 'cat@email.com',
       password: '123',
-      petModel: 'circleCatModel'
+      petModel: 'circleCat'
     }),
     User.create({
       name: 'Bunny',
