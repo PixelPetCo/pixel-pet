@@ -54,6 +54,9 @@ export default class PopoverExampleSimple extends React.Component {
             <Link to="/">
               <MenuItem primaryText="Home" />
             </Link>
+            <Link to="/adopt">
+              <MenuItem primaryText="Adopt" />
+            </Link>
             <Link to="/account">
               <MenuItem primaryText="Account" />
             </Link>
