@@ -3,7 +3,7 @@ import { animate } from '../PetModel'
 
 const Jaw = props => {
   return (
-    <a-box
+    <a-tetrahedron
       id="jaw"
       material="shader:flat;color:#513797"
       depth="0.250"
@@ -13,7 +13,7 @@ const Jaw = props => {
       rotation=""
     >
       {animate(props.animation, 'jaw')}
-    </a-box>
+    </a-tetrahedron>
   )
 }
 

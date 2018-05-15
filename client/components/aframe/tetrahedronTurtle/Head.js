@@ -9,7 +9,7 @@ const Head = props => {
       position="0.12789000425531563 0.12610999574468434 0.388331139133306"
       rotation="0 0 -45"
     >
-      <a-box
+      <a-tetrahedron
         id="head-base"
         material="shader:flat;color:#513797"
         depth="0.45"
@@ -19,8 +19,8 @@ const Head = props => {
         geometry=""
       >
         {animate(props.animation, 'head/head_base')}
-      </a-box>
-      <a-box
+      </a-tetrahedron>
+      <a-tetrahedron
         id="snout"
         material="shader:flat;color:#291B4E"
         depth="0.14"
@@ -30,7 +30,7 @@ const Head = props => {
         geometry=""
         rotation=""
       />
-      <a-box
+      <a-tetrahedron
         id="nostril-right"
         material="shader:flat;color:#000"
         depth="0.02"
@@ -39,7 +39,7 @@ const Head = props => {
         position="-0.04 -0.043 0.356"
         geometry=""
       />
-      <a-box
+      <a-tetrahedron
         id="nostril-left"
         material="shader:flat;color:#000"
         depth="0.020"
@@ -48,7 +48,7 @@ const Head = props => {
         position="0.04 -0.045 0.356"
         geometry=""
       />
-      <a-entity
+      <a-tetrahedron
         id="smile"
         material="shader:flat;color:#000"
         geometry="primitive:torus;radiusTubular:0.1;arc:180"
@@ -58,7 +58,7 @@ const Head = props => {
         position="0.01 0.3720996014761166 -0.77"
         visible="false"
       />
-      <a-box
+      <a-tetrahedron
         id="ear-left"
         material="shader:flat;color:#513797"
         rotation="45 0 0"
@@ -69,7 +69,7 @@ const Head = props => {
         geometry=""
       />
 
-      <a-box
+      <a-tetrahedron
         id="ear-right"
         material="shader:flat;color:#513797"
         rotation="45 0 0"
@@ -79,7 +79,7 @@ const Head = props => {
         position="-0.172 0.296 -0.338"
         geometry=""
       />
-      <a-box
+      <a-tetrahedron
         id="sclera-right"
         material="shader:flat;color:white"
         rotation="0 90 0"
@@ -89,7 +89,7 @@ const Head = props => {
         position="-0.11 0.067 0.221"
         geometry=""
       />
-      <a-box
+      <a-tetrahedron
         id="sclera-left"
         material="shader:flat;color:white"
         rotation="0 90 0"
@@ -99,7 +99,7 @@ const Head = props => {
         position="0.11 0.067 0.221"
         geometry=""
       />
-      <a-box
+      <a-tetrahedron
         id="pupil-left"
         material="shader:flat;color:#000"
         rotation="0 90 0"
@@ -109,7 +109,7 @@ const Head = props => {
         position="0.11 0.042 0.226"
         geometry=""
       />
-      <a-box
+      <a-tetrahedron
         id="pupil-right"
         material="shader:flat;color:#000"
         rotation="0 90 0"

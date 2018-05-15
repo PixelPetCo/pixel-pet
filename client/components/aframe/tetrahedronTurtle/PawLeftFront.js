@@ -3,7 +3,7 @@ import { animate } from '../PetModel'
 
 const PawLeftFront = props => {
   return (
-    <a-box
+    <a-tetrahedron
       id="paw-left-front"
       material="shader:flat;color:#513797"
       depth="0.13"
@@ -13,7 +13,7 @@ const PawLeftFront = props => {
       geometry=""
     >
       {animate(props.animation, 'pawLeftFront')}
-    </a-box>
+    </a-tetrahedron>
   )
 }
 

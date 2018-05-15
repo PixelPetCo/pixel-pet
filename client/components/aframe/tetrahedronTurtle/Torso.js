@@ -4,7 +4,7 @@ import { animate } from '../PetModel'
 
 const Torso = props => {
   return (
-    <a-box
+    <a-tetrahedron
       id="body"
       material="shader:flat;color:#291B4E"
       rotation="0 0 45"
@@ -16,7 +16,7 @@ const Torso = props => {
     >
       <Head animation={props.animation} animate={props.animate} />
       {animate(props.animation, 'torso')}
-    </a-box>
+    </a-tetrahedron>
   )
 }
 
