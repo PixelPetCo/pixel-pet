@@ -61,8 +61,10 @@ class MessageForm extends Component {
   }
 }
 
+const mapState = ({ user }) => ({ user })
+
 const mapDispatch = dispatch => ({
   sendUserMessage: msg => dispatch(sendMessage(msg))
 })
 
-export default connect(null, mapDispatch)(MessageForm)
+export default connect(mapState, mapDispatch)(MessageForm)

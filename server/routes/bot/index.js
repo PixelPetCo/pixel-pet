@@ -6,8 +6,9 @@ module.exports = router
 
 router.post('/', async (req, res, next) => {
   const { text, state } = req.body
-  const context = state.chat.context
   const personality = state.user.petPersonality
+  const username = state.user.name || 'human'
+  const context = { ...state.chat.context, username: username }
   const newState = await combinedBotFunction(text, context, personality)
   res.send(newState)
 })
