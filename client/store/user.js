@@ -1,3 +1,5 @@
+import { resetBotOnLogout } from './chat'
+
 /**
  * ACTION TYPES
  */
@@ -49,6 +51,7 @@ export const logout = () => (dispatch, _, { axios, history }) =>
     .delete('/auth')
     .then(() => {
       dispatch(removeUser())
+      dispatch(resetBotOnLogout())
       history.push('/')
     })
     .catch(err => console.log(err))
