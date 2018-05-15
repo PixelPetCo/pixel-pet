@@ -23,6 +23,13 @@ class Adopt extends Component {
     })
   }
 
+  // ideally this function shouldn't be needed
+  handleClick = petPersonality => {
+    this.setState({
+      petPersonality
+    })
+  }
+
   handleSubmit = evt => {
     evt.preventDefault()
     console.log(this.props)
@@ -121,7 +128,10 @@ class Adopt extends Component {
                       this.state.petPersonality === 'chipper' ? 'true' : null
                     }
                   />
-                  <RaisedButton label="Chipper" />
+                  <RaisedButton
+                    onClick={() => this.handleClick('chipper')}
+                    label="Chipper"
+                  />
                 </label>
               </li>
               <li>
@@ -136,7 +146,10 @@ class Adopt extends Component {
                       this.state.petPersonality === 'grumpy' ? 'true' : null
                     }
                   />
-                  <RaisedButton label="Grumpy" />
+                  <RaisedButton
+                    onClick={() => this.handleClick('grumpy')}
+                    label="Grumpy"
+                  />
                 </label>
               </li>
             </ul>
