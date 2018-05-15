@@ -14,6 +14,38 @@ body {
   background-size: contain;
 }
 
+#pet-picker,
+#personality-picker {
+  list-style: none;
+  display: flex;
+}
+
+#pet-picker input,
+#personality-picker input {
+  visibility: hidden;
+  position: absolute;
+}
+
+#pet-picker > li,
+#personality-picker > li {
+  display: inline;
+}
+
+#pet-picker input + img {
+  cursor: pointer;
+  border: 2px solid transparent;
+  max-width: 100px;
+}
+
+#pet-picker input:checked + img {
+  border: 1px solid #4195fc;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px #4195fc;
+}
+
+#pet-picker img {
+}
+
 #app {
   height: 100%;
   width: 100%;

@@ -23,6 +23,12 @@ class Adopt extends Component {
     })
   }
 
+  handleChange = evt => {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
+  }
+
   handleSubmit = evt => {
     evt.preventDefault()
     console.log(this.props)
@@ -38,7 +44,7 @@ class Adopt extends Component {
       <form onSubmit={this.handleSubmit}>
         <fieldset>
           <legend>Animal</legend>
-          <ul>
+          <ul id="pet-picker">
             <li
               className={
                 this.state.petModel === 'cuboidCanine' ? 'selected' : null
@@ -47,12 +53,12 @@ class Adopt extends Component {
               <label htmlFor="cuboidCanine">
                 <input
                   type="radio"
-                  onClick={this.handleClick}
+                  onChange={this.handleChange}
                   name="petModel"
                   value="cuboidCanine"
                   alt="Cuboid Canine"
                 />
-                <img src="/images/cuboidCanine.png" />
+                <img src="cuboidCanine.png" />
               </label>
             </li>
             <li
@@ -63,12 +69,12 @@ class Adopt extends Component {
               <label htmlFor="tetrahedronTurtle">
                 <input
                   type="radio"
-                  onClick={this.handleClick}
+                  onChange={this.handleChange}
                   name="petModel"
                   value="tetrahedronTurtle"
                   alt="Tetrahedron Turtle"
                 />
-                <img src="/images/tetrahedronTurtle.png" />
+                <img src="tetrahedronTurtle.png" />
               </label>
             </li>
             <li
@@ -79,12 +85,12 @@ class Adopt extends Component {
               <label htmlFor="boxyBunny">
                 <input
                   type="radio"
-                  onClick={this.handleClick}
+                  onChange={this.handleChange}
                   name="petModel"
                   value="boxyBunny"
                   alt="Boxy Bunny"
                 />
-                <img src="/images/boxyBunny.png" />
+                <img src="boxyBunny.png" />
               </label>
             </li>
             <li
@@ -95,19 +101,19 @@ class Adopt extends Component {
               <label htmlFor="circleCat">
                 <input
                   type="radio"
-                  onClick={this.handleClick}
+                  onChange={this.handleChange}
                   name="petModel"
                   value="circleCat"
                   alt="Circle Cat"
                 />
-                <img src="/images/circleCat.png" />
+                <img src="circleCat.png" />
               </label>
             </li>
           </ul>
         </fieldset>
         <fieldset>
           <legend>Personality</legend>
-          <ul>
+          <ul id="personality-picker">
             <li>
               <label htmlFor="chipper">
                 <RaisedButton
