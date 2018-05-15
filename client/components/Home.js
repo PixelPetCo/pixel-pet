@@ -41,7 +41,7 @@ class Home extends Component {
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
           {this.state.showTxtInput && (
-            <MessageForm sendUserMessage={sendUserMessage} />
+            <MessageForm sendUserMessage={sendUserMessage} disableBtn={disableBtn} />
           )}
           <FloatingActionButton
             name="showTxtInput"

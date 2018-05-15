@@ -39,6 +39,8 @@ class MessageForm extends Component {
   }
 
   render() {
+    const { disableBtn } = this.props
+
     return (
       <form onSubmit={this.handleSubmit}>
         <TextField
@@ -55,6 +57,7 @@ class MessageForm extends Component {
           label="send"
           primary={true}
           style={styleButton}
+          disabled={disableBtn}
         />
       </form>
     )
