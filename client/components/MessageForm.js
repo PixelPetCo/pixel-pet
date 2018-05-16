@@ -32,18 +32,35 @@ class MessageForm extends Component {
       userMessage: evt.target.value
     })
   }
-  setUserNickname = () => {
-    this.props.updateUser({
-      ...this.props.user,
-      name: this.state.userMessage
-    })
-    const personalityText = {
-      chipper: `Nice to meet you ${
-        this.state.userMessage
-      }! I'm very special because I care about you and pay attention to your emotions, plus I know some tricks! I sure could use a name, though. What would you like to call me?`,
-      grumpy: `Okay, ${
-        this.state.userMessage
-      }. Looks like I'm stuck with you and your human emotions and am going to have to listen to your commads. Oh, you're probably going to come up with some embarrassing nick name to call me. Well, what is it?`
+  
+  setName = type => {
+    let personalityText
+    if (type === 'user') {
+      this.props.updateUser({
+        ...this.props.user,
+        name: this.state.userMessage
+      })
+      personalityText = {
+        chipper: `Nice to meet you ${
+          this.state.userMessage
+        }! I'm very special because I care about you and pay attention to your emotions, plus I know some tricks! I sure could use a name, though. What would you like to call me?`,
+        grumpy: `Okay, ${
+          this.state.userMessage
+        }. Looks like I'm stuck with you and your human emotions and am going to have to listen to your commads. Oh, you're probably going to come up with some embarrassing nick name to call me. Well, what is it?`
+      }
+    } else if (type === 'pet') {
+      this.props.updateUser({
+        ...this.props.user,
+        petName: this.state.userMessage
+      })
+      personalityText = {
+        chipper: `hm, ...${
+          this.state.userMessage
+        }. I really like it! Yay! I'm so excited to be friends`,
+        grumpy: `Fine, ${
+          this.state.userMessage
+        }. I'd have to care to tell you I hate it.`
+      }
     }
     const fakeResponse = {
       botText: personalityText[this.props.user.petPersonality],
@@ -53,42 +70,18 @@ class MessageForm extends Component {
       tooltip: null
     }
     this.props.displayResponse(fakeResponse)
-    this.setState({ userMessage: '' })
-  }
-
-  setPetName = () => {
-    this.props.updateUser({
-      ...this.props.user,
-      petName: this.state.userMessage
-    })
-    const personalityText = {
-      chipper: `hm, ...${
-        this.state.userMessage
-      }. I really like it! Yay! I'm so excited to be friends`,
-      grumpy: `Fine, ${
-        this.state.userMessage
-      }. I'd have to care to tell you I hate it.`
-    }
-    const fakeResponse = {
-      botText: personalityText[this.props.user.petPersonality],
-      mood: null,
-      command: null,
-      context: null
-    }
-    this.props.displayResponse(fakeResponse)
-    this.setState({ userMessage: '' })
   }
 
   handleSubmit = evt => {
     evt.preventDefault()
     if (!this.props.user.name) {
-      this.setUserNickname()
+      this.setName('user')
     } else if (!this.props.user.petName) {
-      this.setPetName()
+      this.setName('pet')
     } else {
       this.props.sendMessage(this.state.userMessage)
-      this.setState({ userMessage: '' })
     }
+    this.setState({ userMessage: '' })
   }
 
   render() {
