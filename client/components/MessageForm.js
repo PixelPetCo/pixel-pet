@@ -34,9 +34,9 @@ class MessageForm extends Component {
   }
 
   handleSubmit = evt => {
+    evt.preventDefault()
     if (!this.props.user.name) {
-      evt.preventDefault()
-      updateUser({ ...this.props.user, name: this.state.userMessage })
+      this.props.updateUser({ ...this.props.user, name: this.state.userMessage })
       let botText
       switch (this.props.user.petPersonality) {
         case 'chipper':
@@ -55,11 +55,11 @@ class MessageForm extends Component {
           }! I'm very special because I care about you and pay attention to your emotions, plus I know some tricks! I sure could use a name, though. What would you like to call me?`
           break
       }
-      const fakeResponse = { botText, mood: null, command: null, context: null }
+      const fakeResponse = { botText, mood: null, command: null, context: null, tooltip: null }
       this.props.displayResponse(fakeResponse)
+      this.setState({userMessage: ''})
     } else if (!this.props.user.petName) {
-      evt.preventDefault()
-      updateUser({ ...this.props.user, petName: this.state.userMessage })
+      this.props.updateUser({ ...this.props.user, petName: this.state.userMessage })
       let botText
       switch (this.props.user.petPersonality) {
         case 'chipper':
@@ -80,8 +80,8 @@ class MessageForm extends Component {
       }
       const fakeResponse = { botText, mood: null, command: null, context: null }
       this.props.displayResponse(fakeResponse)
+      this.setState({userMessage: ''})
     } else {
-      evt.preventDefault()
       this.props.sendMessage(this.state.userMessage)
       this.setState({ userMessage: '' })
     }

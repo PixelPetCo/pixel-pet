@@ -37,7 +37,7 @@ class Home extends Component {
 
     return (
       <main>
-        <Translator botText={botText} />
+        <Translator />
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
           {this.state.showTxtInput && <MessageForm disableBtn={disableBtn} />}
