@@ -10,7 +10,8 @@ router.post('/', async (req, res, next) => {
   const username = state.user.name || 'human'
   const faveFood =
     state.user.faveFood !== null ? state.user.faveFood : 'a mystery'
-  const context = { ...state.chat.context, username, faveFood }
+  const petname = state.user.petName
+  const context = { ...state.chat.context, username, faveFood, petname }
   const newState = await combinedBotFunction(text, context, personality)
   res.send(newState)
 })

@@ -25,24 +25,22 @@ class Home extends Component {
         showTxtInput: !this.state.showTxtInput
       },
       () => {
-        document.getElementById('chatbox').focus()
+        this.state.showTxtInput && document.getElementById('chatbox').focus()
       }
     )
   }
 
   render() {
-    const { botText, mood, command } = this.props.chat
+    const { mood, command } = this.props.chat
     const { sendUserMessage } = this.props
     const disableBtn = mood !== null || command !== null
 
     return (
       <main>
-        <Translator botText={botText} />
+        <Translator />
         <ModelScene mood={mood} command={command} />
         <div id="input-buttons">
-          {this.state.showTxtInput && (
-            <MessageForm sendUserMessage={sendUserMessage} disableBtn={disableBtn} />
-          )}
+          {this.state.showTxtInput && <MessageForm disableBtn={disableBtn} />}
           <FloatingActionButton
             name="showTxtInput"
             onClick={this.handleClick}
@@ -52,7 +50,10 @@ class Home extends Component {
           >
             <SvgIconKeyboard color="#fff" />
           </FloatingActionButton>
-          <SpeechRecognizer sendUserMessage={sendUserMessage} disableBtn={disableBtn} />
+          <SpeechRecognizer
+            sendUserMessage={sendUserMessage}
+            disableBtn={disableBtn}
+          />
         </div>
       </main>
     )
