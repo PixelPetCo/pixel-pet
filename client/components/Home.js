@@ -49,7 +49,7 @@ class Home extends Component {
           </FloatingActionButton>
           <SpeechRecognizer
             sendUserMessage={sendUserMessage}
-            disableBtn={disableBtn}
+            disabled={disableBtn}
           />
         </div>
       </main>

@@ -28,13 +28,17 @@ body {
 
 #pet-picker > li,
 #personality-picker > li {
-  display: inline;
+  flex-direction: row;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 0%;
 }
 
 #pet-picker input + img {
   cursor: pointer;
   border: 2px solid transparent;
-  max-width: 100px;
+  max-width: 200px;
 }
 
 #pet-picker input:checked + img,
