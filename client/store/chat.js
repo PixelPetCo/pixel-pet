@@ -14,10 +14,17 @@ const SEND_MESSAGE = 'SEND_MESSAGE'
 const RESET_COMMAND = 'RESET_COMMAND'
 const RESET_MOOD = 'RESET_MOOD'
 const RESET_BOT = 'RESET_BOT'
+const RUN_TUTORIAL = 'RUN_TUTORIAL'
 
 // INITIAL STATE
 
-const initialState = { botText: '', mood: null, command: null, context: null, tooltip: null }
+const initialState = {
+  botText: '',
+  mood: null,
+  command: null,
+  context: null,
+  tooltip: null
+}
 
 // ACTION CREATORS
 
@@ -28,10 +35,10 @@ export const sendMessageAction = botResponse => ({
 export const resetCommandAction = () => ({ type: RESET_COMMAND })
 export const resetMoodAction = () => ({ type: RESET_MOOD })
 export const resetBot = () => ({ type: RESET_BOT })
+export const toggleTutorial = () => ({ type: RUN_TUTORIAL })
 
 // THUNK CREATORS
 
-/* vv Temporarily increasing maximum function complexity because this thunk is a doozy. vv */
 /*eslint complexity: ["error", 15]*/
 
 export const sendMessage = text => {
@@ -52,6 +59,15 @@ export const sendMessage = text => {
       const context = response.context || null
       const command = commands[intent] ? intent : null
       const botResponse = { botText, mood, command, context }
+
+      // UPDATE USERNAME AND PETNAME, IF FIRST TIME USER
+
+      if (context.username && state.user.name === null) {
+        dispatch(updateUser({ ...state.user, name: context.username }))
+      }
+      if (context.petname && state.user.petName === null) {
+        dispatch(updateUser({ ...state.user, petName: context.petname }))
+      }
 
       // STORE ENTITIES IN DB, IF DETECTED
       const entity = response.entities[0] ? response.entities[0].entity : null
@@ -92,14 +108,20 @@ export const resetBotOnLogout = () => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
-      return action.botResponse
+    case SEND_MESSAGE: {
+      const { botResponse } = action
+      return { ...state, ...botResponse }
+    }
     case RESET_COMMAND:
       return { ...state, command: null }
     case RESET_MOOD:
       return { ...state, mood: null }
     case RESET_BOT:
       return { ...state, botText: '', mood: null, command: null, context: null }
+    case RUN_TUTORIAL: {
+      const newContext = { ...state.context, runTutorial: true }
+      return { ...state, context: newContext }
+    }
     default:
       return state
   }
