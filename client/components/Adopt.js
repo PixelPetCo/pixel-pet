@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { updateUser } from '../store/user'
+import { toggleTutorial, sendMessage } from '../store/chat'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -32,7 +33,8 @@ class Adopt extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault()
-    console.log(this.props)
+    this.props.toggleTutorial()
+    this.props.sendMessage('FIRST USER MESSAGE')
     this.props.updateUser({
       ...this.props.user,
       petModel: this.state.petModel,
@@ -120,9 +122,7 @@ class Adopt extends Component {
                     onChange={this.handleChange}
                     name="petPersonality"
                     value="chipper"
-                    checked={
-                      this.isChecked('petPersonality', 'chipper') || ''
-                    }
+                    checked={this.isChecked('petPersonality', 'chipper') || ''}
                   />
                   <RaisedButton
                     onClick={() => this.handleClick('chipper')}
@@ -156,7 +156,9 @@ class Adopt extends Component {
 }
 
 const mapDispatch = dispatch => ({
-  updateUser: user => dispatch(updateUser(user))
+  updateUser: user => dispatch(updateUser(user)),
+  toggleTutorial: () => dispatch(toggleTutorial()),
+  sendMessage: text => dispatch(sendMessage(text))
 })
 
 const mapState = ({ user }) => ({
