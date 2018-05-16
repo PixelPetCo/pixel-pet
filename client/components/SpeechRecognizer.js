@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { sendMessage } from '../store/chat'
 
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Chip from 'material-ui/Chip'
-import Avatar from 'material-ui/Avatar'
 import SvgIconMic from 'material-ui/svg-icons/av/mic'
 import SvgIconMicRecord from 'material-ui/svg-icons/action/settings-voice'
-import SvgIconFace from 'material-ui/svg-icons/action/face'
+
+const styles = {
+  chip: {
+    margin: 4
+  },
+  position: 'absolute',
+  right: '12%',
+  bottom: '6.5%'
+}
+
+const style2 = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '5%'
+}
 
 class SpeechRecognizer extends Component {
   constructor() {
@@ -24,8 +35,7 @@ class SpeechRecognizer extends Component {
   }
 
   handleClick = () => {
-    if (window.webkitSpeechRecognition === undefined)
-      this.handleError('upgrade')
+    if (window.webkitSpeechRecognition === undefined) this.handleError('upgrade')
     if (event.error == 'audio-capture') this.handleError('noMic')
 
     if (this.state.listening) {
@@ -40,17 +50,17 @@ class SpeechRecognizer extends Component {
 
     //On Result
     this.recognition.onresult = event => {
-      let interim_transcript = ''
+      let interimTranscript = ''
       for (let i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           this.setState({
-            transcript: (this.state.transcript +=
-              event.results[i][0].transcript)
+            transcript: (event.results[i][0].transcript)
           })
-        } else {
-          interim_transcript += event.results[i][0].transcript
+        }
+        else {
+          interimTranscript += event.results[i][0].transcript
           this.setState({
-            transcript: (this.state.transcript = interim_transcript)
+            transcript: (interimTranscript)
           })
         }
       }
@@ -90,21 +100,6 @@ class SpeechRecognizer extends Component {
       </div>
     )
   }
-}
-
-const styles = {
-  chip: {
-    margin: 4
-  },
-  position: 'absolute',
-  right: '12%',
-  bottom: '6.5%'
-}
-
-const style2 = {
-  position: 'absolute',
-  right: '5%',
-  bottom: '5%'
 }
 
 export default SpeechRecognizer
