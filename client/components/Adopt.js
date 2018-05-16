@@ -66,7 +66,7 @@ class Adopt extends Component {
                   value="cuboidCanine"
                   alt="Cuboid Canine"
                 />
-                <img onClick={this.handleClick} src="cuboidCanine.png" />
+                <img onClick={this.handleClick} src="cuboidCanine.gif" />
               </label>
             </li>
             <li
@@ -98,7 +98,7 @@ class Adopt extends Component {
                   value="boxyBunny"
                   alt="Boxy Bunny"
                 />
-                <img onClick={this.handleClick} src="boxyBunny.png" />
+                <img onClick={this.handleClick} src="boxyBunny.gif" />
               </label>
             </li>
             <li
@@ -114,7 +114,7 @@ class Adopt extends Component {
                   value="circleCat"
                   alt="Circle Cat"
                 />
-                <img onClick={this.handleClick} src="circleCat.png" />
+                <img onClick={this.handleClick} src="circleCat.gif" />
               </label>
             </li>
           </ul>
