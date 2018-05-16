@@ -38,7 +38,7 @@ class Home extends Component {
     return (
       <main>
         <Translator />
-        <ModelScene mood={mood} command={command} />
+        <ModelScene />
         <div id="input-buttons">
           {this.state.showTxtInput && <MessageForm disableBtn={disableBtn} />}
           <FloatingActionButton

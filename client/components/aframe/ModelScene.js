@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PetModel from './PetModel'
+import { connect } from 'react-redux'
 
-export default class ModelScene extends Component {
+class ModelScene extends Component {
   componentDidUpdate = () => {
     let scriptString
-    let animation = this.props.command || this.props.mood
+    let animation = this.props.chat.command || this.props.chat.mood
     switch (animation) {
       case 'anger':
         scriptString = `
@@ -25,7 +26,8 @@ export default class ModelScene extends Component {
   }
 
   render = () => {
-    let animation = this.props.command || this.props.mood
+
+    let animation = this.props.chat.command || this.props.chat.mood
     return (
       <a-scene
         environment="preset: forest; groundTexture: checkerboard; groundColor: #8acca7; groundColor2: #b5fce1"
@@ -48,3 +50,7 @@ export default class ModelScene extends Component {
     )
   }
 }
+
+const mapState = ({ chat }) => ({ chat })
+
+export default connect(mapState)(ModelScene)
