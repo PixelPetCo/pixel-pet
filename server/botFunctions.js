@@ -88,6 +88,7 @@ const combinedBotFunction = (
         analyzeTone(text),
         sendMessage(text, oldContext, personality)
       ])
+      console.log(oldContext)
       const mood = toneAnalysis[0] ? toneAnalysis[0].tone_id : null
       const botText = response.output.text ? response.output.text[0] : ''
       const confidence = response.intents.length
