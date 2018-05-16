@@ -28,7 +28,7 @@ export default class ModelScene extends Component {
     let animation = this.props.command || this.props.mood
     return (
       <a-scene
-      environment="preset: forest; groundTexture: checkerboard; groundColor: #8acca7; groundColor2: #b5fce1"
+      // environment="preset: forest; groundTexture: checkerboard; groundColor: #8acca7; groundColor2: #b5fce1"
         vr-mode-ui="enabled: false"
       >
 

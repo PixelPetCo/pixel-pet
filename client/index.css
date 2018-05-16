@@ -9,7 +9,7 @@ form {
 }
 
 body {
-  background-image: url('/welcome-bg.gif');
+  /* background-image: url('/welcome-bg.gif'); */
   background-repeat: round;
   background-size: contain;
 }
