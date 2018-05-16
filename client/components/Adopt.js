@@ -17,23 +17,16 @@ class Adopt extends Component {
     })
   }
 
-  handleClick = evt => {
-    if (
-      evt.target.previousElementSibling && // detect if there's a previous element (looking for input element)
-      evt.target.previousElementSibling.type === 'radio' // redundantly? checks the type is radio, could also check tagName "INPUT"
-    ) {
-      evt.target.previousElementSibling.checked = true // this doesn't actually trigger the handleChange
-      this.handleChange({ ...evt, target: evt.target.previousElementSibling }) // manually passing event with target set to previous input element to handleChange
-    } else {
-      this.setState({
-        [evt.target.name]: evt.target.value // is it possible to trigger this by clicking on the input without clicking the image?
-      })
-    }
-  }
-
   handleChange = evt => {
     this.setState({
       [evt.target.name]: evt.target.value
+    })
+  }
+
+  // ideally this function shouldn't be needed
+  handleClick = petPersonality => {
+    this.setState({
+      petPersonality
     })
   }
 
@@ -50,106 +43,118 @@ class Adopt extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <fieldset>
-          <legend>Animal</legend>
-          <ul id="pet-picker">
-            <li
-              className={
-                this.state.petModel === 'cuboidCanine' ? 'selected' : null
-              }
-            >
-              <label htmlFor="cuboidCanine">
-                <input
-                  type="radio"
-                  onChange={this.handleChange}
-                  name="petModel"
-                  value="cuboidCanine"
-                  alt="Cuboid Canine"
-                />
-                <img onClick={this.handleClick} src="cuboidCanine.gif" />
-              </label>
-            </li>
-            <li
-              className={
-                this.state.petModel === 'tetrahedronTurtle' ? 'selected' : null
-              }
-            >
-              <label htmlFor="tetrahedronTurtle">
-                <input
-                  type="radio"
-                  onChange={this.handleChange}
-                  name="petModel"
-                  value="tetrahedronTurtle"
-                  alt="Tetrahedron Turtle"
-                />
-                <img onClick={this.handleClick} src="tetrahedronTurtle.png" />
-              </label>
-            </li>
-            <li
-              className={
-                this.state.petModel === 'boxyBunny' ? 'selected' : null
-              }
-            >
-              <label htmlFor="boxyBunny">
-                <input
-                  type="radio"
-                  onChange={this.handleChange}
-                  name="petModel"
-                  value="boxyBunny"
-                  alt="Boxy Bunny"
-                />
-                <img onClick={this.handleClick} src="boxyBunny.gif" />
-              </label>
-            </li>
-            <li
-              className={
-                this.state.petModel === 'circleCat' ? 'selected' : null
-              }
-            >
-              <label htmlFor="circleCat">
-                <input
-                  type="radio"
-                  onChange={this.handleChange}
-                  name="petModel"
-                  value="circleCat"
-                  alt="Circle Cat"
-                />
-                <img onClick={this.handleClick} src="circleCat.gif" />
-              </label>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <legend>Personality</legend>
-          <ul id="personality-picker">
-            <li>
-              <label htmlFor="chipper">
-                <RaisedButton
-                  className={
-                    this.state.petPersonality === 'chipper' ? 'selected' : null
-                  }
-                  onClick={this.handleClick}
-                  label="Chipper"
-                  name="petPersonality"
-                  value="chipper"
-                />
-              </label>
-            </li>
-            <li>
-              <label htmlFor="petPersonality">
-                <RaisedButton
-                  className={
-                    this.state.petPersonality === 'grumpy' ? 'selected' : null
-                  }
-                  onClick={this.handleClick}
-                  label="Grumpy"
-                  name="petPersonality"
-                  value="grumpy"
-                />
-              </label>
-            </li>
-          </ul>
-        </fieldset>
+        <section>
+          <fieldset>
+            <legend>Animal</legend>
+            <ul id="pet-picker">
+              <li>
+                <label htmlFor="cuboidCanine">
+                  <input
+                    id="cuboidCanine"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petModel"
+                    value="cuboidCanine"
+                    checked={
+                      this.state.petModel === 'cuboidCanine' ? 'true' : null
+                    }
+                  />
+                  <img src="cuboidCanine.png" />
+                </label>
+              </li>
+              <li>
+                <label htmlFor="tetrahedronTurtle">
+                  <input
+                    id="tetrahedronTurtle"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petModel"
+                    value="tetrahedronTurtle"
+                    checked={
+                      this.state.petModel === 'tetrahedronTurtle'
+                        ? 'true'
+                        : null
+                    }
+                  />
+                  <img src="tetrahedronTurtle.png" />
+                </label>
+              </li>
+              <li>
+                <label htmlFor="boxyBunny">
+                  <input
+                    id="boxyBunny"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petModel"
+                    value="boxyBunny"
+                    checked={
+                      this.state.petModel === 'boxyBunny' ? 'true' : null
+                    }
+                  />
+                  <img src="boxyBunny.png" />
+                </label>
+              </li>
+              <li>
+                <label htmlFor="circleCat">
+                  <input
+                    id="circleCat"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petModel"
+                    value="circleCat"
+                    checked={
+                      this.state.petModel === 'circleCat' ? 'true' : null
+                    }
+                  />
+                  <img src="circleCat.png" />
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </section>
+        <section>
+          <fieldset>
+            <legend>Personality</legend>
+            <ul id="personality-picker">
+              <li>
+                <label htmlFor="chipper">
+                  <input
+                    id="chipper"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petPersonality"
+                    value="chipper"
+                    checked={
+                      this.state.petPersonality === 'chipper' ? 'true' : null
+                    }
+                  />
+                  <RaisedButton
+                    onClick={() => this.handleClick('chipper')}
+                    label="Chipper"
+                  />
+                </label>
+              </li>
+              <li>
+                <label htmlFor="grumpy">
+                  <input
+                    id="grumpy"
+                    type="radio"
+                    onChange={this.handleChange}
+                    name="petPersonality"
+                    value="grumpy"
+                    checked={
+                      this.state.petPersonality === 'grumpy' ? 'true' : null
+                    }
+                  />
+                  <RaisedButton
+                    onClick={() => this.handleClick('grumpy')}
+                    label="Grumpy"
+                  />
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </section>
         <RaisedButton type="submit" label="Adopt!" primary={true} />
       </form>
     )
