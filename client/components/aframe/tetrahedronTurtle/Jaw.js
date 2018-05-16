@@ -6,9 +6,7 @@ const Jaw = props => {
     <a-tetrahedron
       id="jaw"
       material="shader:flat;color:#513797"
-      depth="0.250"
-      height="0.020"
-      width="0.199"
+      raduis="0.1"
       position="0 -0.2 0.2307664801058491"
       rotation=""
     >

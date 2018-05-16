@@ -12,9 +12,7 @@ const Head = props => {
       <a-tetrahedron
         id="head-base"
         material="shader:flat;color:#513797"
-        depth="0.45"
-        height="0.4"
-        width="0.4"
+        raduis="0.4"
         position=""
         geometry=""
       >
@@ -23,9 +21,7 @@ const Head = props => {
       <a-tetrahedron
         id="snout"
         material="shader:flat;color:#291B4E"
-        depth="0.14"
-        height="0.18"
-        width="0.2"
+        raduis="0.2"
         position="0 -0.11923910006574229 0.29267250124366273"
         geometry=""
         rotation=""
@@ -33,18 +29,14 @@ const Head = props => {
       <a-tetrahedron
         id="nostril-right"
         material="shader:flat;color:#000"
-        depth="0.02"
-        height="0.04"
-        width="0.02"
+        raduis="0.2"
         position="-0.04 -0.043 0.356"
         geometry=""
       />
       <a-tetrahedron
         id="nostril-left"
         material="shader:flat;color:#000"
-        depth="0.020"
-        height="0.04"
-        width="0.02"
+        raduis="0.2"
         position="0.04 -0.045 0.356"
         geometry=""
       />
@@ -62,9 +54,7 @@ const Head = props => {
         id="ear-left"
         material="shader:flat;color:#513797"
         rotation="45 0 0"
-        depth="0.140"
-        height="0.02"
-        width="0.09"
+        raduis="0.15"
         position="0.14881709598662096 0.3 -0.32160633752978557"
         geometry=""
       />
@@ -73,9 +63,7 @@ const Head = props => {
         id="ear-right"
         material="shader:flat;color:#513797"
         rotation="45 0 0"
-        depth="0.140"
-        height="0.02"
-        width="0.09"
+        raduis="0.15"
         position="-0.172 0.296 -0.338"
         geometry=""
       />
@@ -83,9 +71,7 @@ const Head = props => {
         id="sclera-right"
         material="shader:flat;color:white"
         rotation="0 90 0"
-        depth="0.150"
-        height="0.150"
-        width="0.01"
+        raduis="0.15"
         position="-0.11 0.067 0.221"
         geometry=""
       />
@@ -93,9 +79,7 @@ const Head = props => {
         id="sclera-left"
         material="shader:flat;color:white"
         rotation="0 90 0"
-        depth="0.150"
-        height="0.150"
-        width="0.01"
+        raduis="0.15"
         position="0.11 0.067 0.221"
         geometry=""
       />
@@ -103,9 +87,7 @@ const Head = props => {
         id="pupil-left"
         material="shader:flat;color:#000"
         rotation="0 90 0"
-        depth="0.1"
-        height="0.1"
-        width="0.01"
+        raduis="0.1"
         position="0.11 0.042 0.226"
         geometry=""
       />
@@ -113,9 +95,7 @@ const Head = props => {
         id="pupil-right"
         material="shader:flat;color:#000"
         rotation="0 90 0"
-        depth="0.1"
-        height="0.1"
-        width="0.01"
+        raduis="0.1"
         position="-0.11104977197930957 0.042 0.226"
         geometry=""
       />
