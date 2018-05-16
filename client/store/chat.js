@@ -1,3 +1,13 @@
+import { updateUser } from './user'
+
+// PET COMMANDS
+
+const commands = { speak: true, sit: true }
+
+// INTENT AND ENTITY PAIRS
+
+const pairs = { Fave_Food: 'food' }
+
 // ACTION TYPES
 
 const SEND_MESSAGE = 'SEND_MESSAGE'
@@ -21,13 +31,43 @@ export const resetBot = () => ({ type: RESET_BOT })
 
 // THUNK CREATORS
 
+/* vv Temporarily increasing maximum function complexity because this thunk is a doozy. vv */
+/*eslint complexity: ["error", 15]*/
+
 export const sendMessage = text => {
   return async (dispatch, getState, { axios }) => {
     try {
+      // GET DATA FROM WATSON
       const state = getState()
       const res = await axios.post('/bot', { text, state })
-      const botResponse = res.data
+      const { toneAnalysis, response } = res.data
+
+      // EXTRACT RELEVANT DATA
+      const mood = toneAnalysis[0] ? toneAnalysis[0].tone_id : null
+      const botText = response.output.text ? response.output.text[0] : ''
+      const confidence = response.intents.length
+        ? response.intents[0].confidence
+        : 0
+      const intent = confidence > 0.7 ? response.intents[0].intent : null
+      const context = response.context || null
+      const command = commands[intent] ? intent : null
+      const botResponse = { botText, mood, command, context }
+
+      // STORE ENTITIES IN DB, IF DETECTED
+      const entity = response.entities[0] ? response.entities[0].entity : null
+      if (pairs[intent] === entity) {
+        dispatch(
+          updateUser({
+            ...state.user,
+            faveFood: response.entities[0].value
+          })
+        )
+      }
+
+      // DISPATCH ACTION WITH EXTRACTED DATA
       dispatch(sendMessageAction(botResponse))
+
+      // RESET STATE AFTER 6S TO STOP REPEATING ANIMATIONS
       setTimeout(() => {
         dispatch(resetCommandAction())
         dispatch(resetMoodAction())
@@ -39,7 +79,7 @@ export const sendMessage = text => {
 }
 
 export const resetBotOnLogout = () => {
-  return async (dispatch, getState, { axios }) => {
+  return dispatch => {
     try {
       dispatch(resetBot())
     } catch (error) {

@@ -15,10 +15,6 @@ const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3')
 
 const AssistantV1 = require('watson-developer-cloud/assistant/v1')
 
-// Possible Commands
-
-const commands = ['speak', 'sit']
-
 // Tone Analyzer Setup
 
 const toneAnalyzer = new ToneAnalyzerV3({
@@ -88,16 +84,7 @@ const combinedBotFunction = (
         analyzeTone(text),
         sendMessage(text, oldContext, personality)
       ])
-      console.log(oldContext)
-      const mood = toneAnalysis[0] ? toneAnalysis[0].tone_id : null
-      const botText = response.output.text ? response.output.text[0] : ''
-      const confidence = response.intents.length
-        ? response.intents[0].confidence
-        : 0
-      const intent = confidence > 0.7 ? response.intents[0].intent : null
-      const context = response.context || null
-      const command = commands.includes(intent) ? intent : null
-      resolve({ botText, mood, command, context })
+      resolve({ toneAnalysis, response })
     } catch (error) {
       reject(error)
     }
