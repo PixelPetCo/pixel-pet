@@ -31,27 +31,6 @@ class Home extends Component {
   }
 
   render() {
-    let botText
-    if (this.props.user.name) {
-      botText = this.props.chat.botText
-    } else {
-      switch (this.props.user.petPersonality) {
-        case 'chipper':
-          botText = `Hello, human! What's your name?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally! You can also roam around the environment using the arrow keys]`
-          break
-        case 'grupmy':
-          botText = `Oh, a human. What's your name?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally! You can also roam around the environment using the arrow keys]`
-          break
-        default:
-          botText = `Hello, human! What should I call you?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally! You can also roam around the environment using the arrow keys]`
-      }
-    }
     const { mood, command } = this.props.chat
     const { sendUserMessage } = this.props
     const disableBtn = mood !== null || command !== null
@@ -87,7 +66,7 @@ const style = {
   bottom: '14%'
 }
 
-const mapState = ({ chat, user }) => ({ chat, user })
+const mapState = ({ chat }) => ({ chat })
 
 const mapDispatch = dispatch => ({
   sendUserMessage: msg => dispatch(sendMessage(msg))

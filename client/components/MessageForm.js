@@ -36,27 +36,50 @@ class MessageForm extends Component {
   handleSubmit = evt => {
     if (!this.props.user.name) {
       evt.preventDefault()
-      let botText;
+      updateUser({ ...this.props.user, name: this.state.userMessage })
+      let botText
       switch (this.props.user.petPersonality) {
         case 'chipper':
-          botText = `Hello, human! What's your name?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
-          break;
+          botText = `Nice to meet you ${
+            this.state.userMessage
+          }! I'm very special because I care about you and pay attention to your emotions, plus I know some tricks! I sure could use a name, though. What would you like to call me?`
+          break
         case 'grupmy':
-          botText = `Oh, a human. What's your name?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
-          break;
+          botText = `Okay, ${
+            this.state.userMessage
+          }. Looks like I'm stuck with you and your human emotions and am going to have to listen to your commads. Oh, you're probably going to come up with some embarrassing nick name to call me. Well, what is it?`
+          break
         default:
-          botText = `Hello, human! What should I call you?
-
-[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
+          botText = `Nice to meet you ${
+            this.state.userMessage
+          }! I'm very special because I care about you and pay attention to your emotions, plus I know some tricks! I sure could use a name, though. What would you like to call me?`
+          break
       }
       const fakeResponse = { botText, mood: null, command: null, context: null }
-
+      this.props.displayResponse(fakeResponse)
     } else if (!this.props.user.petName) {
       evt.preventDefault()
+      updateUser({ ...this.props.user, petName: this.state.userMessage })
+      let botText
+      switch (this.props.user.petPersonality) {
+        case 'chipper':
+          botText = `hm, ...${
+            this.state.userMessage
+          }. I really like it! Yay! I'm so excited to be friends`
+          break
+        case 'grupmy':
+          botText = `Fine, ${
+            this.state.userMessage
+          }. I'd have to care to tell you I hate it.`
+          break
+        default:
+          botText = `hm, ...${
+            this.state.userMessage
+          }. I really like it! Yay! I'm so excited to be friends`
+          break
+      }
+      const fakeResponse = { botText, mood: null, command: null, context: null }
+      this.props.displayResponse(fakeResponse)
     } else {
       evt.preventDefault()
       this.props.sendMessage(this.state.userMessage)
