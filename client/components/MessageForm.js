@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { sendMessage } from '../store/chat'
+import { sendMessage, sendMessageAction } from '../store/chat'
+import { updateUser } from '../store/user'
 
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -33,9 +34,34 @@ class MessageForm extends Component {
   }
 
   handleSubmit = evt => {
-    evt.preventDefault()
-    this.props.sendUserMessage(this.state.userMessage)
-    this.setState({ userMessage: '' })
+    if (!this.props.user.name) {
+      evt.preventDefault()
+      let botText;
+      switch (this.props.user.petPersonality) {
+        case 'chipper':
+          botText = `Hello, human! What's your name?
+
+[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
+          break;
+        case 'grupmy':
+          botText = `Oh, a human. What's your name?
+
+[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
+          break;
+        default:
+          botText = `Hello, human! What should I call you?
+
+[To interact with your pet, you can either use the keyboard button to type your messages or the mic button to express them verbally!]`
+      }
+      const fakeResponse = { botText, mood: null, command: null, context: null }
+
+    } else if (!this.props.user.petName) {
+      evt.preventDefault()
+    } else {
+      evt.preventDefault()
+      this.props.sendMessage(this.state.userMessage)
+      this.setState({ userMessage: '' })
+    }
   }
 
   render() {
@@ -64,4 +90,14 @@ class MessageForm extends Component {
   }
 }
 
-export default MessageForm
+const mapState = ({ user }) => ({
+  user
+})
+
+const mapDispatch = dispatch => ({
+  sendMessage: msg => dispatch(sendMessage(msg)),
+  displayResponse: fakeResponse => dispatch(sendMessageAction(fakeResponse)),
+  updateUser: user => dispatch(updateUser(user))
+})
+
+export default connect(mapState, mapDispatch)(MessageForm)

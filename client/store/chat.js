@@ -11,7 +11,7 @@ const initialState = { botText: '', mood: null, command: null, context: null }
 
 // ACTION CREATORS
 
-const sendMessageAction = botResponse => ({
+export const sendMessageAction = botResponse => ({
   type: SEND_MESSAGE,
   botResponse
 })
