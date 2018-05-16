@@ -44,6 +44,9 @@ const User = db.define('user', {
   },
   name: {
     type: Sequelize.STRING
+  },
+  faveFood: {
+    type: Sequelize.STRING
   }
 })
 

@@ -57,14 +57,10 @@ export const logout = () => (dispatch, _, { axios, history }) =>
     })
     .catch(err => console.log(err))
 
-export const updateUser = (user) => async (
-  dispatch,
-  _,
-  { axios, history }
-) => {
+export const updateUser = user => async (dispatch, _, { axios, history }) => {
   const updatedUser = await axios
     .put(`/api/users/${user.id}`, user)
-    .catch(err => console.log('Unable to update user'))
+    .catch(err => console.log('Unable to update user. Error: ', err))
   dispatch(editUser(updatedUser.data))
   history.push('/')
 }
