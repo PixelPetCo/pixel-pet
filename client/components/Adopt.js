@@ -40,6 +40,10 @@ class Adopt extends Component {
     })
   }
 
+  isChecked = (type, value) => {
+    return this.state[type] === value && 'true'
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -55,9 +59,7 @@ class Adopt extends Component {
                     onChange={this.handleChange}
                     name="petModel"
                     value="cuboidCanine"
-                    checked={
-                      this.state.petModel === 'cuboidCanine' ? 'true' : null
-                    }
+                    checked={this.isChecked('petModel', 'cuboidCanine') || ''}
                   />
                   <img src="cuboidCanine.png" />
                 </label>
@@ -71,9 +73,7 @@ class Adopt extends Component {
                     name="petModel"
                     value="tetrahedronTurtle"
                     checked={
-                      this.state.petModel === 'tetrahedronTurtle'
-                        ? 'true'
-                        : null
+                      this.isChecked('petModel', 'tetrahedronTurtle') || ''
                     }
                   />
                   <img src="tetrahedronTurtle.png" />
@@ -87,9 +87,7 @@ class Adopt extends Component {
                     onChange={this.handleChange}
                     name="petModel"
                     value="boxyBunny"
-                    checked={
-                      this.state.petModel === 'boxyBunny' ? 'true' : null
-                    }
+                    checked={this.isChecked('petModel', 'boxyBunny') || ''}
                   />
                   <img src="boxyBunny.png" />
                 </label>
@@ -102,9 +100,7 @@ class Adopt extends Component {
                     onChange={this.handleChange}
                     name="petModel"
                     value="circleCat"
-                    checked={
-                      this.state.petModel === 'circleCat' ? 'true' : null
-                    }
+                    checked={this.isChecked('petModel', 'circleCat') || ''}
                   />
                   <img src="circleCat.png" />
                 </label>
@@ -125,7 +121,7 @@ class Adopt extends Component {
                     name="petPersonality"
                     value="chipper"
                     checked={
-                      this.state.petPersonality === 'chipper' ? 'true' : null
+                      this.isChecked('petPersonality', 'chipper') || ''
                     }
                   />
                   <RaisedButton
@@ -142,9 +138,7 @@ class Adopt extends Component {
                     onChange={this.handleChange}
                     name="petPersonality"
                     value="grumpy"
-                    checked={
-                      this.state.petPersonality === 'grumpy' ? 'true' : null
-                    }
+                    checked={this.isChecked('petPersonality', 'grumpy') || ''}
                   />
                   <RaisedButton
                     onClick={() => this.handleClick('grumpy')}
