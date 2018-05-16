@@ -37,7 +37,8 @@ body {
   max-width: 100px;
 }
 
-#pet-picker input:checked + img {
+#pet-picker input:checked + img,
+#personality-picker input:checked + div {
   border: 1px solid #4195fc;
   border-radius: 4px;
   box-shadow: 0px 0px 4px #4195fc;
