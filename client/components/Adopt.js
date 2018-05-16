@@ -3,6 +3,26 @@ import { updateUser } from '../store/user'
 import { toggleTutorial, sendMessage } from '../store/chat'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardText,
+  CardMedia
+} from 'material-ui/Card'
+
+const cardStyle = {
+  borderRadius: 5
+}
+
+const titleTextStyle = {
+  margin: 0
+}
+
+const titleStyle = {
+  fontSize: '14px',
+  fontWeight: '500'
+}
 
 class Adopt extends Component {
   state = {
@@ -47,13 +67,15 @@ class Adopt extends Component {
   }
 
   render() {
+    const { petModel, petPersonality } = this.state
+
     return (
       <form onSubmit={this.handleSubmit}>
         <section>
-          <fieldset>
-            <legend>Animal</legend>
-            <ul id="pet-picker">
-              <li>
+          <h3 className="pixel-font-white">Select your pet:</h3>
+          <ul id="pet-picker">
+            <li>
+              <Card style={cardStyle}>
                 <label htmlFor="cuboidCanine">
                   <input
                     id="cuboidCanine"
@@ -63,25 +85,12 @@ class Adopt extends Component {
                     value="cuboidCanine"
                     checked={this.isChecked('petModel', 'cuboidCanine') || ''}
                   />
-                  <img src="cuboidCanine.png" />
+                  <img src="pets/dog-joy.gif" />
                 </label>
-              </li>
-              <li>
-                <label htmlFor="tetrahedronTurtle">
-                  <input
-                    id="tetrahedronTurtle"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petModel"
-                    value="tetrahedronTurtle"
-                    checked={
-                      this.isChecked('petModel', 'tetrahedronTurtle') || ''
-                    }
-                  />
-                  <img src="tetrahedronTurtle.png" />
-                </label>
-              </li>
-              <li>
+              </Card>
+            </li>
+            <li>
+              <Card style={cardStyle}>
                 <label htmlFor="boxyBunny">
                   <input
                     id="boxyBunny"
@@ -91,10 +100,12 @@ class Adopt extends Component {
                     value="boxyBunny"
                     checked={this.isChecked('petModel', 'boxyBunny') || ''}
                   />
-                  <img src="boxyBunny.png" />
+                  <img src="pets/bunny-sit.gif" />
                 </label>
-              </li>
-              <li>
+              </Card>
+            </li>
+            <li>
+              <Card style={cardStyle}>
                 <label htmlFor="circleCat">
                   <input
                     id="circleCat"
@@ -104,52 +115,52 @@ class Adopt extends Component {
                     value="circleCat"
                     checked={this.isChecked('petModel', 'circleCat') || ''}
                   />
-                  <img src="circleCat.png" />
+                  <img src="pets/cat-analytical.gif" />
                 </label>
-              </li>
-            </ul>
-          </fieldset>
+              </Card>
+            </li>
+          </ul>
         </section>
         <section>
-          <fieldset>
-            <legend>Personality</legend>
-            <ul id="personality-picker">
-              <li>
-                <label htmlFor="chipper">
-                  <input
-                    id="chipper"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petPersonality"
-                    value="chipper"
-                    checked={this.isChecked('petPersonality', 'chipper') || ''}
-                  />
-                  <RaisedButton
-                    onClick={() => this.handleClick('chipper')}
-                    label="Chipper"
-                  />
-                </label>
-              </li>
-              <li>
-                <label htmlFor="grumpy">
-                  <input
-                    id="grumpy"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petPersonality"
-                    value="grumpy"
-                    checked={this.isChecked('petPersonality', 'grumpy') || ''}
-                  />
-                  <RaisedButton
-                    onClick={() => this.handleClick('grumpy')}
-                    label="Grumpy"
-                  />
-                </label>
-              </li>
-            </ul>
-          </fieldset>
+          <h3 className="pixel-font-white">Choose a personality:</h3>
+          <ul id="personality-picker">
+            <li>
+              <label htmlFor="chipper">
+                <input
+                  id="chipper"
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="petPersonality"
+                  value="chipper"
+                  checked={this.isChecked('petPersonality', 'chipper') || ''}
+                />
+                <RaisedButton
+                  onClick={() => this.handleClick('chipper')}
+                  label="Chipper"
+                  secondary={petPersonality === 'chipper'}
+                />
+              </label>
+            </li>
+            <li>
+              <label htmlFor="grumpy">
+                <input
+                  id="grumpy"
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="petPersonality"
+                  value="grumpy"
+                  checked={this.isChecked('petPersonality', 'grumpy') || ''}
+                />
+                <RaisedButton
+                  onClick={() => this.handleClick('grumpy')}
+                  label="Grumpy"
+                  secondary={petPersonality === 'grumpy'}
+                />
+              </label>
+            </li>
+          </ul>
         </section>
-        <RaisedButton type="submit" label="Adopt!" primary={true} />
+        <RaisedButton type="submit" label="Adopt!" primary={true} disabled={!petModel || !petPersonality} />
       </form>
     )
   }
