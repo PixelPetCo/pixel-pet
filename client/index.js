@@ -14,6 +14,7 @@ import { App } from './components'
 import 'aframe'
 import 'aframe-animation-component'
 import 'aframe-event-set-component'
+import 'aframe-environment-component'
 
 const muiTheme = getMuiTheme({
   palette: {

@@ -23,9 +23,6 @@ class Home extends Component {
     this.setState(
       {
         showTxtInput: !this.state.showTxtInput
-      },
-      () => {
-        document.getElementById('chatbox').focus()
       }
     )
   }

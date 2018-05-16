@@ -40,6 +40,7 @@ class MessageForm extends Component {
 
   render() {
     const { disableBtn } = this.props
+    const { userMessage } = this.state
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -57,7 +58,7 @@ class MessageForm extends Component {
           label="send"
           primary={true}
           style={styleButton}
-          disabled={disableBtn}
+          disabled={disableBtn || userMessage === ''}
         />
       </form>
     )
