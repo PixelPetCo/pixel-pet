@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { updateUser, newPet } from '../store/user'
+import { updateUser } from '../store/user'
 import { toggleTutorial, sendMessage } from '../store/chat'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
