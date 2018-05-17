@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { updateUser } from '../store/user'
+import { updateUser, newPet } from '../store/user'
 import { toggleTutorial, sendMessage } from '../store/chat'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -51,15 +51,17 @@ class Adopt extends Component {
     })
   }
 
-  handleSubmit = evt => {
+  handleSubmit = async evt => {
     evt.preventDefault()
     this.props.toggleTutorial()
-    this.props.sendMessage('FIRST USER MESSAGE')
-    this.props.updateUser({
+    await this.props.updateUser({
       ...this.props.user,
+      name: null,
+      petName: null,
       petModel: this.state.petModel,
       petPersonality: this.state.petPersonality
     })
+    this.props.sendMessage('FIRST USER MESSAGE')
   }
 
   isChecked = (type, value) => {
@@ -160,7 +162,12 @@ class Adopt extends Component {
             </li>
           </ul>
         </section>
-        <RaisedButton type="submit" label="Adopt!" primary={true} disabled={!petModel || !petPersonality} />
+        <RaisedButton
+          type="submit"
+          label="Adopt!"
+          primary={true}
+          disabled={!petModel || !petPersonality}
+        />
       </form>
     )
   }
