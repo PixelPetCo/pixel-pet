@@ -26,7 +26,8 @@ export class UserForm extends Component {
       return obj
     }, {})
     const userId = this.props.user.id
-    this.props.editUser(userId, newInfo)
+    const newUser = { ...newInfo, id: userId }
+    this.props.editUser(newUser)
   }
 
   render() {
@@ -71,8 +72,8 @@ export class UserForm extends Component {
 }
 
 const mapDispatch = (dispatch, ownProps) => ({
-  editUser: async (userId, user) => {
-    await dispatch(updateUser(userId, user))
+  editUser: async user => {
+    await dispatch(updateUser(user))
     ownProps.history.push(`/account`)
   }
 })

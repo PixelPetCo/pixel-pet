@@ -21,8 +21,8 @@ class UserAccount extends Component {
             </Switch>
           </div>
         ) : (
-            <h5>Please login to view this page</h5>
-          )}
+          <h5>Please login to view this page</h5>
+        )}
       </div>
     )
   }
