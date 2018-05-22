@@ -24,18 +24,18 @@ Here are some fun things to try with your PixelPet:
 
 ## Tech Stack
 
-Material UI
-Web Speech API
-A-Frame
-React
-Redux
-Passport
-IBM's Watson Assistant & Watson Tone Analyzer
-Sequelize
-PostgreSQL
-Express.js
-Node.js
-Webpack
+- Material UI
+- Web Speech API
+- A-Frame
+- React
+- Redux
+- Passport
+- IBM's Watson Assistant & Watson Tone Analyzer
+- Sequelize
+- PostgreSQL
+- Express.js
+- Node.js
+- Webpack
 
 ## Compatibility
 
