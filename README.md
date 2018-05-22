@@ -6,7 +6,38 @@ PixelPet provides adorable, animated WebVR pets through A-Frame that can chat wi
 
 The inspiration behind this app is the idea that, despite being surrounded by increasingly powerful and intelligent virtual assistants, comparatively little has been done to make these assistants companionable.  They provide a great deal of logistical support to their users, but next to no emotional support. As machine learning continues to improve, it would be ideal if the virtual personalities in our lives were not only useful, but likeable and empathetic.
 
-# Interacting with PixelPet
+# Deployment
+
+## Intsall Tech Stack / Dependencies
+
+Everything you need can be acquired by running `npm install`
+
+PixelPet uses the following API's and libraries:
+
+- Material UI
+- Web Speech API
+- A-Frame
+- React
+- Redux
+- Passport
+- IBM's Watson Assistant & Watson Tone Analyzer
+- Sequelize
+- PostgreSQL
+- Express.js
+- Node.js
+- Webpack
+
+## Build & run
+
+You will need a PostgreSQL database, which you can create with `createdb pixel-pet`
+
+There is also a seed script you can run with `npm run seed`
+
+`npm run start:dev` will run Webpack and start the server listening on `localhost:8080` and will watch the project for changes. 
+
+# Usage
+
+## Interacting with PixelPet
 
 Here are some fun things to try with your PixelPet: 
 - Speak!
@@ -21,21 +52,6 @@ Here are some fun things to try with your PixelPet:
 - Ask PixelPet to tell a joke
 - General conversation
 - Explore PixelPet's environment with the arrow keys
-
-## Tech Stack
-
-- Material UI
-- Web Speech API
-- A-Frame
-- React
-- Redux
-- Passport
-- IBM's Watson Assistant & Watson Tone Analyzer
-- Sequelize
-- PostgreSQL
-- Express.js
-- Node.js
-- Webpack
 
 ## Compatibility
 
