@@ -2,22 +2,36 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { sendMessage, sendMessageAction } from '../store/chat'
 import { updateUser } from '../store/user'
-
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-const styleText = {
-  position: 'absolute',
-  width: '18%',
-  right: '15%',
-  bottom: '14%'
-}
+const isMobile = window.innerWidth <= 500
 
-const styleButton = {
-  position: 'absolute',
-  right: '9%',
-  bottom: '14%'
-}
+const styleText = isMobile
+  ? {
+      position: 'absolute',
+      width: '70%',
+      right: '23%',
+      bottom: '20%'
+    }
+  : {
+      position: 'absolute',
+      width: '18%',
+      right: '15%',
+      bottom: '20%'
+    }
+
+const styleButton = isMobile
+  ? {
+      position: 'absolute',
+      right: '23%',
+      bottom: '5%'
+    }
+  : {
+      position: 'absolute',
+      right: '9%',
+      bottom: '20%'
+    }
 
 class MessageForm extends Component {
   constructor() {

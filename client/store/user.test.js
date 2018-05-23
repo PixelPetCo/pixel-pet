@@ -1,21 +1,21 @@
 /* eslint-env mocha,chai */
 
-import {expect} from 'chai'
-import {me, logout} from './user'
+import { expect } from 'chai'
+import { me, logout } from './user'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import configureMockStore from 'redux-mock-store'
 import thunks from 'redux-thunk'
-import {createMemoryHistory} from 'history'
+import { createMemoryHistory } from 'history'
 
 const history = createMemoryHistory()
 const mockAxios = new MockAdapter(axios)
-const middlewares = [thunks.withExtraArgument({axios, history})]
+const middlewares = [thunks.withExtraArgument({ axios, history })]
 const mockStore = configureMockStore(middlewares)
 
 describe('thunk creators', () => {
   let store
-  const initialState = {user: {}}
+  const initialState = { user: {} }
 
   beforeEach(() => {
     mockAxios.reset()
@@ -24,7 +24,7 @@ describe('thunk creators', () => {
 
   describe('me', () => {
     it('eventually dispatches the GET USER action', async () => {
-      const fakeUser = {email: 'Cody'}
+      const fakeUser = { email: 'Cody' }
       mockAxios.onGet('/auth').replyOnce(200, fakeUser)
       await store.dispatch(me())
       const [getUserAction] = store.getActions()

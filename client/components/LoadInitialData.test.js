@@ -1,10 +1,10 @@
 /* eslint-env mocha,chai */
-
-import {expect} from 'chai'
+import 'jsdom-global/register'
+import { expect } from 'chai'
 import React from 'react'
-import enzyme, {shallow} from 'enzyme'
+import enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import {LoadInitialData} from './LoadInitialData'
+import { LoadInitialData } from './LoadInitialData'
 
 const adapter = new Adapter()
 const disableLifecycleMethods = true
@@ -57,6 +57,8 @@ describe('LoadInitialData', () => {
     const lid = shallow(<LoadInitialData load={rejects} />)
     await lid.instance().componentDidMount()
     lid.update()
-    expect(lid.find('div').text()).to.equal('We are experiencing some technical difficulties...')
+    expect(lid.find('div').text()).to.equal(
+      'We are experiencing some technical difficulties...'
+    )
   })
 })
