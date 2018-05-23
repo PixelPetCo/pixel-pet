@@ -19,8 +19,9 @@ const Navbar = props => {
       style={navStyle}
       iconElementLeft={<Pop />}
     >
-
-      <p className="pixel-font-white">Welcome back, {identifier}!</p>
+      <p className="pixel-font-white" id="header">
+        Welcome back, {identifier}!
+      </p>
       <img id="logo" src="/favicon.ico" />
     </AppBar>
   )

@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import Avatar from 'material-ui/Avatar'
 import SvgIconKeyboard from 'material-ui/svg-icons/hardware/keyboard'
-
 import { sendMessage } from '../store/chat'
 import Translator from './Translator'
 import MessageForm from './MessageForm'
 import ModelScene from '../components/aframe/ModelScene'
 import SpeechRecognizer from './SpeechRecognizer'
 
-// Home: there's no place like it (as long as you've logged in).
+const style = {
+  position: 'absolute',
+  right: '5%',
+  bottom: '20%'
+}
+
 class Home extends Component {
   constructor() {
     super()
@@ -19,7 +22,7 @@ class Home extends Component {
     }
   }
 
-  handleClick = evt => {
+  handleClick = () => {
     this.setState(
       {
         showTxtInput: !this.state.showTxtInput
@@ -58,12 +61,6 @@ class Home extends Component {
       </main>
     )
   }
-}
-
-const style = {
-  position: 'absolute',
-  right: '5%',
-  bottom: '14%'
 }
 
 const mapState = ({ chat }) => ({ chat })
