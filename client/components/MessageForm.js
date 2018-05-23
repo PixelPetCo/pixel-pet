@@ -5,7 +5,7 @@ import { updateUser } from '../store/user'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-const isMobile = window !== undefined ? window.innerWidth <= 500 : false
+const isMobile = window.innerWidth <= 500
 
 const styleText = isMobile
   ? {
