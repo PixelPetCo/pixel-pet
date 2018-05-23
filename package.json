@@ -39,6 +39,7 @@
     "pg-hstore": "^2.3.2",
     "prompt-sync": "^4.1.6",
     "react": "^16.2.0",
+    "react-browser-detection": "^1.1.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
