@@ -37,8 +37,7 @@ export const auth = (credentials, method) => (
     .then(
       res => {
         dispatch(getUser(res.data))
-        if (method === 'post') history.push('/adopt')
-        if (method === 'put') history.push('/')
+        history.push('/')
       },
       authError => {
         // rare example: a good use case for parallel (non-catch) error handler
