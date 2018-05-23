@@ -24,12 +24,10 @@ const User = db.define('user', {
     }
   },
   petModel: {
-    type: Sequelize.STRING,
-    defaultValue: 'cuboidCanine'
+    type: Sequelize.STRING
   },
   petPersonality: {
-    type: Sequelize.STRING,
-    defaultValue: 'chipper'
+    type: Sequelize.STRING
   },
   petName: {
     type: Sequelize.STRING
