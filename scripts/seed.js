@@ -31,11 +31,6 @@ const seed = async () => {
       email: 'turtle@email.com',
       password: '123',
       petModel: 'tetrahedronTurtle'
-    }),
-    User.create({
-      name: 'PixelPet Team',
-      email: 'pixelpetco@gmail.com',
-      password: '123'
     })
   ])
   console.log(`seeded ${users.length} users`)
