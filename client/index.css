@@ -24,12 +24,12 @@ body {
 #personality-picker {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 #pet-picker input,
 #personality-picker input {
   visibility: hidden;
-  position: absolute;
 }
 
 #pet-picker > li,
@@ -41,13 +41,16 @@ body {
   margin-left: 0%;
 }
 
-#pet-picker input + img {
+#pet-picker input + div {
   cursor: pointer;
   border: 2px solid transparent;
+}
+
+#pet-picker label img {
   max-width: 200px;
 }
 
-#pet-picker input:checked + img {
+#pet-picker input:checked + div {
   border: 3px solid #eb887d;
   border-radius: 4px;
   box-shadow: 0px 0px 4px #eb887d;
