@@ -77,49 +77,49 @@ class Adopt extends Component {
           <h3 className="pixel-font-white">Select your pet:</h3>
           <ul id="pet-picker">
             <li>
-              <Card style={cardStyle}>
-                <label htmlFor="cuboidCanine">
-                  <input
-                    id="cuboidCanine"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petModel"
-                    value="cuboidCanine"
-                    checked={this.isChecked('petModel', 'cuboidCanine') || ''}
-                  />
+              <label htmlFor="cuboidCanine">
+                <input
+                  id="cuboidCanine"
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="petModel"
+                  value="cuboidCanine"
+                  checked={this.isChecked('petModel', 'cuboidCanine') || ''}
+                />
+                <Card style={cardStyle}>
                   <img src="pets/dog-joy.gif" />
-                </label>
-              </Card>
+                </Card>
+              </label>
             </li>
             <li>
-              <Card style={cardStyle}>
-                <label htmlFor="boxyBunny">
-                  <input
-                    id="boxyBunny"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petModel"
-                    value="boxyBunny"
-                    checked={this.isChecked('petModel', 'boxyBunny') || ''}
-                  />
+              <label htmlFor="boxyBunny">
+                <input
+                  id="boxyBunny"
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="petModel"
+                  value="boxyBunny"
+                  checked={this.isChecked('petModel', 'boxyBunny') || ''}
+                />
+                <Card style={cardStyle}>
                   <img src="pets/bunny-sit.gif" />
-                </label>
-              </Card>
+                </Card>
+              </label>
             </li>
             <li>
-              <Card style={cardStyle}>
-                <label htmlFor="circleCat">
-                  <input
-                    id="circleCat"
-                    type="radio"
-                    onChange={this.handleChange}
-                    name="petModel"
-                    value="circleCat"
-                    checked={this.isChecked('petModel', 'circleCat') || ''}
-                  />
+              <label htmlFor="circleCat">
+                <input
+                  id="circleCat"
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="petModel"
+                  value="circleCat"
+                  checked={this.isChecked('petModel', 'circleCat') || ''}
+                />
+                <Card style={cardStyle}>
                   <img src="pets/cat-analytical.gif" />
-                </label>
-              </Card>
+                </Card>
+              </label>
             </li>
           </ul>
         </section>

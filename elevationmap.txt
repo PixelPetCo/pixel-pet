@@ -1,0 +1,25 @@
+n non negative integers representing elevation map
+width of each index of array is 1
+compute how much water device is able to trap after raining
+
+Given [0,1,0,2], return 1.
+               
+pairs {
+  0: [0, 2]
+  1: 
+}
+
+const rainCalc = arr => {
+  let pairs = {}
+  let water = 0
+  arr.forEach(val => {
+    pairs[val] = [arr.indexOf(val), arr.lastIndexOf(val)]
+  }
+  Object.keys(pairs).forEach(val => {
+    if (pairs.val[0] !== pairs.val[1]) {
+      for (let i = pairs.val[0], i < pairs.val[1], i++) {
+        if (arr[i] < val) water++
+      }
+    }
+  )
+}

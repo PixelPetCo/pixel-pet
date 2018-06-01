@@ -37,7 +37,7 @@ class ModelScene extends Component {
 
         <a-light color="#FFF" intensity="1" />
 
-        <a-entity position="1 -0.8 0.6">
+        <a-entity position="0.8 -0.8 0.6" rotation="0 20 0">
           <a-camera id="user-view" wasd-controls look-controls>
             <a-entity
               cursor="fuse: true; fuseTimeout: 500"
