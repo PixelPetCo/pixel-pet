@@ -3,25 +3,10 @@ import { updateUser } from '../store/user'
 import { toggleTutorial, sendMessage } from '../store/chat'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardText,
-  CardMedia
-} from 'material-ui/Card'
+import { Card } from 'material-ui/Card'
 
 const cardStyle = {
   borderRadius: 5
-}
-
-const titleTextStyle = {
-  margin: 0
-}
-
-const titleStyle = {
-  fontSize: '14px',
-  fontWeight: '500'
 }
 
 class Adopt extends Component {
@@ -44,7 +29,6 @@ class Adopt extends Component {
     })
   }
 
-  // ideally this function shouldn't be needed
   handleClick = petPersonality => {
     this.setState({
       petPersonality
@@ -72,7 +56,7 @@ class Adopt extends Component {
     const { petModel, petPersonality } = this.state
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id="adopt">
         <section>
           <h3 className="pixel-font-white">Select your pet:</h3>
           <ul id="pet-picker">
