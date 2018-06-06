@@ -1,6 +1,17 @@
 @media (max-width: 600px) {
+  #adopt {
+    position: relative;
+    top: 80vh;
+  }
   #header {
     display: none;
+  }
+  #pet-picker,
+  #personality-picker {
+    flex-direction: column;
+  }
+  #pet-picker {
+    align-items: center;
   }
 }
 
@@ -18,6 +29,7 @@ body {
   background-image: url('/welcome-bg.gif');
   background-repeat: round;
   background-size: contain;
+  background-attachment: fixed;
 }
 
 #pet-picker,
@@ -34,7 +46,6 @@ body {
 
 #pet-picker > li,
 #personality-picker > li {
-  flex-direction: row;
   margin-right: 5%;
   margin-top: 5%;
   margin-bottom: 5%;
